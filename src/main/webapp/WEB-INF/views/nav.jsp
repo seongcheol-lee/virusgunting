@@ -6,7 +6,7 @@
 	<div class="container">
 		<a class="navbar-brand" href="<c:url value='/'/>"
 			style="margin-rigth: auto; font-size: 2rem;"> <img
-			src="virus_logo.jpg" id="logotop" width="100" height="100"
+			src="<c:url value='/images/home/logo.jpg'/>" id="logotop" width="100" height="100"
 			class="d-inline-block align-top"> <span class="logotitle">야
 				관 문</span>
 		</a>
