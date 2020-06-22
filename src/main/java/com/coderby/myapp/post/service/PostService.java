@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coderby.myapp.post.dao.IPostRepository;
+import com.coderby.myapp.post.model.DisLikeVO;
+import com.coderby.myapp.post.model.LikeVO;
 import com.coderby.myapp.post.model.PostVO;
  
 @Service
@@ -45,5 +47,41 @@ public class PostService implements IPostService{
 	@Override
 	public void updatePost(PostVO post) { 
 		postRepository.updatePost(post);
+	}
+	@Override
+	public void pluslikePost(int postId, int postLikes) {
+		postRepository.pluslikePost(postId, postLikes);
+
 	} 
+
+	@Override
+	public void insertlikePost(LikeVO like) {
+		postRepository.insertlikePost(like); 
+	}
+	
+	@Override
+	public int checklikePost(int postId, int userId) { 
+		return postRepository.checklikePost(postId, userId);
+	}
+
+	@Override
+	public void plusdislikePost(int postId, int postDisLikes) { 
+		postRepository.plusdislikePost(postId, postDisLikes);
+	}
+
+	@Override
+	public void insertdislikePost(DisLikeVO dislike) {
+		postRepository.insertdislikePost(dislike);
+		
+	}
+
+	@Override
+	public int checkdislikePost(int postId, int userId) { 
+		return postRepository.checkdislikePost(postId, userId);
+	}
+ 
+
+	
+
+	
 }
