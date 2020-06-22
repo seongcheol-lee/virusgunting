@@ -41,7 +41,7 @@ public class PostController {
 	@RequestMapping(value = "/post/{postId}")
 	public String getPostInfo(@PathVariable int postId, Model model) {
 		PostVO post = postService.getPostInfo(postId);
-		post.setPostContent(post.getPostContent().replace("\r\n","<br>"));
+		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
 		model.addAttribute("post", post);
 		return "/post/view";
 	}
