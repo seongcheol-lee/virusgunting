@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coderby.myapp.user.dao.IUserRepository">
+	<resultMap id="userMap"
+		type="com.coderby.myapp.user.model.UserVO">
+		<result property="userId" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userPass" column="USER_PASS" />
+	</resultMap>
+
+
+	<select id="getUserInfo" parameterType="int"
+		resultType="com.coderby.myapp.user.model.UserVO">
+		SELECT
+		USER_ID as userId,
+		USER_NAME as userName
+		FROM USERS
+		WHERE USER_ID = #{userId}
+	</select>
+
+	<select id="getUserList" resultMap="userMap">
+		SELECT * FROM USERS
+	</select>
+
+	<insert id="signupUser">
+		insert into users
+		(user_id,user_name,user_pass)
+		values
+		(USERS_SEQ.nextval,#{userName},#{userPass})
+	</insert>
+
+	<select id="checkUser" resultType="int">
+		select * from users
+		where
+		USER_NAME=#{userName}
+	</select>
+
+	<select id="signinUser"
+		resultType="com.coderby.myapp.user.model.UserVO">
+		SELECT
+		USER_ID as userId,
+		USER_NAME as userName,
+		USER_PASS as userPass
+		FROM
+		USERS
+		WHERE
+		USER_NAME=#{userName}
+		AND
+		USER_PASS=#{userPass}
+	</select>
+
+</mapper>

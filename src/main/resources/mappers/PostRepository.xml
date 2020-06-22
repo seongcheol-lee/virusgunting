@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coderby.myapp.post.dao.IPostRepository">
+	<resultMap id="postMap"
+		type="com.coderby.myapp.post.model.PostVO">
+		<result property="postId" column="POST_ID" />
+		<result property="userId" column="USER_ID" />
+		<result property="postTitle" column="POST_TITLE" />
+		<result property="postContent" column="POST_CONTENT" />
+		<result property="postDateTime" column="POST_DATETIME" />
+		<result property="postDisease" column="POST_DISEASE" />
+		<result property="postSubject" column="POST_SUBJECT" />
+		<result property="postLikes" column="POST_LIKES" />
+		<result property="postDisLikes" column="POST_DISLIKES" />
+		<result property="postViews" column="POST_VIEWS" />
+		<result property="postResponded" column="POST_RESPONDED" />
+	</resultMap>
+
+	<select id="getPostCount" resultType="int">
+		SELECT COUNT(*) FROM POSTS
+	</select>
+
+	<select id="getPostList" resultMap="postMap">
+		SELECT * FROM POSTS ORDER BY
+		POST_ID DESC
+	</select>
+
+	<select id="getPostInfo" parameterType="int"
+		resultType="com.coderby.myapp.post.model.PostVO">
+		SELECT POST_ID as postId,
+		USER_ID as userId,
+		POST_TITLE as
+		postTitle,
+		POST_CONTENT as postContent,
+		POST_DATETIME as postDateTime,
+		POST_DISEASE as postDisease,
+		POST_SUBJECT as postSubject,
+		POST_LIKES as
+		postLikes,
+		POST_DISLIKES as postDisLikes,
+		POST_VIEWS as postViews,
+		POST_RESPONDED as postResponded
+		FROM POSTS WHERE POST_ID = #{postId}
+	</select>
+
+	<update id="updatePost"
+		parameterType="com.coderby.myapp.post.model.PostVO">
+		UPDATE POSTS
+		set
+		post_title=#{postTitle},
+		post_content=#{postContent},
+		post_disease=#{postDisease},
+		post_subject=#{postSubject}
+		where
+		post_id=#{postId}
+	</update>
+
+	<insert id="insertPost"
+		parameterType="com.coderby.myapp.post.model.PostVO">
+		INSERT INTO POSTS (
+		post_id, post_title, post_content,
+		post_disease, post_subject, user_id)
+		VALUES (
+		POSTS_SEQ.nextval,
+		#{postTitle},
+		#{postContent},
+		#{postDisease},
+		#{postSubject},
+		#{userId})
+	</insert>
+
+	<delete id="deletePost" parameterType="int">
+		delete from posts
+		where
+		POST_ID = #{postId}
+	</delete>
+
+
+</mapper>
