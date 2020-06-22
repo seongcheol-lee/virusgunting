@@ -29,8 +29,10 @@
 		(USERS_SEQ.nextval,#{userName},#{userPass})
 	</insert>
 
-	<select id="checkUser" resultType="int">
-		select * from users
+	<select id="checkUser" resultType="com.coderby.myapp.user.model.UserVO">
+		select  
+		USER_NAME as userName
+		from users
 		where
 		USER_NAME=#{userName}
 	</select>

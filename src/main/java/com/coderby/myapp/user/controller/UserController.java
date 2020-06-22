@@ -33,12 +33,11 @@ public class UserController {
 	public String userSignup(UserVO user, RedirectAttributes rttr) {
 		UserVO check = userService.checkUser(user);
 
-		if (check != null) {
-			logger.info("회원가입 실패");
+ 
+		if (check != null) { 
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/user/signup";
-		} else if (check == null) {
-			logger.info("회원가입 성공");
+		} else if (check == null) { 
 			userService.signupUser(user);
 		}
 		return "redirect:/";
@@ -55,14 +54,12 @@ public class UserController {
 
 		HttpSession session = req.getSession();
 		UserVO login = userService.signinUser(user); 
-		if (login == null) {
-			logger.info("로그인 실패");
+		if (login == null) { 
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/user/signin";
 
 		} else {
-			logger.info("로그인 성공했습니다.");
 			session.setAttribute("member", login);
 			return "redirect:/";
 		}
