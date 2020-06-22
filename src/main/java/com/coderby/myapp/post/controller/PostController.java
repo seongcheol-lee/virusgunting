@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coderby.myapp.post.model.DisLikeVO;
+import com.coderby.myapp.post.model.LikeVO;
 import com.coderby.myapp.post.model.PostVO;
 import com.coderby.myapp.post.service.IPostService;
+import com.coderby.myapp.post.service.PostService;
 import com.coderby.myapp.user.model.UserVO;
 import com.coderby.myapp.user.service.IUserService;
 import com.coderby.myapp.user.service.UserService;
@@ -37,6 +41,7 @@ public class PostController {
 	@RequestMapping(value = "/post/{postId}")
 	public String getPostInfo(@PathVariable int postId, Model model) {
 		PostVO post = postService.getPostInfo(postId);
+		post.setPostContent(post.getPostContent().replace("\r\n","<br>"));
 		model.addAttribute("post", post);
 		return "/post/view";
 	}
@@ -47,7 +52,7 @@ public class PostController {
 		return "/post/list";
 	}
 
-// 	»ý¼º
+// 	ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/post/insert", method = RequestMethod.GET)
 	public String postInsert(Model model, HttpServletRequest req) {
 		HttpSession session = req.getSession();
@@ -66,11 +71,11 @@ public class PostController {
 		return "redirect:/post/list";
 	}
 
-//	¼öÁ¤
+//	ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/post/update/{postId}", method = RequestMethod.GET)
 	public String updatePost(@PathVariable int postId, Model model) {
 		PostVO post = postService.getPostInfo(postId);
-		model.addAttribute("post", post); 
+		model.addAttribute("post", post);
 		model.addAttribute("user", userService.getUserInfo(post.getUserId()));
 		return "/post/update";
 	}
@@ -81,11 +86,35 @@ public class PostController {
 		return "redirect:/post/list";
 	}
 
-//	»èÁ¦
+//	ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/post/delete/{postid}", method = RequestMethod.GET)
 	public String deletePost(@PathVariable int postid, Model model) {
 		postService.deletePost(postid);
 		return "redirect:/post/list";
+	}
+
+	@RequestMapping(value = "/post/like", method = RequestMethod.GET)
+	public String likePost(LikeVO like) {
+
+		int check = postService.checklikePost(like.getPostId(), like.getUserId());
+		if (check != 1) {
+			PostVO post = postService.getPostInfo(like.getPostId());
+			postService.pluslikePost(post.getPostId(), post.getPostLikes() + 1);
+			postService.insertlikePost(like);
+		}
+		return "redirect:/post/" + like.getPostId();
+	}
+
+	@RequestMapping(value = "/post/dislike", method = RequestMethod.GET)
+	public String dislikePost(DisLikeVO dislike) {
+
+		int check = postService.checkdislikePost(dislike.getPostId(), dislike.getUserId());
+		if (check != 1) {
+			PostVO post = postService.getPostInfo(dislike.getPostId());
+			postService.plusdislikePost(post.getPostId(), post.getPostDisLikes() + 1);
+			postService.insertdislikePost(dislike);
+		}
+		return "redirect:/post/" + dislike.getPostId();
 	}
 
 }

@@ -1,7 +1,8 @@
-eclipse.preferences.version=1
+eclipse.preferences.version=1 
+encoding//src/main/webapp/WEB-INF/views/nav.jsp=UTF-8 
 encoding//src/main/webapp/WEB-INF/views/test/bbT.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/test/cjT.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/test/mjT.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/test/start.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/test/tmT.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/test/tmT.jsp=UTF-8 
 encoding/<project>=UTF-8
