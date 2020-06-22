@@ -6,6 +6,7 @@
 		<result property="userId" column="USER_ID" />
 		<result property="userName" column="USER_NAME" />
 		<result property="userPass" column="USER_PASS" />
+		<result property="userAdmin" column="USER_ADMIN" />
 	</resultMap>
 
 
@@ -13,7 +14,9 @@
 		resultType="com.coderby.myapp.user.model.UserVO">
 		SELECT
 		USER_ID as userId,
-		USER_NAME as userName
+		USER_NAME as userName,
+		USER_ADMIN as
+		userAdmin
 		FROM USERS
 		WHERE USER_ID = #{userId}
 	</select>
@@ -29,8 +32,9 @@
 		(USERS_SEQ.nextval,#{userName},#{userPass})
 	</insert>
 
-	<select id="checkUser" resultType="com.coderby.myapp.user.model.UserVO">
-		select  
+	<select id="checkUser"
+		resultType="com.coderby.myapp.user.model.UserVO">
+		select
 		USER_NAME as userName
 		from users
 		where
@@ -42,7 +46,8 @@
 		SELECT
 		USER_ID as userId,
 		USER_NAME as userName,
-		USER_PASS as userPass
+		USER_PASS as userPass,
+		USER_ADMIN as userAdmin
 		FROM
 		USERS
 		WHERE

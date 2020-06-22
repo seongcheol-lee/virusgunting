@@ -28,8 +28,7 @@ public interface IPostRepository {
 	
 	void insertlikePost(LikeVO like);
 	
-	int checklikePost(@Param("postId") int postId, @Param("userId") int userId);
-	
+	int checklikePost(@Param("postId") int postId, @Param("userId") int userId); 
 	
 	
 	void plusdislikePost(@Param("postId") int postId, @Param("postDisLikes") int postDisLikes);
@@ -37,4 +36,6 @@ public interface IPostRepository {
 	void insertdislikePost(DisLikeVO dislike);
 	
 	int checkdislikePost(@Param("postId") int postId, @Param("userId") int userId);
+
+	List<PostVO> getPostDiseaseList(String postDisease);
 }

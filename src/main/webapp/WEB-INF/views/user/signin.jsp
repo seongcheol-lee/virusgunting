@@ -3,36 +3,31 @@
 <html>
 <head>
 <title>Home</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" ></script>
-<script type="text/javascript" src="<c:url value='/js/user/signin.js'/>"></script>
-<link rel="stylesheet" href="<c:url value='/css/user/signin.css'/>">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<c:url value='/js/user/signin.js'/>"></script> 
+<link rel="stylesheet" href="<c:url value='/css/user/signup.css'/>">
 </head>
 <body>
-<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container" style="margin-top:5rem;">
-		<form method="post" action="<c:url value='/user/signin/'/>">
+	<jsp:include page="../nav.jsp" flush="true" />
+	<div class="container" style="margin-top: 5rem;">
+		<form class="form-group" method="post" action="<c:url value='/user/signin/'/>">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">
-						<label for="username">아이디</label> 
-						<input class="form-control "
-							id="username" type="text" name="userName" required />
+						<label for="username">아이디</label>
+						<input class="form-control " id="username" type="text" name="userName" required />
+						<span id="username-explain" class="explain">&nbsp;</span>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">
-						<label for="password">비밀번호</label> 
-						<input class="form-control"
-							id="password" type="password" name="userPass" required />
+						<label for="password">비밀번호</label>
+						<input class="form-control" id="password" type="password" name="userPass" required />
 					</div>
 				</div>
 			</div>
