@@ -1,21 +1,13 @@
-@import
-	url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-@import
-	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap')
-	;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
 .boardtitle {
 	color: black;
 	font-weight: bold;
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 70px;
-}
-
-h1 {
-	margin-top: 100px;
-	margin-bottom: 20px;
-}
+} 
 
 .subtitle {
 	font-size: 25px;
@@ -33,17 +25,7 @@ ul {
 	padding: 0;
 	list-style: none;
 }
-
-table {
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-
-table caption {
-	display: none;
-}
-
+ 
 a {
 	display: inline-block;
 	text-decoration: none;
@@ -54,14 +36,19 @@ textarea, .inp, a:link, a:visited, a:hover, a:active {
 	color: #555555;
 }
 
-.bbsList {
+.table {
+	table-layout: fixed;
+	border: 0;
+	padding: 0;
+	margin: 0;
 	display: table;
 	clear: both;
 	width: 1100px;
 	border-collapse: collapse;
+	word-break:break-all;
 }
 
-.bbsList th {
+.table th {
 	border-color: #333333;
 	background: #fcfcfc;
 	padding: 10px 0 10px 0;
@@ -73,23 +60,13 @@ textarea, .inp, a:link, a:visited, a:hover, a:active {
 	font-weight: 400;
 }
 
-.bbsList .body td {
+.table .body td {
 	text-align: center;
 	padding: 5px 9px 5px 9px;
 	border-bottom-color: #eeeeee;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-}
-
-.bbsList .foot td {
-	height: 60px;
-	line-height: 60px;
-	text-align: center;
-	border-bottom-color: #eeeeee;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	padding-bottom: 20px;
-}
+} 
 
 .btn_wrap {
 	clear: both;
@@ -103,11 +80,9 @@ textarea, .inp, a:link, a:visited, a:hover, a:active {
 	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #ea4d10;
 	box-shadow: inset 0px 1px 0px 0px #EA4D29;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ea4d10
-		), color-stop(1, #ea4d10));
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ea4d10), color-stop(1, #ea4d10));
 	background: -moz-linear-gradient(center top, #fff 5%, #fff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',
-		endColorstr='#fff');
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#fff');
 	background-color: #fff;
 	-webkit-border-top-left-radius: 3px;
 	-moz-border-radius-topleft: 3px;
@@ -131,15 +106,13 @@ textarea, .inp, a:link, a:visited, a:hover, a:active {
 	text-align: center;
 }
 
-* /
-
-           .campaign_ad .cont a.btn .txt_white {
+.campaign_ad .cont a.btn .txt_white {
 	font-size: 13px;
 	color: #fff;
 }
 
 .txt_white {
-	font-size: 14px;
+	font-size: 1.2rem;
 	font-weight: bold;
 	color: #fff;
 }

@@ -1,7 +1,6 @@
 package com.coderby.myapp.post.model;
 
 import java.sql.Date;
- 
 
 public class PostVO {
 	private int postId;
@@ -15,6 +14,15 @@ public class PostVO {
 	private int postDisLikes;
 	private int postViews;
 	private String postResponded;
+	private String postUserName;
+
+	@Override
+	public String toString() {
+		return "PostVO [postId=" + postId + ", userId=" + userId + ", postTitle=" + postTitle + ", postContent="
+				+ postContent + ", postDateTime=" + postDateTime + ", postDisease=" + postDisease + ", postSubject="
+				+ postSubject + ", postLikes=" + postLikes + ", postDisLikes=" + postDisLikes + ", postViews="
+				+ postViews + ", postResponded=" + postResponded + ", postUserName=" + postUserName + "]";
+	}
 
 	public int getPostId() {
 		return postId;
@@ -104,12 +112,12 @@ public class PostVO {
 		this.postResponded = postResponded;
 	}
 
-	@Override
-	public String toString() {
-		return "PostVO [postId=" + postId + ", userId=" + userId + ", postTitle=" + postTitle + ", postContent="
-				+ postContent + ", postDateTime=" + postDateTime + ", postDisease=" + postDisease + ", postSubject="
-				+ postSubject + ", postLikes=" + postLikes + ", postDisLikes=" + postDisLikes + ", postViews="
-				+ postViews + ", postResponded=" + postResponded + "]";
+	public String getPostUserName() {
+		return postUserName;
+	}
+
+	public void setPostUserName(String postUserName) {
+		this.postUserName = postUserName;
 	}
 
 }

@@ -4,10 +4,14 @@ public class UserVO {
 	private int userId;
 	private String userName;
 	private String userPass;
+	private int userAdmin;
+
+	 
 
 	@Override
 	public String toString() {
-		return "UserVO [userId=" + userId + ", userName=" + userName + ", userPass=" + userPass + "]";
+		return "UserVO [userId=" + userId + ", userName=" + userName + ", userPass=" + userPass + ", userAdmin="
+				+ userAdmin + "]";
 	}
 
 	public int getUserId() {
@@ -32,6 +36,14 @@ public class UserVO {
 
 	public void setUserPass(String userPass) {
 		this.userPass = userPass;
+	}
+
+	public int getUserAdmin() {
+		return userAdmin;
+	}
+
+	public void setUserAdmin(int userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 
 }

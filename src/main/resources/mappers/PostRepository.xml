@@ -14,6 +14,7 @@
 		<result property="postDisLikes" column="POST_DISLIKES" />
 		<result property="postViews" column="POST_VIEWS" />
 		<result property="postResponded" column="POST_RESPONDED" />
+		<result property="postUserName" column="POST_USERNAME" />
 	</resultMap>
 
 	<select id="getPostCount" resultType="int">
@@ -22,6 +23,14 @@
 
 	<select id="getPostList" resultMap="postMap">
 		SELECT * FROM POSTS ORDER BY
+		POST_ID DESC
+	</select>
+
+	<select id="getPostDiseaseList" resultMap="postMap">
+		SELECT * FROM POSTS
+		WHERE
+		POST_DISEASE = #{postDisease}
+		ORDER BY
 		POST_ID DESC
 	</select>
 
@@ -35,11 +44,14 @@
 		POST_DATETIME as postDateTime,
 		POST_DISEASE as postDisease,
 		POST_SUBJECT as postSubject,
-		POST_LIKES as postLikes,
+		POST_LIKES as
+		postLikes,
 		POST_DISLIKES as postDisLikes,
 		POST_VIEWS as postViews,
-		POST_RESPONDED as postResponded
-		FROM POSTS WHERE POST_ID = #{postId}
+		POST_RESPONDED as postResponded,
+		POST_USERNAME as postUserName
+		FROM POSTS
+		WHERE POST_ID = #{postId}
 	</select>
 
 	<update id="updatePost"
@@ -58,14 +70,15 @@
 		parameterType="com.coderby.myapp.post.model.PostVO">
 		INSERT INTO POSTS (
 		post_id, post_title, post_content,
-		post_disease, post_subject, user_id)
+		post_disease, post_subject, user_id,post_USERNAME)
 		VALUES (
 		POSTS_SEQ.nextval,
 		#{postTitle},
 		#{postContent},
 		#{postDisease},
 		#{postSubject},
-		#{userId})
+		#{userId},
+		#{postUserName})
 	</insert>
 
 	<delete id="deletePost" parameterType="int">
@@ -73,56 +86,59 @@
 		where
 		POST_ID = #{postId}
 	</delete>
-	
-	<update id="pluslikePost" >
+
+	<update id="pluslikePost">
 		UPDATE POSTS
 		SET
-		POST_LIKES=#{postLikes} 
+		POST_LIKES=#{postLikes}
 		where
 		post_id=#{postId}
 	</update>
 
-	<insert id="insertlikePost"  parameterType="com.coderby.myapp.post.model.LikeVO">
+	<insert id="insertlikePost"
+		parameterType="com.coderby.myapp.post.model.LikeVO">
 		INSERT INTO LIKES
-		(USER_ID, POST_ID) 
+		(USER_ID, POST_ID)
 		VALUES(
 		#{userId},
 		#{postId})
 	</insert>
-	
+
 	<select id="checklikePost" resultType="int">
 		SELECT COUNT(*)
 		FROM LIKES
 		WHERE
-		POST_ID = #{postId} 
+		POST_ID = #{postId}
 		AND
-		USER_ID = #{userId}  
-	</select> 
-	
-	
-	<update id="plusdislikePost" >
+		USER_ID = #{userId}
+	</select>
+
+
+	<update id="plusdislikePost">
 		UPDATE POSTS
 		SET
-		POST_DISLIKES=#{postDisLikes} 
+		POST_DISLIKES=#{postDisLikes}
 		where
 		post_id=#{postId}
 	</update>
 
-	<insert id="insertdislikePost"  parameterType="com.coderby.myapp.post.model.DisLikeVO">
+	<insert id="insertdislikePost"
+		parameterType="com.coderby.myapp.post.model.DisLikeVO">
 		INSERT INTO DISLIKES
-		(USER_ID, POST_ID) 
+		(USER_ID, POST_ID)
 		VALUES(
 		#{userId},
 		#{postId})
 	</insert>
-	
+
 	<select id="checkdislikePost" resultType="int">
 		SELECT COUNT(*)
-		FROM DISLIKES
+		FROM
+		DISLIKES
 		WHERE
-		POST_ID = #{postId} 
+		POST_ID = #{postId}
 		AND
-		USER_ID = #{userId}  
-	</select> 
+		USER_ID = #{userId}
+	</select>
 
 </mapper>
