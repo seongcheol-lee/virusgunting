@@ -71,11 +71,9 @@ public class TestService implements ITestService {
 		int value = 0;
 		for (int i = 1; i <= 10; i++) {
 			String q = "q" + i;
-			
+
 			if (request.getParameter(q).equals("opt1")) {
 				value++;
-				
-				
 			}
 			if (value >= 6) {
 				url = "tmRes.jpg";
@@ -89,10 +87,18 @@ public class TestService implements ITestService {
 	@Override
 	public String ydResult(HttpServletRequest request) {
 		String url = "IMAGEURL";
-		request.getParameter("q1");
-		request.getParameter("q2");
-		request.getParameter("q3");
-		request.getParameter("q4");
+		int value = 0;
+		for (int i = 1; i <= 4; i++) {
+			String q = "q" + i;
+			if (request.getParameter(q).equals("opt1")) {
+				value++;
+			}
+			if (value >= 2) {
+				url = "ydRes.jpg";
+			} else {
+				url = "enjoy.jpg";
+			}
+		}
 		return url;
 	}
 

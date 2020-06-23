@@ -107,7 +107,14 @@ public class TestController {
 	@RequestMapping(value = "/test/ydT/result")
 	public String resultydTest(HttpServletRequest request, Model model) {
 		String url = testService.ydResult(request);
-		System.out.println(url);
+		model.addAttribute("url", url);
+		if(url.equals("enjoy.jpg"))
+		{
+			model.addAttribute("msg", "인생을 즐겨라!");	
+		}
+		else {
+			model.addAttribute("msg", "빨리 병원 가세요.");
+		}
 		return "/test/result";
 	}
 }
