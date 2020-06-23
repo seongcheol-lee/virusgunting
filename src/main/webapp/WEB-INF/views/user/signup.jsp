@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>Home</title>
+<title>야관문</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -52,5 +52,10 @@
 		</form>
 	</div>
 </body>
-
+<style>
+.explain {
+	font-size: 0.7em;
+	color: red;
+}
+</style>
 </html>

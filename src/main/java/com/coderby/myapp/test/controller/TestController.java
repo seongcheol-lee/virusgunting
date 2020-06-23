@@ -1,14 +1,11 @@
 package com.coderby.myapp.test.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.coderby.myapp.test.service.ITestService;
 
@@ -30,13 +27,10 @@ public class TestController {
 	@RequestMapping(value = "/test/bbT/result")
 	public String resultbbTest(HttpServletRequest request, Model model) {
 		String url = testService.bbResult(request);
-		System.out.println(url);
 		model.addAttribute("url", url);
-		if(url.equals("enjoy.jpg"))
-		{
-			model.addAttribute("msg", "인생을 즐기세요!");	
-		}
-		else {
+		if (url.equals("enjoy.jpg")) {
+			model.addAttribute("msg", "인생을 즐기세요!");
+		} else {
 			model.addAttribute("msg", "빨리 병원으로 향하세요!");
 		}
 		return "/test/result";
@@ -51,11 +45,9 @@ public class TestController {
 	public String resultcjTest(HttpServletRequest request, Model model) {
 		String url = testService.cjResult(request);
 		model.addAttribute("url", url);
-		if(url.equals("enjoy.jpg"))
-		{
-			model.addAttribute("msg", "인생을 즐기세요!");	
-		}
-		else {
+		if (url.equals("enjoy.jpg")) {
+			model.addAttribute("msg", "인생을 즐기세요!");
+		} else {
 			model.addAttribute("msg", "빨리 병원으로 향하세요!");
 		}
 		return "/test/result";
@@ -70,11 +62,9 @@ public class TestController {
 	public String resultmjTest(HttpServletRequest request, Model model) {
 		String url = testService.mjResult(request);
 		model.addAttribute("url", url);
-		if(url.equals("enjoy.jpg"))
-		{
-			model.addAttribute("msg", "인생을 즐기세요!");	
-		}
-		else {
+		if (url.equals("enjoy.jpg")) {
+			model.addAttribute("msg", "인생을 즐기세요!");
+		} else {
 			model.addAttribute("msg", "빨리 병원으로 향하세요!");
 		}
 		return "/test/result";
@@ -89,11 +79,9 @@ public class TestController {
 	public String resulttmTest(HttpServletRequest request, Model model) {
 		String url = testService.tmResult(request);
 		model.addAttribute("url", url);
-		if(url.equals("enjoy.jpg"))
-		{
-			model.addAttribute("msg", "인생을 즐기세요!");	
-		}
-		else {
+		if (url.equals("enjoy.jpg")) {
+			model.addAttribute("msg", "인생을 즐기세요!");
+		} else {
 			model.addAttribute("msg", "빨리 병원으로 향하세요!");
 		}
 		return "/test/result";
@@ -108,11 +96,9 @@ public class TestController {
 	public String resultydTest(HttpServletRequest request, Model model) {
 		String url = testService.ydResult(request);
 		model.addAttribute("url", url);
-		if(url.equals("enjoy.jpg"))
-		{
-			model.addAttribute("msg", "인생을 즐겨라!");	
-		}
-		else {
+		if (url.equals("enjoy.jpg")) {
+			model.addAttribute("msg", "인생을 즐겨라!");
+		} else {
 			model.addAttribute("msg", "빨리 병원 가세요.");
 		}
 		return "/test/result";

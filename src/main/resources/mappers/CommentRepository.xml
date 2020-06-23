@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.coderby.myapp.comment.dao.ICommentRepository">
+	<resultMap id="commentMap"
+		type="com.coderby.myapp.comment.model.CommentVO">
+		<result property="commentId" column="COMMENT_ID" />
+		<result property="userId" column="USER_ID" />
+		<result property="postId" column="POST_ID" />
+		<result property="commentContent" column="COMMENT_CONTENT" />
+		<result property="commentDateTime" column="COMMENT_DATETIME" />
+		<result property="commentUserName" column="COMMENT_USERNAME" />
+	</resultMap>
+
+	<select id="getCommentList" resultMap="commentMap">
+		SELECT * FROM
+		COMMENTS
+		WHERE
+		POST_ID = #{postId}
+	</select>
+
+	<insert id="insertComment"
+		parameterType="com.coderby.myapp.comment.model.CommentVO">
+		INSERT INTO COMMENTS (
+		COMMENT_ID,
+		USER_ID,
+		POST_ID,
+		COMMENT_CONTENT,
+		COMMENT_USERNAME
+		)
+		VALUES (
+		COMMENTS_SEQ.nextval,
+		#{userId},
+		#{postId},
+		#{commentContent},
+		#{commentUserName})
+	</insert>
+
+	<delete id="deleteComment" parameterType="int">
+		DELETE FROM COMMENTS
+		WHERE
+		COMMENT_ID = #{commentId}
+	</delete>
+
+</mapper>

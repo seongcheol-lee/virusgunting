@@ -1,10 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false" contentType="text/html; charset=UTF-8"%>
+<%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-
-<title>Home</title>
+<title>야관문</title>
 <script type="text/javascript" src="<c:url value='/js/post/list.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/list.css'/>">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -41,7 +40,7 @@
 					<th width="8%">작성일</th>
 					<th width="8%">조회수</th>
 					<th width="10%">좋아요 수</th>
-					<th width="14%">해결상황</th>
+					<th width="14%">답변상황</th>
 				</tr>
 			</thead>
 			<tbody class="body">

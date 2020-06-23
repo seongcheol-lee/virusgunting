@@ -33,5 +33,6 @@ public interface IPostService {
 	int checkdislikePost(int postId,int userId);
 	List<PostVO> getPostSearchList(String category, String text);
 	void upPostView(int postId, int views);
+	void respondedPost(PostVO post);
 	
 }

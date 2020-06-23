@@ -18,7 +18,9 @@ public interface IConsultService {
 
 	List<ConsultVO> getConsultList();
 
-	void insertConsult(ConsultVO consult); 
+	void insertConsult(ConsultVO consult);
+
+	ConsultVO getConsultInfo(int consultId); 
 	 
 	
 }

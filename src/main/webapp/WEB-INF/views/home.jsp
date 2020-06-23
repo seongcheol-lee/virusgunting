@@ -2,7 +2,7 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>Home</title>
+<title>야관문</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -15,7 +15,6 @@
 <body>
 
 	<jsp:include page="./nav.jsp" flush="true" />
-	<input id="test" value="${test}" type="text">
 	<div class="container" style="margin-top: 1.5rem;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="2000">
 			<ol class="carousel-indicators">

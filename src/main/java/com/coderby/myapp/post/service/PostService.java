@@ -97,4 +97,10 @@ public class PostService implements IPostService {
 		postRepository.upPostView(postId, views);
 	}
 
+	@Override
+	public void respondedPost(PostVO post) {
+		postRepository.respondedPost(post);
+		
+	}
+
 }

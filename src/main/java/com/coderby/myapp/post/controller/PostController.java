@@ -1,5 +1,7 @@
 package com.coderby.myapp.post.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coderby.myapp.comment.model.CommentVO;
+import com.coderby.myapp.comment.service.ICommentService;
 import com.coderby.myapp.post.model.DisLikeVO;
 import com.coderby.myapp.post.model.LikeVO;
 import com.coderby.myapp.post.model.PostVO;
@@ -32,18 +36,15 @@ public class PostController {
 	IPostService postService;
 	@Autowired
 	IUserService userService;
-
-	@RequestMapping(value = "/count")
-	public String postCount(@RequestParam(value = "postid", required = false, defaultValue = "0") int postid,
-			Model model) {
-		model.addAttribute("count", postService.getPostCount());
-		return "/count";
-	}
+	@Autowired
+	ICommentService commentService;
+ 
 
 	@RequestMapping(value = "/post/{postId}")
 	public String getPostInfo(@PathVariable int postId, Model model, HttpServletResponse response,
 			HttpServletRequest request) {
 		PostVO post = postService.getPostInfo(postId);
+
 		int views = post.getPostViews();
 		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
 
@@ -62,7 +63,6 @@ public class PostController {
 		}
 		if (post != null) {
 			view.addObject("review", postId);
-
 			// 만일 viewCookie가 null일 경우 쿠키를 생성해서 조회수 증가 로직을 처리함.
 			if (viewCookie == null) {
 				// 쿠키 생성(이름, 값)
@@ -73,13 +73,10 @@ public class PostController {
 				postService.upPostView(postId, views + 1);
 				post.setPostViews(views + 1);
 			}
-			// viewCookie가 null이 아닐경우 쿠키가 있으므로 조회수 증가 로직을 처리하지 않음.
-			else {
-				// 쿠키 값 받아옴.
-				String value = viewCookie.getValue();
-			}
 		}
 
+		List<CommentVO> commentList = commentService.getCommentList(postId);
+		model.addAttribute("commentList", commentList);
 		model.addAttribute("post", post);
 		return "/post/view";
 	}
@@ -98,7 +95,6 @@ public class PostController {
 
 	@RequestMapping(value = "/post/search", method = RequestMethod.GET)
 	public String searchPost(String category, String text, Model model) {
-
 		model.addAttribute("postList", postService.getPostSearchList(category, text));
 		return "/post/list";
 	}
@@ -112,7 +108,6 @@ public class PostController {
 			return "redirect:/user/signin";
 		}
 		return "/post/insert";
-
 	}
 
 	@RequestMapping(value = "/post/insert", method = RequestMethod.POST)
@@ -121,7 +116,6 @@ public class PostController {
 		return "redirect:/post/list";
 	}
 
-//	����
 	@RequestMapping(value = "/post/update/{postId}", method = RequestMethod.GET)
 	public String updatePost(@PathVariable int postId, Model model) {
 		PostVO post = postService.getPostInfo(postId);
@@ -136,8 +130,14 @@ public class PostController {
 		return "redirect:/post/list";
 	}
 
-//	����
-	@RequestMapping(value = "/post/delete/{postid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/post/responded/{postId}", method = RequestMethod.POST)
+	public String respondedPost(@PathVariable int postId, Model model) {
+		PostVO post = postService.getPostInfo(postId);
+		postService.respondedPost(post);
+		return "redirect:/post/" + postId;
+	}
+
+	@RequestMapping(value = "/post/delete/{postid}", method = RequestMethod.POST)
 	public String deletePost(@PathVariable int postid, Model model) {
 		postService.deletePost(postid);
 		return "redirect:/post/list";

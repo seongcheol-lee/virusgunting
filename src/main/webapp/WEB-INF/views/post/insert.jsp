@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title>Home</title>
+<title>야관문</title>
 <link rel="stylesheet" href="<c:url value='/css/home.css'/>">
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
