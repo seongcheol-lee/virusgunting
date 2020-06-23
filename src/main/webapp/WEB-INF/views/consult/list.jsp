@@ -5,7 +5,7 @@
 <head>
 <title>Home</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
-<link rel="stylesheet" href="<c:url value='/css/post/list.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/post/list.css'/>"> 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -16,7 +16,7 @@
 	<div class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-8">
-				<span class="subtitle">전문가에게 상담받아보세요!</span>
+				<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
 			</div>
 		</div>
 		<hr>
@@ -35,7 +35,7 @@
 			</div>
 			<input type="hidden" name="consultUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-			<input type="submit" class="btn btn-danger btn-lg" value="상담 남기기">
+			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="상담 남기기">
 		</form>
 		<c:if test="${member.userAdmin == 1}">
 			<table class="table">

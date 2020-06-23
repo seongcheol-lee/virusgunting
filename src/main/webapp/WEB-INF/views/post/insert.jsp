@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Home</title>
+<link rel="stylesheet" href="<c:url value='/css/home.css'/>">
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -45,7 +46,7 @@
 
 			<input type="hidden" name="postUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-<input type="submit" class="btn btn-danger btn-lg" value="글쓰기">
+			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="글쓰기">
 		</form>
 	</div>
 </body>

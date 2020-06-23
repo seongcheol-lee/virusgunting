@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Home</title>
+<link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
 <script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -15,13 +16,30 @@
 	<div class="container mt-5">
 		<span class="subtitle">여러분의 따뜻한 말 한마디가 ${post.postUserName} 님에게 힘이 됩니다!</span>
 		<hr>
-		<p>${post.postTitle}</p>
-		<p>${post.postContent}</p>
+		<div>
+			<span class="category">${post.postDisease}-${post.postSubject}</span>
+			<h1 class="title">${post.postTitle}</h1>
+			<div>
+				<span class="user">${post.postUserName} </span>
+				<span class="date">ㆍ ${post.postDateTime}</span>
+			</div>
+
+		</div>
+		<hr>
+		<div class="content-wrap">
+			<p>${post.postContent}</p>
+		</div>
+		<hr>
+		<div></div>
 		<c:if test="${member != null }">
 			<form action="<c:url value='/post/like'/>">
 				<input type="hidden" value="${member.userId}" name="userId" />
 				<input type="hidden" value="${post.postId}" name="postId" />
-				<input type="submit" value="좋아요" />
+				<div class="input-group input-group-sm mb-3">
+					<button class="btn btn-primary btn-lg" type="submit">
+						<i class="fa fa-circle-o-notch fa-spin"></i>${post.postLikes}
+					</button>
+				</div>
 			</form>
 			<form action="<c:url value='/post/dislike'/>">
 				<input type="hidden" value="${member.userId}" name="userId" />
@@ -29,7 +47,6 @@
 				<input type="submit" value="싫어요" />
 			</form>
 		</c:if>
-		<p>좋아요 수 : ${post.postLikes}</p>
 		<p>싫어요 수 : ${post.postDisLikes}</p>
 		<c:if test="${member.userId == post.userId}">
 			<a href="<c:url value='/post/update/${post.postId}'/>">수정</a>

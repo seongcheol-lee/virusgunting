@@ -53,7 +53,6 @@ public class UserController {
 
 		HttpSession session = req.getSession();
 		UserVO login = userService.signinUser(user);
-		System.out.println(login);
 		if (login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
