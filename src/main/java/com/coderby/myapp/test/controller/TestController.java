@@ -1,14 +1,22 @@
 package com.coderby.myapp.test.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.coderby.myapp.test.service.ITestService;
+
 @Controller
 public class TestController {
+	@Autowired
+	ITestService testService;
+
 	@RequestMapping(value = "/test/start")
 	public String startTest(Model model) {
 		return "/test/start";
@@ -21,13 +29,9 @@ public class TestController {
 
 	@RequestMapping(value = "/test/bbT/result")
 	public String resultbbTest(HttpServletRequest request, Model model) {
-		System.out.println(request.getParameter("q1"));
-		System.out.println(request.getParameter("q2"));
-		System.out.println(request.getParameter("q3"));
-		System.out.println(request.getParameter("q4"));
-		System.out.println(request.getParameter("q5"));
-		System.out.println(request.getParameter("q6"));
-		return "/test/bbT";
+		String url = testService.bbResult(request);
+		System.out.println(url);
+		return "/test/result";
 	}
 
 	@RequestMapping(value = "/test/cjT")
@@ -37,12 +41,9 @@ public class TestController {
 
 	@RequestMapping(value = "/test/cjT/result")
 	public String resultcjTest(HttpServletRequest request, Model model) {
-		System.out.println(request.getParameter("q1"));
-		System.out.println(request.getParameter("q2"));
-		System.out.println(request.getParameter("q3"));
-		System.out.println(request.getParameter("q4"));
-		System.out.println(request.getParameter("q5"));
-		return "/test/bbT";
+		String url = testService.cjResult(request);
+		System.out.println(url);
+		return "/test/result";
 	}
 
 	@RequestMapping(value = "/test/mjT")
@@ -52,12 +53,9 @@ public class TestController {
 
 	@RequestMapping(value = "/test/mjT/result")
 	public String resultmjTest(HttpServletRequest request, Model model) {
-		System.out.println(request.getParameter("q1"));
-		System.out.println(request.getParameter("q2"));
-		System.out.println(request.getParameter("q3"));
-		System.out.println(request.getParameter("q4"));
-		System.out.println(request.getParameter("q5"));
-		return "/test/mjT";
+		String url = testService.mjResult(request);
+		System.out.println(url);
+		return "/test/result";
 	}
 
 	@RequestMapping(value = "/test/tmT")
@@ -67,12 +65,9 @@ public class TestController {
 
 	@RequestMapping(value = "/test/tmT/result")
 	public String resulttmTest(HttpServletRequest request, Model model) {
-		System.out.println(request.getParameter("q1"));
-		System.out.println(request.getParameter("q2"));
-		System.out.println(request.getParameter("q3"));
-		System.out.println(request.getParameter("q4"));
-		System.out.println(request.getParameter("q5"));
-		return "/test/tmT";
+		String url = testService.tmResult(request);
+		System.out.println(url);
+		return "/test/result";
 	}
 
 	@RequestMapping(value = "/test/ydT")
@@ -82,11 +77,8 @@ public class TestController {
 
 	@RequestMapping(value = "/test/ydT/result")
 	public String resultydTest(HttpServletRequest request, Model model) {
-		System.out.println(request.getParameter("q1"));
-		System.out.println(request.getParameter("q2"));
-		System.out.println(request.getParameter("q3"));
-		System.out.println(request.getParameter("q4"));
-		System.out.println(request.getParameter("q5"));
-		return "/test/ydT";
+		String url = testService.ydResult(request);
+		System.out.println(url);
+		return "/test/result";
 	}
 }
