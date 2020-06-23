@@ -12,44 +12,77 @@ public class TestService implements ITestService {
 	@Override
 	public String bbResult(HttpServletRequest request) {
 		String url = "IMAGEURL";
-		request.getParameter("q1");
-		request.getParameter("q2");
-		request.getParameter("q3");
-		request.getParameter("q4");
-		request.getParameter("q5");
+		int value = 0;
+		for (int i = 1; i <= 5; i++) {
+			String q = "q" + i;
+			if (request.getParameter(q).equals("opt1")) {
+				value++;
+			}
+		}
+		if (value >= 2) {
+			url = "bbRes.jpg";
+			System.out.println("변비");
+		} else {
+			url = "enjoy.jpg";
+		}
 		return url;
 	}
 
 	@Override
 	public String cjResult(HttpServletRequest request) {
 		String url = "IMAGEURL";
-		request.getParameter("q1");
-		request.getParameter("q2");
-		request.getParameter("q3");
-		request.getParameter("q4");
-		request.getParameter("q5");
+		int value = 0;
+		for (int i = 1; i <= 6; i++) {
+			String q = "q" + i;
+			if (request.getParameter(q).equals("opt1")) {
+				value++;
+			}
+		}
+		if (value >= 3) {
+			url = "cjRes.jpg";
+		} else {
+			url = "enjoy.jpg";
+		}
 		return url;
 	}
 
 	@Override
 	public String mjResult(HttpServletRequest request) {
 		String url = "IMAGEURL";
-		request.getParameter("q1");
-		request.getParameter("q2");
-		request.getParameter("q3");
-		request.getParameter("q4");
-		request.getParameter("q5");
+		int value = 0;
+		for (int i = 1; i <= 5; i++) {
+			String q = "q" + i;
+			if (request.getParameter(q).equals("opt1")) {
+				value++;
+			}
+			if (value >= 2) {
+				url = "mjRes.jpg";
+				System.out.println("무좀");
+			} else {
+				url = "enjoy.jpg";
+			}
+		}
 		return url;
 	}
 
 	@Override
 	public String tmResult(HttpServletRequest request) {
 		String url = "IMAGEURL";
-		request.getParameter("q1");
-		request.getParameter("q2");
-		request.getParameter("q3");
-		request.getParameter("q4");
-		request.getParameter("q5");
+		int value = 0;
+		for (int i = 1; i <= 10; i++) {
+			String q = "q" + i;
+			
+			if (request.getParameter(q).equals("opt1")) {
+				value++;
+				
+				
+			}
+			if (value >= 6) {
+				url = "tmRes.jpg";
+			} else {
+				url = "enjoy.jpg";
+			}
+		}
 		return url;
 	}
 
@@ -60,7 +93,6 @@ public class TestService implements ITestService {
 		request.getParameter("q2");
 		request.getParameter("q3");
 		request.getParameter("q4");
-		request.getParameter("q5");
 		return url;
 	}
 
