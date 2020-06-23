@@ -83,6 +83,15 @@
 		post_id=#{postId}
 	</update>
 
+	<update id="respondedPost"
+		parameterType="com.coderby.myapp.post.model.PostVO">
+		UPDATE POSTS
+		set
+		POST_RESPONDED = 1
+		where
+		post_id=#{postId}
+	</update>
+
 	<insert id="insertPost"
 		parameterType="com.coderby.myapp.post.model.PostVO">
 		INSERT INTO POSTS (

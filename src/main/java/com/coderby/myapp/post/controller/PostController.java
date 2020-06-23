@@ -135,6 +135,13 @@ public class PostController {
 		postService.updatePost(post);
 		return "redirect:/post/list";
 	}
+	
+	@RequestMapping(value = "/post/responded/{postId}", method = RequestMethod.POST)
+	public String respondedPost(@PathVariable int postId, Model model) {
+		PostVO post = postService.getPostInfo(postId); 
+		postService.respondedPost(post); 
+		return "redirect:/post/" + postId;
+	}
 
 //	����
 	@RequestMapping(value = "/post/delete/{postid}", method = RequestMethod.GET)

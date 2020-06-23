@@ -41,4 +41,6 @@ public interface IPostRepository {
 	List<PostVO> getPostSearchList(@Param("category") String category, @Param("text") String text);
 
 	void upPostView(@Param("postId") int postId, @Param("views") int views);
+
+	void respondedPost(PostVO post);
 }

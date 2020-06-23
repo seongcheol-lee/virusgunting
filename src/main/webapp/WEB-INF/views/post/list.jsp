@@ -41,7 +41,7 @@
 					<th width="8%">작성일</th>
 					<th width="8%">조회수</th>
 					<th width="10%">좋아요 수</th>
-					<th width="14%">해결상황</th>
+					<th width="14%">답변상황</th>
 				</tr>
 			</thead>
 			<tbody class="body">

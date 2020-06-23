@@ -15,7 +15,6 @@
 <body>
 
 	<jsp:include page="./nav.jsp" flush="true" />
-	<input id="test" value="${test}" type="text">
 	<div class="container" style="margin-top: 1.5rem;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="2000">
 			<ol class="carousel-indicators">
