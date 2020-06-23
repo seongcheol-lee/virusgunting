@@ -31,5 +31,7 @@ public interface IPostService {
 	void plusdislikePost(int postId, int postDisLikes);
 	void insertdislikePost(DisLikeVO Dislike);
 	int checkdislikePost(int postId,int userId);
+	List<PostVO> getPostSearchList(String category, String text);
+	void upPostView(int postId, int views);
 	
 }

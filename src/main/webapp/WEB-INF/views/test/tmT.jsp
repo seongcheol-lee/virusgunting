@@ -15,7 +15,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5" align="center">
+	<div class="container mt-5 mb-5" align="center">
 		<form action="<c:url value='/test/tmT/result'/>">
 			<h1 class="font-do">탈모 자가진단</h1>
 			<table class="table">

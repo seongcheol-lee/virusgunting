@@ -34,8 +34,7 @@ public class ConsultController {
 	}
 	
 	@RequestMapping(value = "/consult/insert", method = RequestMethod.POST)
-	public String insertPost(ConsultVO consult, Model model) {
-		System.out.println(consult);
+	public String insertPost(ConsultVO consult, Model model) { 
 		consultService.insertConsult(consult);
 		return "redirect:/consult/list";
 	}

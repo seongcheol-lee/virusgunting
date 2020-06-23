@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Home</title>
+<link rel="stylesheet" href="<c:url value='/css/home.css'/>">
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -12,26 +13,48 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container">
-		<br> <br>
+	<div class="container mt-5">
+		<span class="subtitle">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
+		<hr>
 		<form method="POST" onsubmit="return validate()" action="<c:url value='/post/insert'/>">
-			<p>제목</p>
-			<input type="text" id="postTitle" name="postTitle" required />
-			<hr />
-			<p>내용</p>
-			<hr />
-			<textarea name="postContent"></textarea>
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">질병 선택</label>
+				<select name="postDisease" class="form-control" id="exampleFormControlSelect1">
+					<option value="탈모">탈모</option>
+					<option value="치질">치질</option>
+					<option value="여드름">여드름</option>
+					<option value="변비">변비</option>
+					<option value="무좀">무좀</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">주제 선택</label>
+				<select name="postSubject" class="form-control" id="exampleFormControlSelect1">
+					<option value="경험">경험</option>
+					<option value="질문">질문</option>
+					<option value="정보">정보</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="Title">제목</label>
+				<input type="text" class="form-control" id="Title" name="postTitle" required>
+			</div>
+			<div class="form-group">
+				<label for="postContent">내용</label>
+				<textarea class="form-control" name="postContent" id="postContent" rows="15"></textarea>
+			</div>
+
 			<input type="hidden" name="postUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-			<p>질병</p>
-
-			<hr />
-			<input type="text" name="postDisease" required>
-
-			<p>카테고리</p>
-			<hr />
-			<input type="text" name="postSubject" required><input type="submit" value="글쓰기">
+			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="글쓰기">
 		</form>
 	</div>
 </body>
+<style>
+.subtitle {
+	font-size: 25px;
+	color: grey;
+	font-family: 'Do Hyeon', sans-serif;
+}
+</style>
 </html>
