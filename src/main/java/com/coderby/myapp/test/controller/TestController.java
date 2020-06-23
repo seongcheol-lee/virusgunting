@@ -31,18 +31,33 @@ public class TestController {
 	public String resultbbTest(HttpServletRequest request, Model model) {
 		String url = testService.bbResult(request);
 		System.out.println(url);
+		model.addAttribute("url", url);
+		if(url.equals("enjoy.jpg"))
+		{
+			model.addAttribute("msg", "인생을 즐기세요!");	
+		}
+		else {
+			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+		}
 		return "/test/result";
 	}
 
 	@RequestMapping(value = "/test/cjT")
 	public String startcjTest(Model model) {
-		return "/test/bbT";
+		return "/test/cjT";
 	}
 
 	@RequestMapping(value = "/test/cjT/result")
 	public String resultcjTest(HttpServletRequest request, Model model) {
 		String url = testService.cjResult(request);
-		System.out.println(url);
+		model.addAttribute("url", url);
+		if(url.equals("enjoy.jpg"))
+		{
+			model.addAttribute("msg", "인생을 즐기세요!");	
+		}
+		else {
+			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+		}
 		return "/test/result";
 	}
 
@@ -54,7 +69,14 @@ public class TestController {
 	@RequestMapping(value = "/test/mjT/result")
 	public String resultmjTest(HttpServletRequest request, Model model) {
 		String url = testService.mjResult(request);
-		System.out.println(url);
+		model.addAttribute("url", url);
+		if(url.equals("enjoy.jpg"))
+		{
+			model.addAttribute("msg", "인생을 즐기세요!");	
+		}
+		else {
+			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+		}
 		return "/test/result";
 	}
 
@@ -66,7 +88,14 @@ public class TestController {
 	@RequestMapping(value = "/test/tmT/result")
 	public String resulttmTest(HttpServletRequest request, Model model) {
 		String url = testService.tmResult(request);
-		System.out.println(url);
+		model.addAttribute("url", url);
+		if(url.equals("enjoy.jpg"))
+		{
+			model.addAttribute("msg", "인생을 즐기세요!");	
+		}
+		else {
+			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+		}
 		return "/test/result";
 	}
 

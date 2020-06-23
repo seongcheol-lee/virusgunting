@@ -29,7 +29,7 @@
 				<tbody>
 					<tr>
 						<th scope="row">1</th>
-						<td>ì´ë§ê° ì ì  ëì´ì§ë ëëì´ë¤.</td>
+						<td>이마가 점점 넓어지는 느낌이다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q1" value="opt1" required>
@@ -44,7 +44,7 @@
 					</tr>
 					<tr>
 						<th scope="row">2</th>
-						<td>ê°ëê³  íìë ë¨¸ë¦¬ê° ë§ì´ ë¹ ì§ë¤.</td>
+						<td>가늘고 힘없는 머리가 많이 빠진다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q2" value="opt1" required>
@@ -60,7 +60,7 @@
 					</tr>
 					<tr>
 						<th scope="row">3</th>
-						<td>íë£¨ì 80ê° ì´ì ëª¨ë°ì´ ë¹ ì§ë¤.</td>
+						<td>하루에 80개 이상 모발이 빠진다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q3" value="opt1" required>
@@ -75,7 +75,7 @@
 					</tr>
 					<tr>
 						<th scope="row">4</th>
-						<td>ë¹ë¬ì´ ë§ìì§ê±°ë ëí¼ê° ê°ë µë¤.</td>
+						<td>비듬이 많아지거나 두피가 가렵다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q4" value="opt1" required>
@@ -90,7 +90,7 @@
 					</tr>
 					<tr>
 						<th scope="row">5</th>
-						<td>ëª¨ë°ì´ ê°ëê³  ë¶ëë¬ìì§ë¤.</td>
+						<td>모발이 가늘고 부드러워진다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q5" value="opt1" required>
@@ -105,21 +105,21 @@
 					</tr>
 					<tr>
 						<th scope="row">6</th>
-						<td>ëí¼ë¥¼ ëë¬ë³´ë©´ ê°ë²¼ì´ íµì¦ì´ ëê»´ì§ë¤.</td>
+						<td>두피를 눌러보면 가벼운 통증이 느껴진다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q6" value="opt1" required>
 								<label class="form-check-label" for="inlineRadio1">예</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="q65" value="opt2">
+								<input class="form-check-input" type="radio" name="q6" value="opt2">
 								<label class="form-check-label" for="inlineRadio1">아니오</label>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">7</th>
-						<td>ìë¨¸ë¦¬ì ë·ë¨¸ë¦¬ì êµµê¸° ì°¨ì´ê° ë§ì´ ëë¤.</td>
+						<td>앞머리와 뒷머리의 굵기 차이가 많이 난다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q7" value="opt1" required>
@@ -133,7 +133,7 @@
 					</tr>
 					<tr>
 						<th scope="row">8</th>
-						<td>ëª¸ì í¸ì´ ê°ìê¸° êµµì´ì§ë¤.</td>
+						<td>몸의 털이 갑자기 굵어진다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q8" value="opt1" required>
@@ -148,7 +148,7 @@
 					</tr>
 					<tr>
 						<th scope="row">9</th>
-						<td>ì´ë§ì ì ìë¦¬ ë¶ë¶ì´ ì ëí ë²ë¤ê±°ë¦°ë¤.</td>
+						<td>이마와 정수리 부분이 유난히 번들거린다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q9" value="opt1" required>
@@ -163,7 +163,7 @@
 					</tr>
 					<tr>
 						<th scope="row">10</th>
-						<td>ëí¼ì í¼ì§ëì´ ê°ìê¸° ëì´ë ê² ê°ë¤.</td>
+						<td>두피에 피지량이 갑자기 늘어난 것 같다.</td>
 						<td>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="q10" value="opt1" required>
