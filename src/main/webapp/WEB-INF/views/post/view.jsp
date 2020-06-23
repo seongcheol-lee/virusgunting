@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Home</title>
+<script src="https://kit.fontawesome.com/5ac56ffa94.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
 <script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -30,28 +31,48 @@
 			<p>${post.postContent}</p>
 		</div>
 		<hr>
-		<div></div>
-		<c:if test="${member != null }">
-			<form action="<c:url value='/post/like'/>">
-				<input type="hidden" value="${member.userId}" name="userId" />
-				<input type="hidden" value="${post.postId}" name="postId" />
-				<div class="input-group input-group-sm mb-3">
-					<button class="btn btn-primary btn-lg" type="submit">
-						<i class="fa fa-circle-o-notch fa-spin"></i>${post.postLikes}
-					</button>
-				</div>
-			</form>
-			<form action="<c:url value='/post/dislike'/>">
-				<input type="hidden" value="${member.userId}" name="userId" />
-				<input type="hidden" value="${post.postId}" name="postId" />
-				<input type="submit" value="싫어요" />
-			</form>
-		</c:if>
-		<p>싫어요 수 : ${post.postDisLikes}</p>
-		<c:if test="${member.userId == post.userId}">
-			<a href="<c:url value='/post/update/${post.postId}'/>">수정</a>
-			<a href="<c:url value='/post/delete/${post.postId}'/>">삭제하기</a>
-		</c:if>
+		<div class="d-flex bd-highlight">
+			<div class=" p-2 bd-highlight">
+				<c:if test="${member != null }">
+					<form style="display: inline" action="<c:url value='/post/like'/>">
+						<input type="hidden" value="${member.userId}" name="userId" />
+						<input type="hidden" value="${post.postId}" name="postId" />
+						<div style="display: inline" class="input-group input-group-sm mb-3">
+							<button class="btn btn-outline-primary btn-lg" type="submit">
+								<i class="far fa-thumbs-up"></i>
+								&nbsp;${post.postLikes}
+							</button>
+						</div>
+					</form>
+					<form style="display: inline" action="<c:url value='/post/dislike'/>">
+						<input type="hidden" value="${member.userId}" name="userId" />
+						<input type="hidden" value="${post.postId}" name="postId" />
+						<div style="display: inline" class="input-group input-group-sm mb-3">
+							<button class="btn btn-outline-danger btn-lg" type="submit">
+								<i class="far fa-thumbs-down"></i>
+								&nbsp;${post.postDisLikes}
+							</button>
+						</div>
+					</form>
+				</c:if>
+			</div>
+			<div class="ml-auto p-2 bd-highlight">
+				<c:if test="${member.userId == post.userId}">
+					<form style="display: inline" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
+						<button type="submit" class="btn btn-outline-danger btn-sm">
+							<i class="fas fa-trash"></i>
+							삭제하기
+						</button>
+					</form>
+					<form style="display: inline" action="<c:url value='/post/update/${post.postId}'/>">
+						<button type="submit" class="btn btn-outline-warning btn-sm">
+							<i class="fas fa-edit"></i>
+							수정하기
+						</button>
+					</form>
+				</c:if>
+			</div>
+		</div>
 	</div>
 </body>
 <style>
@@ -61,4 +82,13 @@
 	font-family: 'Do Hyeon', sans-serif;
 }
 </style>
+<script>
+	function validate() {
+		var input = confirm('정말 삭제하시겠습니까?');
+		if (input) {
+			return ture;
+		}
+		return false;
+	}
+</script>
 </html>

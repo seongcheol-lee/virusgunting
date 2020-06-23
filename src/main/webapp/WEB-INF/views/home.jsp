@@ -9,10 +9,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="<c:url value='/css/home.css'/>">
 </head>
+<script>
+	
+</script>
 <body>
 
 	<jsp:include page="./nav.jsp" flush="true" />
-
+	<input id="test" value="${test}" type="text">
 	<div class="container" style="margin-top: 1.5rem;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="2000">
 			<ol class="carousel-indicators">
