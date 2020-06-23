@@ -101,7 +101,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<button type="button" class="btn btn-outline-secondary">결과보기</button>
+			<input type="submit" class="btn btn-outline-secondary" value="결과보기">
 		</form>
 	</div>
 </body>
