@@ -7,6 +7,7 @@ public class ConsultVO {
 	private String consultTitle;
 	private String consultContent;
 	private String consultEmail;
+	private String consultUserName;
 	public int getConsultId() {
 		return consultId;
 	}
@@ -41,6 +42,12 @@ public class ConsultVO {
 	public String toString() {
 		return "ConsultVO [consultId=" + consultId + ", userId=" + userId + ", consultTitle=" + consultTitle
 				+ ", consultContent=" + consultContent + ", consultEmail=" + consultEmail + "]";
+	}
+	public String getConsultUserName() {
+		return consultUserName;
+	}
+	public void setConsultUserName(String consultUserName) {
+		this.consultUserName = consultUserName;
 	}
 	
 	 

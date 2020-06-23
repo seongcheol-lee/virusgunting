@@ -34,6 +34,22 @@
 		POST_ID DESC
 	</select>
 
+	<select id="getPostSearchList" resultMap="postMap">
+		SELECT * FROM POSTS
+		WHERE
+		<if test="category == 'POST_CONTENT'">
+			POST_CONTENT like '%' ||#{text}|| '%'
+		</if>
+		<if test="category == 'POST_TITLE'">
+			POST_TITLE like '%' ||#{text}|| '%'
+		</if>
+		<if test="category == 'POST_USERNAME'">
+			POST_USERNAME like '%' ||#{text}|| '%'
+		</if>
+		ORDER BY
+		POST_ID DESC
+	</select>
+
 	<select id="getPostInfo" parameterType="int"
 		resultType="com.coderby.myapp.post.model.PostVO">
 		SELECT POST_ID as postId,
@@ -50,7 +66,8 @@
 		POST_VIEWS as postViews,
 		POST_RESPONDED as postResponded,
 		POST_USERNAME as postUserName
-		FROM POSTS
+		FROM
+		POSTS
 		WHERE POST_ID = #{postId}
 	</select>
 
@@ -86,6 +103,14 @@
 		where
 		POST_ID = #{postId}
 	</delete>
+
+	<update id="upPostView">
+		UPDATE POSTS
+		SET
+		POST_VIEWS=${views}
+		where
+		post_id=#{postId}
+	</update>
 
 	<update id="pluslikePost">
 		UPDATE POSTS

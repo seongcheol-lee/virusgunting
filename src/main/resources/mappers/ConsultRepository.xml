@@ -6,6 +6,7 @@
 		type="com.coderby.myapp.consult.model.ConsultVO">
 		<result property="consultId" column="CONSULT_ID" />
 		<result property="userId" column="USER_ID" />
+		<result property="consultUserName" column="CONSULT_USERNAME" />
 		<result property="consultTitle" column="CONSULT_TITLE" />
 		<result property="consultContent" column="CONSULT_CONTENT" />
 		<result property="consultEmail" column="CONSULT_EMAIL" />
@@ -24,12 +25,14 @@
 		CONSULT_TITLE,
 		CONSULT_CONTENT,
 		CONSULT_EMAIL,
+		CONSULT_USERNAME,
 		USER_ID)
 		VALUES (
 		CONSULTS_SEQ.nextval,
 		#{consultTitle},
 		#{consultContent},
 		#{consultEmail},
+		#{consultUserName},
 		#{userId})
 	</insert>
 

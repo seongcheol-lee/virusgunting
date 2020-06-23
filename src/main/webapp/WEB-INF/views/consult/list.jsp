@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>Home</title>
-<script type="text/javascript" src="<c:url value='/js/post/list.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/list.css'/>">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -13,9 +13,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container">
-		<br>
-		<br>
+	<div class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle">전문가에게 상담받아보세요!</span>
@@ -23,17 +21,21 @@
 		</div>
 		<hr>
 		<form method="POST" action="<c:url value='/consult/insert'/>">
-			<p>제목</p>
-			<input type="text" id="consultTitle" name="consultTitle" required />
-			<hr />
-			<p>내용</p>
-			<hr />
-			<textarea name="consultContent"></textarea>
+			<div class="form-group">
+				<label for="consultEmail">이메일</label>
+				<input type="email" class="form-control" id="consultEmail" name="consultEmail" required>
+			</div>
+			<div class="form-group">
+				<label for="Title">제목</label>
+				<input type="text" class="form-control" id="Title" name="consultTitle" required>
+			</div>
+			<div class="form-group">
+				<label for="consultContent">상담 내용</label>
+				<textarea class="form-control" name="consultContent" rows="5"></textarea>
+			</div>
+			<input type="hidden" name="consultUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-			<p>이메일</p>
-			<hr />
-			<input type="text" name="consultEmail" required>
-			<input type="submit" value="글쓰기">
+			<input type="submit" class="btn btn-danger btn-lg" value="상담 남기기">
 		</form>
 		<c:if test="${member.userAdmin == 1}">
 			<table class="table">

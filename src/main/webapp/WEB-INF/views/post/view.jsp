@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="true" contentType="text/html; charset=UTF-8"%> 
+<%@ page session="true" contentType="text/html; charset=UTF-8"%>
 
 <html>
 <head>
@@ -12,10 +12,11 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container">
+	<div class="container mt-5">
+		<span class="subtitle">여러분의 따뜻한 말 한마디가 ${post.postUserName} 님에게 힘이 됩니다!</span>
+		<hr>
 		<p>${post.postTitle}</p>
 		<p>${post.postContent}</p>
-
 		<c:if test="${member != null }">
 			<form action="<c:url value='/post/like'/>">
 				<input type="hidden" value="${member.userId}" name="userId" />
@@ -36,4 +37,11 @@
 		</c:if>
 	</div>
 </body>
+<style>
+.subtitle {
+	font-size: 25px;
+	color: grey;
+	font-family: 'Do Hyeon', sans-serif;
+}
+</style>
 </html>

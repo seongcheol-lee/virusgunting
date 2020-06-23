@@ -14,13 +14,12 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container">
-		<br>
-		<br>
+	<div class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
 			</div>
+
 			<div class="col-4 d-flex justify-content-end align-items-end">
 				<a class="ml-3" href="<c:url value='/post/list'/>">전체</a>
 				<a class="ml-3" href="<c:url value='/post/list/무좀'/>">무좀</a>
@@ -30,21 +29,19 @@
 				<a class="ml-3" href="<c:url value='/post/list/치질'/>">치질</a>
 			</div>
 		</div>
-
 		<hr>
 		<table class="table">
 			<thead class="head">
 				<tr>
-					<th width="8%">번호</th>
+					<th width="8%">글 번호</th>
 					<th width="8%">질병</th>
 					<th width="8%">주제</th>
 					<th width="28%">제목</th>
 					<th width="8%">작성자</th>
 					<th width="8%">작성일</th>
 					<th width="8%">조회수</th>
-					<th width="8%">좋아요</th>
-					<th width="8%">싫어요</th>
-					<th width="8%">해결상황</th>
+					<th width="10%">좋아요 수</th>
+					<th width="14%">해결상황</th>
 				</tr>
 			</thead>
 			<tbody class="body">
@@ -62,8 +59,7 @@
 							<fmt:formatDate value="${noticePostDate}" pattern="MM.dd" />
 						</td>
 						<td>${post.postViews}</td>
-						<td>${post.postLikes}</td>
-						<td>${post.postDisLikes}</td>
+						<td>${post.postLikes-post.postDisLikes}</td>
 						<c:if test="${post.postSubject eq '질문'}">
 							<c:if test="${post.postResponded == '1'}">
 								<td>답변완료</td>
@@ -79,6 +75,17 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<div class="d-flex justify-content-end">
+			<form action="<c:url value='/post/search'/>">
+				<select name="category">
+					<option value="POST_TITLE">제목</option>
+					<option value="POST_CONTENT">내용</option>
+					<option value="POST_USERNAME">글쓴이</option>
+				</select>
+				<input type="text" name="text">
+				<input type="submit" value="검색">
+			</form>
+		</div>
 		<div class="btn_wrap">
 			<a class="btn_org" href="<c:url value='/post/insert'/>">
 				<span class="txt_white">글쓰기</span>
