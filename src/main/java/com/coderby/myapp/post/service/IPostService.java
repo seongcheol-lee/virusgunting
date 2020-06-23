@@ -17,6 +17,7 @@ public interface IPostService {
 	
 	int getPostCount();
 	List<PostVO> getPostList();
+	List<PostVO> getPostDiseaseList(String postDisease);
 	PostVO getPostInfo(int postId);
 	void insertPost(PostVO post);
 	void deletePost(int postid);
@@ -30,4 +31,5 @@ public interface IPostService {
 	void plusdislikePost(int postId, int postDisLikes);
 	void insertdislikePost(DisLikeVO Dislike);
 	int checkdislikePost(int postId,int userId);
+	
 }

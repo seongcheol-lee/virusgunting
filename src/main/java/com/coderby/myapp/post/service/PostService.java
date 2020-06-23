@@ -2,6 +2,7 @@ package com.coderby.myapp.post.service;
 
 import java.util.List;
 
+
 import java.util.Map;
 
 import javax.inject.Qualifier;
@@ -78,6 +79,12 @@ public class PostService implements IPostService{
 	@Override
 	public int checkdislikePost(int postId, int userId) { 
 		return postRepository.checkdislikePost(postId, userId);
+	}
+
+	@Override
+	public List<PostVO> getPostDiseaseList(String postDisease) {
+		 
+		return postRepository.getPostDiseaseList(postDisease);
 	}
  
 

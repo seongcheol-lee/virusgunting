@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.coderby.myapp.consult.dao.IConsultRepository">
+	<resultMap id="consultMap"
+		type="com.coderby.myapp.consult.model.ConsultVO">
+		<result property="consultId" column="CONSULT_ID" />
+		<result property="userId" column="USER_ID" />
+		<result property="consultTitle" column="CONSULT_TITLE" />
+		<result property="consultContent" column="CONSULT_CONTENT" />
+		<result property="consultEmail" column="CONSULT_EMAIL" />
+	</resultMap>
+
+	<select id="getConsultList" resultMap="consultMap">
+		SELECT * FROM CONSULTS
+		ORDER BY
+		CONSULT_ID DESC
+	</select>
+
+	<insert id="insertConsult"
+		parameterType="com.coderby.myapp.consult.model.ConsultVO">
+		INSERT INTO CONSULTS (
+		CONSULT_ID,
+		CONSULT_TITLE,
+		CONSULT_CONTENT,
+		CONSULT_EMAIL,
+		USER_ID)
+		VALUES (
+		CONSULTS_SEQ.nextval,
+		#{consultTitle},
+		#{consultContent},
+		#{consultEmail},
+		#{userId})
+	</insert>
+
+</mapper>

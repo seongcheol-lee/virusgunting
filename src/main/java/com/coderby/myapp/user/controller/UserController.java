@@ -33,11 +33,10 @@ public class UserController {
 	public String userSignup(UserVO user, RedirectAttributes rttr) {
 		UserVO check = userService.checkUser(user);
 
- 
-		if (check != null) { 
+		if (check != null) {
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/user/signup";
-		} else if (check == null) { 
+		} else if (check == null) {
 			userService.signupUser(user);
 		}
 		return "redirect:/";
@@ -53,8 +52,9 @@ public class UserController {
 	public String userSignin(UserVO user, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 
 		HttpSession session = req.getSession();
-		UserVO login = userService.signinUser(user); 
-		if (login == null) { 
+		UserVO login = userService.signinUser(user);
+		System.out.println(login);
+		if (login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/user/signin";

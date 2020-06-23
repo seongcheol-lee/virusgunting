@@ -41,7 +41,7 @@ public class PostController {
 	@RequestMapping(value = "/post/{postId}")
 	public String getPostInfo(@PathVariable int postId, Model model) {
 		PostVO post = postService.getPostInfo(postId);
-		post.setPostContent(post.getPostContent().replace("\r\n","<br>"));
+		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
 		model.addAttribute("post", post);
 		return "/post/view";
 	}
@@ -52,12 +52,17 @@ public class PostController {
 		return "/post/list";
 	}
 
-// 	����
+	@RequestMapping(value = "/post/list/{postDisease}")
+	public String getPostListDisease(@PathVariable String postDisease, Model model) {
+		model.addAttribute("postList", postService.getPostDiseaseList(postDisease));
+		return "/post/list";
+	}
+ 
 	@RequestMapping(value = "/post/insert", method = RequestMethod.GET)
 	public String postInsert(Model model, HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		UserVO login = (UserVO) session.getAttribute("member");
-
+		HttpSession session = req.getSession(); 
+		UserVO login = (UserVO) session.getAttribute("member"); 
+ 
 		if (login == null) {
 			return "redirect:/user/signin";
 		}
