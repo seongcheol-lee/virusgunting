@@ -4,6 +4,34 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 
+.form {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.subtitle {
+	font-size: 25px;
+	color: grey;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.comment-wrap {
+	margin-top: 1.5rem;
+	padding-bottom: 0.5rem;
+	background-color: rgba(23, 162, 184, 0.1);
+}
+
+.comment-label {
+	padding-top: 1rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.comment {
+	padding-bottom: 0.5rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
 
 .title {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -17,18 +45,21 @@
 .user {
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #000000;
+	font-size: 1.2rem;
 }
 
 .date {
+	font-size: 0.7rem;
+	color: #888888;
 	font-family: 'Noto Sans KR', sans-serif;
-	color: #A4A4A4;
 }
 
 .content-wrap {
-	margin-top:3rem;
-	margin-bottom:3rem;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 }
-.contetn{
+
+.contetn {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 

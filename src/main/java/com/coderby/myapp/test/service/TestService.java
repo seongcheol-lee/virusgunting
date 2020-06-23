@@ -21,7 +21,6 @@ public class TestService implements ITestService {
 		}
 		if (value >= 2) {
 			url = "bbRes.jpg";
-			System.out.println("변비");
 		} else {
 			url = "enjoy.jpg";
 		}
@@ -57,7 +56,6 @@ public class TestService implements ITestService {
 			}
 			if (value >= 2) {
 				url = "mjRes.jpg";
-				System.out.println("무좀");
 			} else {
 				url = "enjoy.jpg";
 			}

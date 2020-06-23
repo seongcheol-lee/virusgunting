@@ -6,13 +6,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.coderby.myapp.consult.dao.IConsultRepository;
 import com.coderby.myapp.consult.model.ConsultVO;
 import com.coderby.myapp.consult.service.IConsultService;
-import com.coderby.myapp.post.model.PostVO;
 import com.coderby.myapp.user.model.UserVO;
 
 @Controller
@@ -30,11 +28,17 @@ public class ConsultController {
 		}
 		model.addAttribute("consultList", consultService.getConsultList());
 		return "/consult/list";
-
 	}
-	
+
+	@RequestMapping(value = "/consult/{consultId}")
+	public String getConsultInfo(@PathVariable int consultId, Model model) {
+		ConsultVO consult = consultService.getConsultInfo(consultId);
+		model.addAttribute("consult", consult);
+		return "/consult/view";
+	}
+
 	@RequestMapping(value = "/consult/insert", method = RequestMethod.POST)
-	public String insertPost(ConsultVO consult, Model model) { 
+	public String insertConsult(ConsultVO consult, Model model) {
 		consultService.insertConsult(consult);
 		return "redirect:/consult/list";
 	}

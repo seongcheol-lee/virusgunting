@@ -24,4 +24,9 @@ public class ConsultService implements IConsultService {
 
 	}
 
+	@Override
+	public ConsultVO getConsultInfo(int consultId) { 
+		return consultRepsitory.getConsultInfo(consultId);
+	}
+
 }

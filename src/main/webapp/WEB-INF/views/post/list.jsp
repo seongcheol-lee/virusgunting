@@ -1,10 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false" contentType="text/html; charset=UTF-8"%>
+<%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-
-<title>Home</title>
+<title>야관문</title>
 <script type="text/javascript" src="<c:url value='/js/post/list.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/list.css'/>">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">

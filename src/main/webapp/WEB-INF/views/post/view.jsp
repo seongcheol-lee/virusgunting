@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
-<title>Home</title>
-<script src="https://kit.fontawesome.com/5ac56ffa94.js" crossorigin="anonymous"></script>
+<title>야관문</title>
+<script src="https://kit.fontawesome.com/5ac56ffa94.js"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
 <script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -15,14 +15,18 @@
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
 	<div class="container mt-5 mb-5">
-		<span class="subtitle">여러분의 따뜻한 말 한마디가 ${post.postUserName} 님에게 힘이 됩니다!</span>
+		<span class="subtitle">
+			여러분의 따뜻한 말 한마디가
+			<span style="color: rgb(23, 162, 184); font-weight: 700">${post.postUserName} </span>
+			님에게 힘이 됩니다!
+		</span>
 		<hr>
 		<div>
 			<span class="category">${post.postDisease}-${post.postSubject}</span>
 			<h1 class="title">${post.postTitle}</h1>
 			<div>
-				<span class="user">${post.postUserName} </span>
-				<span class="date">ㆍ ${post.postDateTime}</span>
+				<span class="user">${post.postUserName}&nbsp;&nbsp;</span>
+				<span class="date">${post.postDateTime}</span>
 			</div>
 
 		</div>
@@ -55,10 +59,24 @@
 						</div>
 					</form>
 				</c:if>
+				<c:if test="${member == null }">
+					<div style="display: inline" class="input-group input-group-sm mb-3">
+						<button class="btn btn-outline-primary btn-lg" disabled>
+							<i class="far fa-thumbs-up"></i>
+							&nbsp;${post.postLikes}
+						</button>
+					</div>
+					<div style="display: inline" class="input-group input-group-sm mb-3">
+						<button class="btn btn-outline-danger btn-lg" disabled>
+							<i class="far fa-thumbs-down"></i>
+							&nbsp;${post.postDisLikes}
+						</button>
+					</div>
+				</c:if>
 			</div>
 			<div class="ml-auto p-2 bd-highlight ">
 				<c:if test="${member.userId == post.userId}">
-					<form style="display: inline" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
+					<form style="display: inline" method="POST" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
 						<button type="submit" class="btn btn-outline-danger btn-sm">
 							<i class="fas fa-trash"></i>
 							삭제하기
@@ -86,48 +104,42 @@
 				<span style="font-weight: 700">댓글쓰기</span>
 				<hr>
 			</div>
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
+			<c:forEach var="comment" items="${commentList}">
+				<div class="comment">
+					<div class="mb-2 d-flex bd-highlight">
+						<div>
+							<span style="font-size: 1.3rem; font-weight: 700">${comment.commentUserName}&nbsp; </span>
+							<span style="font-size: 0.7rem; color: #888888;">
+								<fmt:parseDate value="${comment.commentDateTime}" var="noticePostDate" pattern="yyyy-MM-dd" />
+								<fmt:formatDate value="${noticePostDate}" pattern="MM.dd" />
+							</span>
+						</div>
+						<c:if test="${comment.userId == member.userId}">
+							<div class="ml-auto">
+								<form onsubmit="return validate();" action="<c:url value='/comment/delete'/>" method="post">
+									<input type="hidden" name="commentId" value="${comment.commentId}">
+									<input type="hidden" name="postId" value="${post.postId}">
+									<button class="btn btn-sm" type="submit">
+										<i class="fas fa-times"></i>
+									</button>
+								</form>
+							</div>
+						</c:if>
+					</div>
+					<p>${comment.commentContent}</p>
+					<hr>
+				</div>
+			</c:forEach>
 
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
-			<div class="comment">
-				<h6 style="font-weight: 700">작성자</h6>
-				<p>내용내용내용내용내용내용내용내용</p>
-				<hr>
-			</div>
 			<c:if test="${member != null }">
-				<form class="form">
+				<form class="form" action="<c:url value='/comment/insert'/>" method="post">
 					<div class="input-group mb-3 ">
-						<input type="text" class="form-control" placeholder="따뜻한 말을 남겨주세요.">
+						<input type="text" name="commentContent" class="form-control" placeholder="따뜻한 말을 남겨주세요.">
+						<input type="hidden" name="postId" value="${post.postId}">
+						<input type="hidden" name="userId" value="${member.userId}">
+						<input type="hidden" name="commentUserName" value="${member.userName}">
 						<div class="input-group-append">
-							<button class="btn btn-dark" type="button" id="button-addon2">
+							<button class="btn btn-dark" type="submit" id="button-addon2">
 								<i class="fas fa-pen"></i>
 							</button>
 						</div>
@@ -138,36 +150,6 @@
 	</div>
 </body>
 <style>
-.form {
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-}
-
-.subtitle {
-	font-size: 25px;
-	color: grey;
-	font-family: 'Do Hyeon', sans-serif;
-}
-
-.comment-wrap {
-	margin-top: 1.5rem;
-	background-color: rgba(23, 162, 184, 0.1);
-	padding-bottom: 0.5rem;
-	background-color: rgba(23, 162, 184, 0.1);
-}
-
-.comment-label {
-	padding-top: 1rem;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-}
-
-.comment {
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-}
 </style>
 <script>
 	function validate() {

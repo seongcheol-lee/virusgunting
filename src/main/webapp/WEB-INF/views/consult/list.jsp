@@ -3,9 +3,9 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>Home</title>
+<title>야관문</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
-<link rel="stylesheet" href="<c:url value='/css/post/list.css'/>"> 
+<link rel="stylesheet" href="<c:url value='/css/post/list.css'/>">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -51,7 +51,9 @@
 					<c:forEach var="consult" items="${consultList}">
 						<tr>
 							<td>${consult.consultId}</td>
-							<td>${consult.consultTitle}</td>
+							<td>
+								<a href="<c:url value='/consult/${consult.consultId}'/>">${consult.consultTitle}</a>
+							</td>
 							<td>${consult.consultContent}</td>
 							<td>${consult.consultEmail}</td>
 						</tr>

@@ -18,6 +18,21 @@
 		CONSULT_ID DESC
 	</select>
 
+	<select id="getConsultInfo" parameterType="int"
+		resultType="com.coderby.myapp.consult.model.ConsultVO">
+		SELECT
+		CONSULT_ID as consultId,
+		USER_ID as userId,
+		CONSULT_USERNAME as consultUserName,
+		CONSULT_TITLE as consultTitle,
+		CONSULT_CONTENT as consultContent,
+		CONSULT_EMAIL as consultEmail
+		FROM
+		CONSULTS
+		WHERE
+		CONSULT_ID = #{consultId}
+	</select>
+
 	<insert id="insertConsult"
 		parameterType="com.coderby.myapp.consult.model.ConsultVO">
 		INSERT INTO CONSULTS (

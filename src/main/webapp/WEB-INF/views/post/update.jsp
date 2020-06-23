@@ -2,7 +2,7 @@
 <%@ page session="false" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>Home</title>
+<title>야관문</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
