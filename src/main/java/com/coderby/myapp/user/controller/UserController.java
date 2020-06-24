@@ -19,8 +19,7 @@ import com.coderby.myapp.user.model.UserVO;
 import com.coderby.myapp.user.service.IUserService;
 
 @Controller
-public class UserController {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+public class UserController { 
 	@Autowired
 	IUserService userService;
 

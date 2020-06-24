@@ -31,7 +31,7 @@ public class TestController {
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
 		} else {
-			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+			model.addAttribute("msg", "변비비켜! 내일부터 아침은 요거트!!");
 		}
 		return "/test/result";
 	}
@@ -48,7 +48,7 @@ public class TestController {
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
 		} else {
-			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+			model.addAttribute("msg", "빨리 도넛방석 놔드려야겠어요!!");
 		}
 		return "/test/result";
 	}
@@ -65,7 +65,7 @@ public class TestController {
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
 		} else {
-			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+			model.addAttribute("msg", "부끄러워 하지마세요!발가락 양말!!");
 		}
 		return "/test/result";
 	}
@@ -82,7 +82,7 @@ public class TestController {
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
 		} else {
-			model.addAttribute("msg", "빨리 병원으로 향하세요!");
+			model.addAttribute("msg", "탈모는 피부과에서!!");
 		}
 		return "/test/result";
 	}
@@ -99,7 +99,7 @@ public class TestController {
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐겨라!");
 		} else {
-			model.addAttribute("msg", "빨리 병원 가세요.");
+			model.addAttribute("msg", "세수하세요! 두 번 하세요!");
 		}
 		return "/test/result";
 	}

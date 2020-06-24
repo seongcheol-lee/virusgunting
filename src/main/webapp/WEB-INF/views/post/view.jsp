@@ -75,7 +75,7 @@
 				</c:if>
 			</div>
 			<div class="ml-auto p-2 bd-highlight ">
-				<c:if test="${member.userId == post.userId}">
+				<c:if test="${member.userId == post.userId || member.userAdmin == 1}">
 					<form style="display: inline" method="POST" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
 						<button type="submit" class="btn btn-outline-danger btn-sm">
 							<i class="fas fa-trash"></i>
@@ -88,6 +88,8 @@
 							수정하기
 						</button>
 					</form>
+				</c:if>
+				<c:if test="${member.userId == post.userId}">
 					<c:if test="${post.postSubject  eq '질문' && post.postResponded eq 0}">
 						<form method="POST" style="display: inline" action="<c:url value='/post/responded/${post.postId}'/>">
 							<button type="submit" class="btn btn-outline-success btn-sm">
@@ -97,6 +99,7 @@
 						</form>
 					</c:if>
 				</c:if>
+
 			</div>
 		</div>
 		<div class="comment-wrap">
@@ -114,7 +117,7 @@
 								<fmt:formatDate value="${noticePostDate}" pattern="MM.dd" />
 							</span>
 						</div>
-						<c:if test="${comment.userId == member.userId}">
+						<c:if test="${comment.userId == member.userId || member.userAdmin == 1}">
 							<div class="ml-auto">
 								<form onsubmit="return validate();" action="<c:url value='/comment/delete'/>" method="post">
 									<input type="hidden" name="commentId" value="${comment.commentId}">
@@ -134,7 +137,7 @@
 			<c:if test="${member != null }">
 				<form class="form" action="<c:url value='/comment/insert'/>" method="post">
 					<div class="input-group mb-3 ">
-						<input type="text" name="commentContent" class="form-control" placeholder="따뜻한 말을 남겨주세요.">
+						<input type="text" name="commentContent" class="form-control" placeholder="${member.userName} 님 따뜻한 말을 남겨주세요.">
 						<input type="hidden" name="postId" value="${post.postId}">
 						<input type="hidden" name="userId" value="${member.userId}">
 						<input type="hidden" name="commentUserName" value="${member.userName}">

@@ -114,7 +114,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<input type="submit" class="btn btn-outline-secondary" value="결과보기">
+			<input type="submit" class="btn btn-outline-info" value="결과보기">
 		</form>
 	</div>
 </body>

@@ -38,7 +38,6 @@ public class PostController {
 	IUserService userService;
 	@Autowired
 	ICommentService commentService;
- 
 
 	@RequestMapping(value = "/post/{postId}")
 	public String getPostInfo(@PathVariable int postId, Model model, HttpServletResponse response,

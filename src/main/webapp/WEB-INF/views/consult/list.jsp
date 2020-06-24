@@ -41,9 +41,8 @@
 			<table class="table">
 				<thead class="head">
 					<tr>
-						<th width="20%">번호</th>
-						<th width="30%">제목</th>
-						<th width="30%">내용</th>
+						<th width="20%">글 번호</th>
+						<th width="60%">제목</th> 
 						<th width="20%">이메일</th>
 					</tr>
 				</thead>
@@ -54,7 +53,6 @@
 							<td>
 								<a href="<c:url value='/consult/${consult.consultId}'/>">${consult.consultTitle}</a>
 							</td>
-							<td>${consult.consultContent}</td>
 							<td>${consult.consultEmail}</td>
 						</tr>
 					</c:forEach>
