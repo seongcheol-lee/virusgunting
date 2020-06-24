@@ -32,13 +32,13 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav" style="margin: auto">
 			<li class="nav-item active">
-				<a class="nav-link font-do" href="<c:url value='/test/start'/>">5대 기피 질병 진단검사</a>
+				<a class="nav-link font-do" href="<c:url value='/test/start'/>">자가진단</a>
 			</li>
 			<li class="nav-item active">
-				<a href="<c:url value='/post/list'/>" class="nav-link font-do" style="margin-left: 7rem">게시판 </a>
+				<a href="<c:url value='/post/list'/>" class="nav-link font-do" style="margin-left: 12rem">게시판</a>
 			</li>
 			<li class="nav-item active">
-				<a href="<c:url value='/consult/list'/>" class="nav-link font-do" style="margin-left: 7rem">상담하기</a>
+				<a href="<c:url value='/consult/list'/>" class="nav-link font-do" style="margin-left: 12rem">상담하기</a>
 			</li>
 		</ul>
 	</div>

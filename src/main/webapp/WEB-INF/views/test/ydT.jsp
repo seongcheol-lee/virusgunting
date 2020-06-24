@@ -86,7 +86,7 @@
 				</tbody>
 			</table>
 			<div id="bttn">
-				<input type="submit" class="btn btn-outline-secondary" value="결과보기">
+				<input type="submit" class="btn btn-outline-info" value="결과보기">
 			</div>
 		</form>
 	</div>
