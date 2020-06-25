@@ -8,11 +8,11 @@
 >  Oracle Database 11g Express Edition Release 11.2.0.2.0
 ## 데이터베이스 구축
 __마지막줄에 전체쿼리문__  
-1. 오라클 계정 생성 및 권한 설정(cmd)   
+1. 오라클 계정 생성 및 권한 설정(cmd)
     ```
-    sqlplus /as sysdba   
-    create user post identified by post   
-    grant connect, resource, dba to post   
+    sqlplus 시스템 계정으로 로그인  
+    create user post identified by post;   
+    grant connect, resource, dba to post;   
     ```
   
 2. USERS TABLE 생성   
@@ -75,7 +75,7 @@ __마지막줄에 전체쿼리문__
             REFERENCES USERS(USER_ID) ON DELETE CASCADE,
         CONSTRAINT POSTS_LIKES_FK FOREIGN KEY(POST_ID)
             REFERENCES POSTS(POST_ID) ON DELETE CASCADE 
-    )
+    );
     ```
     ```
     CREATE TABLE DISLIKES(
@@ -85,7 +85,7 @@ __마지막줄에 전체쿼리문__
             REFERENCES USERS(USER_ID) ON DELETE CASCADE,
         CONSTRAINT POSTS_DISLIKES_FK FOREIGN KEY(POST_ID)
             REFERENCES POSTS(POST_ID) ON DELETE CASCADE 
-    )
+    );
     ```
 7. CONSULTS TABLE 생성
     ```
@@ -189,7 +189,7 @@ __마지막줄에 전체쿼리문__
             REFERENCES USERS(USER_ID) ON DELETE CASCADE,
         CONSTRAINT POSTS_LIKES_FK FOREIGN KEY(POST_ID)
             REFERENCES POSTS(POST_ID) ON DELETE CASCADE 
-    )
+    );
 
     CREATE TABLE DISLIKES(
         USER_ID  NUMBER,
@@ -198,7 +198,7 @@ __마지막줄에 전체쿼리문__
             REFERENCES USERS(USER_ID) ON DELETE CASCADE,
         CONSTRAINT POSTS_DISLIKES_FK FOREIGN KEY(POST_ID)
             REFERENCES POSTS(POST_ID) ON DELETE CASCADE 
-    )
+    );
 
     CREATE TABLE CONSULTS
     (
