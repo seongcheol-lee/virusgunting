@@ -1,14 +1,14 @@
-virusghunting
-===============
-## 사용 언어
-> 자바 1.8.0_251
-***
-## 사용 데이터베이스
->  오라클
-***
+# virusghunting
+> kfq 인공지능 과정 미니프로젝트 1 
+  
+## 사용 프로그래밍 언어
+> JAVA 1.8  
+> SPRING 5.2.6
+## 사용 데이터베이스 언어
+>  Oracle Database 11g Express Edition Release 11.2.0.2.0
 ## 데이터베이스 구축
 __마지막줄에 전체쿼리문__  
-1. 오라클 계정 생성(cmd)   
+1. 오라클 계정 생성 및 권한 설정(cmd)   
     ```
     sqlplus /as sysdba   
     create user post identified by post   
