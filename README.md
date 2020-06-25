@@ -10,9 +10,11 @@
 __마지막줄에 전체쿼리문__  
 1. 오라클 계정 생성 및 권한 설정(cmd)   
     ```
-    sqlplus /as sysdba   
-    create user post identified by post   
-    grant connect, resource, dba to post   
+    sqlplus /as sysdba  
+    Enter user-name : system
+    Enter password : oracle
+    create user post identified by post;   
+    grant connect, resource, dba to post;   
     ```
   
 2. USERS TABLE 생성   
