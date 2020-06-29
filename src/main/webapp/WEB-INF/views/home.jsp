@@ -16,7 +16,8 @@
 
 	<jsp:include page="./nav.jsp" flush="true" />
 	<div class="container" style="margin-top: 1.5rem;">
-		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="1500">
+		<img src="<c:url value='/images/home/donkey.gif'/>" class="img-fluid" >
+		<%-- <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="1500">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
 				<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -61,7 +62,7 @@
 					</div>
 				</div>
 			</div> 
-		</div>
+		</div> --%>
 	</div>
 	<br>
 	<br>
