@@ -9,8 +9,7 @@
 		<a class="navbar-brand" href="<c:url value='/'/>" style="margin-rigth: auto; font-size: 2rem;">
 			<img src="<c:url value='/images/home/logo.jpg'/>" id="logotop" width="50px" height="50px" class="d-inline-block align-top">
 			<span class="logotitle">야 관 문</span>
-		</a>
-
+		</a> 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav" style="margin: auto">
 				<li class="nav-item active">
@@ -25,7 +24,7 @@
 			</ul>
 		</div>
 		<div class="dropdown ml-auto">
-			<button class="btn btn-outline-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="btn btn-outline-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fas fa-user"></i>
 			</button>
 			<c:if test="${member == null}">
