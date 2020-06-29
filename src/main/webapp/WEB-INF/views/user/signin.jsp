@@ -13,7 +13,7 @@
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />	
 	<div class="container" style="margin-top: 5rem;">
-		<form class="form-group" method="post" action="<c:url value='/user/signin/'/>">
+		<form class="form-group" style="font-family: 'Do Hyeon', sans-serif" method="post" action="<c:url value='/user/signin/'/>">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">

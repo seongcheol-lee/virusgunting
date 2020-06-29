@@ -34,6 +34,7 @@
 			<div>
 				<span class="user">${post.postUserName}&nbsp;&nbsp;</span>
 				<span class="date">${post.postDateTime}</span>
+				<span class="count" style="font-size:70%">&nbsp;&nbsp;조회수 : ${post.postViews}</span>
 			</div>
 
 		</div>
