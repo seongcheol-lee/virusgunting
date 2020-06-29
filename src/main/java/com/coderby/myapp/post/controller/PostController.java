@@ -110,7 +110,10 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/post/insert", method = RequestMethod.POST)
-	public String insertPost(PostVO post, Model model) {
+	public String insertPost(PostVO post, Model model) { 
+		if(post.getPostSubject().equals("자유") ) {
+			post.setPostDisease("자유");
+		}
 		postService.insertPost(post);
 		return "redirect:/post/list";
 	}
@@ -125,8 +128,11 @@ public class PostController {
 
 	@RequestMapping(value = "/post/update", method = RequestMethod.POST)
 	public String updatePost(PostVO post, Model model) {
+		if(post.getPostSubject().equals("자유") ) {
+			post.setPostDisease("자유");
+		}
 		postService.updatePost(post);
-		return "redirect:/post/list";
+		return "redirect:/post/"+ post.getPostId();
 	}
 
 	@RequestMapping(value = "/post/responded/{postId}", method = RequestMethod.POST)

@@ -5,7 +5,6 @@
 <head>
 <title>야관문</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
-<link rel="stylesheet" href="<c:url value='/css/post/list.css'/>">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -37,28 +36,37 @@
 			<input type="hidden" name="userId" value="${member.userId}" required />
 			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="상담 남기기">
 		</form>
-		<c:if test="${member.userAdmin == 1}">
-			<table class="table">
-				<thead class="head">
+		<div class="table-responsive-sm">
+			<table class="table table-hover">
+				<thead align="center">
 					<tr>
 						<th width="20%">글 번호</th>
-						<th width="60%">제목</th> 
+						<th width="60%">제목</th>
 						<th width="20%">이메일</th>
 					</tr>
 				</thead>
 				<tbody class="body">
 					<c:forEach var="consult" items="${consultList}">
 						<tr>
-							<td>${consult.consultId}</td>
-							<td>
+							<td align="center">${consult.consultId}</td>
+							<td align="center">
 								<a href="<c:url value='/consult/${consult.consultId}'/>">${consult.consultTitle}</a>
 							</td>
-							<td>${consult.consultEmail}</td>
+							<c:choose>
+								<c:when test="${member.userAdmin == 1 || member.userId == consult.userId}">
+									<td align="center">${consult.consultEmail}</td>
+								</c:when>
+								<c:otherwise>
+									<td></td>
+								</c:otherwise>
+							</c:choose>
 						</tr>
+
 					</c:forEach>
 				</tbody>
 			</table>
-		</c:if>
+		</div>
+
 	</div>
 </body>
 </html>

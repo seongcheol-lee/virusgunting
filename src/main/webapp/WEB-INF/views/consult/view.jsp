@@ -21,15 +21,24 @@
 		<hr>
 		<div>
 			<h1 class="title">${consult.consultTitle}</h1>
-			<div>
-				<span class="user">${consult.consultUserName} </span>
-				<span class="date">ㆍ ${consult.consultEmail} </span>
-			</div>
+			<c:choose>
+				<c:when test="${member.userAdmin == 1 || member.userId == consult.userId}">
+					<div>
+						<span class="user">${consult.consultUserName} </span>
+						<span class="date">ㆍ ${consult.consultEmail} </span>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div>
+						<span class="user">&nbsp;</span>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		<hr>
-		<div class="content-wrap"> 
+		<div class="content-wrap">
 			<p>${consult.consultContent}</p>
-		</div> 
+		</div>
 	</div>
 </body>
 </html>
