@@ -37,28 +37,37 @@
 			<input type="hidden" name="userId" value="${member.userId}" required />
 			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="상담 남기기">
 		</form>
-		<c:if test="${member.userAdmin == 1}">
-			<table class="table">
-				<thead class="head">
+
+		<table class="table">
+			<thead class="head">
+				<tr>
+					<th width="20%">글 번호</th>
+					<th width="60%">제목</th>
+					<th width="20%">이메일</th>
+				</tr>
+			</thead>
+			<tbody class="body">
+				<c:forEach var="consult" items="${consultList}">
+
 					<tr>
-						<th width="20%">글 번호</th>
-						<th width="60%">제목</th> 
-						<th width="20%">이메일</th>
+						<td>${consult.consultId}</td>
+						<td>
+							<a href="<c:url value='/consult/${consult.consultId}'/>">${consult.consultTitle}</a>
+						</td>
+						<c:choose>
+							<c:when test="${member.userAdmin == 1 || member.userId == consult.userId}">
+								<td>${consult.consultEmail}</td>
+							</c:when>
+							<c:otherwise>
+								<td>-</td>
+							</c:otherwise>
+						</c:choose>
 					</tr>
-				</thead>
-				<tbody class="body">
-					<c:forEach var="consult" items="${consultList}">
-						<tr>
-							<td>${consult.consultId}</td>
-							<td>
-								<a href="<c:url value='/consult/${consult.consultId}'/>">${consult.consultTitle}</a>
-							</td>
-							<td>${consult.consultEmail}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</c:if>
+
+				</c:forEach>
+			</tbody>
+		</table>
+
 	</div>
 </body>
 </html>

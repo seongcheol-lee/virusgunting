@@ -30,9 +30,10 @@
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">주제 선택</label>
 				<select name="postSubject" class="form-control" id="exampleFormControlSelect1">
+					<option value="정보">정보</option>
 					<option value="경험">경험</option>
 					<option value="질문">질문</option>
-					<option value="정보">정보</option>
+					<option value="자유">자유</option>
 				</select>
 			</div>
 			<div class="form-group">

@@ -15,11 +15,18 @@
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
 	<div class="container mt-5 mb-5">
-		<span class="subtitle">
-			여러분의 따뜻한 말 한마디가
-			<span style="color: rgb(23, 162, 184); font-weight: 700">${post.postUserName} </span>
-			님에게 힘이 됩니다!
-		</span>
+		<div>
+			<span class="subtitle">
+				여러분의 따뜻한 말 한마디가
+				<span style="color: rgb(23, 162, 184); font-weight: 700">${post.postUserName} </span>
+				님에게 힘이 됩니다!
+			</span>
+		</div>
+		<div class="fixed-top btn-back">
+			<a class="btn btn-info btn-lg" href="<c:url value='/post/list'/>">
+				<i class="fas fa-long-arrow-alt-left"></i>
+			</a>
+		</div>
 		<hr>
 		<div>
 			<span class="category">${post.postDisease}-${post.postSubject}</span>
@@ -153,6 +160,11 @@
 	</div>
 </body>
 <style>
+.fixed-top {
+	
+	left: 85% !important;
+	top: 25% !important;
+}
 </style>
 <script>
 	function validate() {
