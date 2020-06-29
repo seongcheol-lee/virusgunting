@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <title>야관문</title>
 <meta charset="UTF-8">
@@ -34,7 +35,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/bb1.jpg'/>"
+						<img src="<c:url value='/images/home/bb.jpg'/>"
 							class="d-block w-100">
 
 						<div class="card-body">
@@ -47,7 +48,7 @@
 				</div>
 				<div class="col">
 					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/hairloss1.jpg'/>"
+						<img src="<c:url value='/images/home/hairloss.jpg'/>"
 							class="d-block w-100" alt="...">
 
 						<div class="card-body">
@@ -60,7 +61,7 @@
 				</div>
 				<div class="col">
 					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/hemor1.jpg'/>"
+						<img src="<c:url value='/images/home/hemor.jpg'/>"
 							class="d-block w-100" alt="...">
 
 						<div class="card-body">
@@ -75,7 +76,7 @@
 				<hr>
 				<div class="col">
 					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/foot1.jpg'/>"
+						<img src="<c:url value='/images/home/foot2.jpg'/>"
 							class="d-block w-100">
 
 						<div class="card-body">
@@ -88,7 +89,7 @@
 				</div>
 				<div class="col">
 					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/face1.jpg'/>"
+						<img src="<c:url value='/images/home/face.jpg'/>"
 							class="d-block w-100" alt="...">
 
 						<div class="card-body">
@@ -99,7 +100,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col"></div>
+				<div class="col">
+					<img src="<c:url value='/images/home/donkey.gif'/>"
+						class="d-block w-100" alt="...">
+				</div>
 			</div>
 		</div>
 		<hr>
