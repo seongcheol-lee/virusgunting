@@ -47,8 +47,7 @@
 				</tr>
 			</thead>
 			<tbody class="body">
-				<c:forEach var="consult" items="${consultList}">
-
+				<c:forEach var="consult" items="${consultList}"> 
 					<tr>
 						<td>${consult.consultId}</td>
 						<td>
