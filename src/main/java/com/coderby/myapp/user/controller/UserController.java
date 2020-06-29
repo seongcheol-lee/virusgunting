@@ -55,13 +55,10 @@ public class UserController {
 		if (login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
-			return "redirect:/user/signin";
-
 		} else {
 			session.setAttribute("member", login);
-			return "redirect:/";
 		}
-
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/user/signout", method = RequestMethod.GET)

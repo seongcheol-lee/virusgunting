@@ -20,7 +20,7 @@
 		</span>
 		<hr>
 		<div>
-			<h1 class="title">${consult.consultTitle}</h1> 
+			<h1 class="title">${consult.consultTitle}</h1>
 			<c:choose>
 				<c:when test="${member.userAdmin == 1 || member.userId == consult.userId}">
 					<div>
@@ -30,7 +30,7 @@
 				</c:when>
 				<c:otherwise>
 					<div>
-						<span class="user"> - </span>
+						<span class="user">&nbsp;</span>
 					</div>
 				</c:otherwise>
 			</c:choose>
