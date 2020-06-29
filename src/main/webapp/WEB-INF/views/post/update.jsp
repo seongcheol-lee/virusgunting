@@ -14,7 +14,7 @@
 	<div class="container mt-5">
 		<span class="subtitle">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
 		<hr>
-		<form method="POST" onsubmit="return validate()" action="<c:url value='/post/update'/>">
+		<form method="POST" onsubmit="return validate()" action="<c:url value='/post/update'/>" >
 			<input type="hidden" name="postId" value="${post.postId}" />
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">질병 선택</label>
@@ -29,9 +29,10 @@
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">주제 선택</label>
 				<select name="postSubject" class="form-control" id="exampleFormControlSelect1">
+					<option value="정보">정보</option>
 					<option value="경험">경험</option>
 					<option value="질문">질문</option>
-					<option value="정보">정보</option>
+					<option value="자유">자유</option>
 				</select>
 			</div>
 			<div class="form-group">
