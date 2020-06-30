@@ -32,11 +32,12 @@ public class UserController {
 	public String userSignup(UserVO user, RedirectAttributes rttr) {
 		UserVO check = userService.checkUser(user);
 
-		if (check != null) {
-			rttr.addFlashAttribute("msg", false);
+		if (check != null) { 
+			rttr.addFlashAttribute("msg", "signupfail");
 			return "redirect:/user/signup";
-		} else if (check == null) {
+		} else if (check == null) { 
 			userService.signupUser(user);
+			rttr.addFlashAttribute("msg", "signupsuccess");
 		}
 		return "redirect:/";
 
@@ -49,21 +50,22 @@ public class UserController {
 
 	@RequestMapping(value = "/user/signin", method = RequestMethod.POST)
 	public String userSignin(UserVO user, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
-
+		String referer = req.getHeader("Referer");
 		HttpSession session = req.getSession();
 		UserVO login = userService.signinUser(user);
 		if (login == null) {
 			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
+			rttr.addFlashAttribute("msg", "loginfail");
 		} else {
 			session.setAttribute("member", login);
+			rttr.addFlashAttribute("msg", "loginsuccess");
 		}
 		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/user/signout", method = RequestMethod.GET)
-	public String logout(HttpSession session) throws Exception {
-
+	public String logout(HttpSession session,RedirectAttributes rttr) throws Exception {
+		rttr.addFlashAttribute("msg", "logout");
 		session.invalidate();
 
 		return "redirect:/";

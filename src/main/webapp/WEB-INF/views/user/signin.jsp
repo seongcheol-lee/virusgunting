@@ -3,16 +3,11 @@
 <html>
 <head>
 <title>야관문</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/user/signin.js'/>"></script> 
-<link rel="stylesheet" href="<c:url value='/css/user/signup.css'/>">
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />	
-	<div class="container" style="margin-top: 5rem;">
+	<div class="container"  >
 		<form class="form-group" style="font-family: 'Do Hyeon', sans-serif" method="post" action="<c:url value='/user/signin/'/>">
 			<div class="form-group">
 				<div class="row">
@@ -32,7 +27,7 @@
 				</div>
 			</div>
 			<div align="center">
-				<c:if test="${msg == false}">
+				<c:if test="${msg=='loginfail'}">
 					<p class="font-weight-bold" style="color: red;">로그인에 실패했습니다</p>
 				</c:if>
 				<input class="btn btn-outline-info" type="submit" value="로그인" />

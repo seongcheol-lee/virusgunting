@@ -2,6 +2,7 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="ko">
 <head>
 <title>야관문</title>
@@ -30,6 +31,15 @@
 
 
 	<div class="container mt-5 mb-5">
+=======
+<html>
+<head>
+<title>야관문</title>
+</head>
+<body>
+	<jsp:include page="../nav.jsp" flush="true" />
+	<div class="container ">
+>>>>>>> upstream/master
 		<span class="subtitle">늦기전에 스스로 확인하세요!</span>
 		<div class="container">
 			<div class="row">
@@ -108,12 +118,5 @@
 		</div>
 		<hr>
 	</div>
-</body>
-<style>
-.subtitle {
-	font-size: 25px;
-	color: grey;
-	font-family: 'Do Hyeon', sans-serif;
-}
-</style>
+</body> 
 </html>
