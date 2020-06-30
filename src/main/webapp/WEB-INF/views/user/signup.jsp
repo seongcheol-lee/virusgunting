@@ -11,7 +11,7 @@
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
 	<div class="container" >
-		<form class="form-group" style="font-family: 'Do Hyeon', sans-serif" method="post" onsubmit="return validate()" action="<c:url value='/user/signup'/>">
+		<form class="form-group font-nanum"  method="post" onsubmit="return validate()" action="<c:url value='/user/signup'/>">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">
@@ -41,12 +41,13 @@
 			</div>
 			<div align="center">
 				<c:if test="${msg=='signupfail'}">
-					<p class="font-weight-bold" style="color: red;">동일한 아이디가 있습니다.</p>
+					<p class="font-weight-bold font-nanum" style="color: red;">동일한 아이디가 있습니다.</p>
 				</c:if>
 				<input class="btn btn-outline-info" type="submit" value="회원가입" />
 			</div>
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 <style>
 .explain {

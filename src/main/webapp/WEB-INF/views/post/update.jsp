@@ -43,6 +43,7 @@
 			<input type="submit" class="btn btn-danger btn-lg" value="글수정">
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 <style>
 .subtitle {

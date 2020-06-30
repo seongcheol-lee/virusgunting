@@ -35,5 +35,6 @@
 			<p>${consult.consultContent}</p>
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

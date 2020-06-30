@@ -7,7 +7,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container ">
+	<div class="container mb-5">
 		<span class="subtitle">늦기전에 스스로 확인하세요!</span>
 		<hr>
 		<button onclick="location.href='<c:url value='/test/bbT'/>'" type="button" class="btn btn-outline-secondary btn-lg btn-block">변비 자가진단</button>

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container  ">
+	<div class="container mb-5 ">
 		<span class="subtitle">${msg}</span>
 		<hr>
 		<div align="center">

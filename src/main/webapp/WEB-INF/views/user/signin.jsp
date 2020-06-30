@@ -8,7 +8,7 @@
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />	
 	<div class="container"  >
-		<form class="form-group" style="font-family: 'Do Hyeon', sans-serif" method="post" action="<c:url value='/user/signin/'/>">
+		<form class="form-group font-nanum" method="post" action="<c:url value='/user/signin/'/>">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">
@@ -21,18 +21,19 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">
-						<label for="password">비밀번호</label>
+						<label for="password" class="">비밀번호</label>
 						<input class="form-control" id="password" type="password" name="userPass" required />
 					</div>
 				</div>
 			</div>
 			<div align="center">
 				<c:if test="${msg=='loginfail'}">
-					<p class="font-weight-bold" style="color: red;">로그인에 실패했습니다</p>
+					<p class="font-weight-bold font-nanum" style="color: red;">로그인에 실패했습니다</p>
 				</c:if>
 				<input class="btn btn-outline-info" type="submit" value="로그인" />
 			</div>
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

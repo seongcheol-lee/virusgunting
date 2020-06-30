@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container ">
+	<div class="container mb-5">
 		<div>
 			<span class="subtitle">
 				여러분의 따뜻한 말 한마디가
@@ -175,5 +175,6 @@
 			</c:if>
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

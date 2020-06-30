@@ -7,12 +7,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Document</title>
- </head>
+</head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container " align="center">
+	<div class="container mb-5 " align="center">
 		<form action="<c:url value='/test/cjT/result'/>">
-			<h1 class="font-do">치질 자가진단</h1>
+			<h1 class="font-nanum">치질 자가진단</h1>
 			<table class="table">
 				<thead>
 					<tr>

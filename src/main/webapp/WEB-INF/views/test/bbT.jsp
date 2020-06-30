@@ -9,9 +9,9 @@
  </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container " align="center">
+	<div class="container mb-5 " align="center">
 		<form action="<c:url value='/test/bbT/result'/>">
-			<h1 class="font-do">변비 자가진단</h1>
+			<h1 class="font-nanum">변비 자가진단</h1>
 			<table class="table">
 				<thead>
 					<tr>

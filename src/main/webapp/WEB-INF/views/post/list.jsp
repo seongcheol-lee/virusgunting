@@ -82,8 +82,8 @@
 			<a href="<c:url value='/post/insert'/>">
 				<button class="btn btn-outline-info btn-sm">글쓰기</button>
 			</a>
-
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body> 
 </html>

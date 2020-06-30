@@ -8,7 +8,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container ">
+	<div class="container mb-5">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
@@ -62,7 +62,7 @@
 				</tbody>
 			</table>
 		</div>
-
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>
