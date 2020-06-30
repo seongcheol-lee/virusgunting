@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Nanum+Brush+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.nav-item {
+	font-size: 1.5rem !important;
+}
+
+.logotitle {
+	color: black;
+	font-weight: 100;
+	font-family: 'GUNGSUHCHE';
+}
+
+.font-nato {
+	font-family: 'Nato Sans', sans-serif;
+}
+
+.font-do {
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.subtitle {
+	font-size: 1.5rem;
+	color: grey;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+a:link, a:visited, a:hover, a:active {
+	color: #555555;
+}

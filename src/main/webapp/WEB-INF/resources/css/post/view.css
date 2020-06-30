@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
@@ -9,11 +9,11 @@
 	padding-right: 1.5rem;
 }
 
-.subtitle {
-	font-size: 25px;
-	color: grey;
-	font-family: 'Do Hyeon', sans-serif;
+.fixed-top {
+	left: 87% !important;
+	top: 15% !important;
 }
+ 
 
 .comment-wrap {
 	margin-top: 1.5rem;

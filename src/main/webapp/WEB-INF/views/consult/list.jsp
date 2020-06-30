@@ -5,14 +5,10 @@
 <head>
 <title>야관문</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5 mb-5">
+	<div class="container ">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
