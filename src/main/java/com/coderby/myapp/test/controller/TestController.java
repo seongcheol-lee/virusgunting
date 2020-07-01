@@ -30,8 +30,10 @@ public class TestController {
 		model.addAttribute("url", url);
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
+			model.addAttribute("type", "");
 		} else {
 			model.addAttribute("msg", "변비비켜! 내일부터 아침은 요거트!!");
+			model.addAttribute("type", "변비 ");
 		}
 		return "/test/result";
 	}
@@ -47,8 +49,12 @@ public class TestController {
 		model.addAttribute("url", url);
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
+			model.addAttribute("type", "");
+
 		} else {
 			model.addAttribute("msg", "빨리 도넛방석 놔드려야겠어요!!");
+			model.addAttribute("type", "치질 ");
+
 		}
 		return "/test/result";
 	}
@@ -64,8 +70,12 @@ public class TestController {
 		model.addAttribute("url", url);
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
+			model.addAttribute("type", "");
+
 		} else {
 			model.addAttribute("msg", "부끄러워 하지마세요!발가락 양말!!");
+			model.addAttribute("type", "무좀 ");
+
 		}
 		return "/test/result";
 	}
@@ -81,8 +91,12 @@ public class TestController {
 		model.addAttribute("url", url);
 		if (url.equals("enjoy.jpg")) {
 			model.addAttribute("msg", "인생을 즐기세요!");
+			model.addAttribute("type", "");
+
 		} else {
 			model.addAttribute("msg", "탈모는 피부과에서!!");
+			model.addAttribute("type", "탈모 ");
+
 		}
 		return "/test/result";
 	}
@@ -97,9 +111,13 @@ public class TestController {
 		String url = testService.ydResult(request);
 		model.addAttribute("url", url);
 		if (url.equals("enjoy.jpg")) {
-			model.addAttribute("msg", "인생을 즐겨라!");
+			model.addAttribute("msg", "인생을 즐기세요!");
+			model.addAttribute("type", "");
+
 		} else {
 			model.addAttribute("msg", "세수하세요! 두 번 하세요!");
+			model.addAttribute("type", "여드름 ");
+
 		}
 		return "/test/result";
 	}
