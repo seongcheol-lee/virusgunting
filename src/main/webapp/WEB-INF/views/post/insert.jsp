@@ -44,6 +44,8 @@
 			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="글쓰기">
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
+	 
 </body>
 <style>
 .subtitle {

@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
-
 <link rel="stylesheet" href="<c:url value='/css/main.css'/>">
 <script src="https://kit.fontawesome.com/5ac56ffa94.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -8,25 +7,25 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-info"  >
+<nav class="navbar navbar-expand-md navbar-dark bg-dark font-nanum">
 	<a class="navbar-brand ml-3" href="<c:url value='/'/>" style="margin-rigth: auto; font-size: 2rem;">
-		<img src="<c:url value='/images/home/logo.jpg'/>" id="logotop" width="50px" height="50px" class="d-inline-block align-top">
-		<span class="logotitle">야 관 문</span>
+		<img src="<c:url value='/images/home/donkey.png'/>" id="logotop" width="50px" height="50px" class="d-inline-block align-top">
+		<span class="logotitle">YAGWANMOON</span>
 	</a>
 	<div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
-		<ul class="navbar-nav">
+		<ul class="navbar-nav font-nav">
 			<li class="nav-item active ">
-				<a class="nav-link font-do" href="<c:url value='/test/start'/>">자가진단</a>
+				<a class="nav-link " href="<c:url value='/test/start'/>">Test</a>
 			</li>
 			<li class="nav-item active ml-5">
-				<a href="<c:url value='/post/list'/>" class="nav-link font-do ml-3">게시판</a>
+				<a href="<c:url value='/post/list'/>" class="nav-link ml-3">Board</a>
 			</li>
 			<li class="nav-item active ml-5">
-				<a href="<c:url value='/consult/list'/>" class="nav-link font-do ml-3">상담하기</a>
+				<a href="<c:url value='/consult/list'/>" class="nav-link ml-3">Consult</a>
 			</li>
 		</ul>
 	</div>
-	<div class="dropdown ml-auto mr-4">
+	<div class="dropdown ml-auto mr-4 ">
 		<button class="btn btn-outline-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<i class="fas fa-user"></i>
 		</button>
@@ -44,10 +43,10 @@
 					<div class="d-flex justify-content-center">
 						<c:choose>
 							<c:when test="${msg=='loginfail'}">
-								<p class="font-weight-bold" style="color: red;">로그인에 실패했습니다</p>
+								<p class="font-weight-bold font-nanum" style="color: red;">로그인에 실패했습니다</p>
 							</c:when>
 							<c:when test="${member != false}">
-								<p class="font-weight-bold" style="color: gray;">환영합니다. 야관문 입니다.</p>
+								<p class="font-weight-bold font-nanum" style="color: gray;">환영합니다. 야관문 입니다.</p>
 							</c:when>
 						</c:choose>
 					</div>
@@ -75,8 +74,8 @@
 	</div>
 </nav>
 
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 5rem;">
-	<div class="toast" style="position: absolute; top: 10%; right: 45%;"> 
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 5rem;" >
+	<div class="toast " style="position: absolute; top: 10%; right: 45%;" data-delay="1500">
 		<c:choose>
 			<c:when test="${msg=='loginfail'}">
 				<div class="toast-header">

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container ">
+	<div class="container mb-5">
 		<div>
 			<span class="subtitle">
 				여러분의 따뜻한 말 한마디가
@@ -29,8 +29,7 @@
 			<h1 class="title">${post.postTitle}</h1>
 			<div>
 				<span class="user">${post.postUserName}&nbsp;&nbsp;</span>
-				<span class="date">${post.postDateTime}</span>
-				<span class="count" style="font-size: 70%">&nbsp;&nbsp;조회수 : ${post.postViews}</span>
+				<span class="date">${post.postDateTime}</span> 
 			</div>
 
 		</div>
@@ -175,5 +174,6 @@
 			</c:if>
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

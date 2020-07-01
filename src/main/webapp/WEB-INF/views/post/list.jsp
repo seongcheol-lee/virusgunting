@@ -27,12 +27,11 @@
 			<table class="table table-hover">
 				<thead align="center">
 					<tr>
-						<th width="8%">글 번호</th>
-						<th width="8%">질병</th>
-						<th width="30%">제목</th>
+						<th width="10%">글 번호</th>
+						<th width="10%">질병</th>
+						<th width="32%">제목</th>
 						<th width="14%">작성자</th>
-						<th width="8%">작성일</th>
-						<th width="8%">조회수</th>
+						<th width="10%">작성일</th> 
 						<th width="10%">추천수</th>
 						<th width="14%">답변상황</th>
 					</tr>
@@ -50,7 +49,6 @@
 								<fmt:parseDate value="${post.postDateTime}" var="noticePostDate" pattern="yyyy-MM-dd" />
 								<fmt:formatDate value="${noticePostDate}" pattern="MM.dd" />
 							</td>
-							<td align="center">${post.postViews}</td>
 							<td align="center">${post.postLikes-post.postDisLikes}</td>
 							<c:if test="${post.postSubject eq '질문'}">
 								<c:if test="${post.postResponded == '1'}">
@@ -82,8 +80,8 @@
 			<a href="<c:url value='/post/insert'/>">
 				<button class="btn btn-outline-info btn-sm">글쓰기</button>
 			</a>
-
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body> 
 </html>
