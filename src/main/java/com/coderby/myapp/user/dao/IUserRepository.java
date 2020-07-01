@@ -15,4 +15,6 @@ public interface IUserRepository {
 	void signupUser(UserVO user);
 	UserVO checkUser(UserVO user);
 	UserVO signinUser(UserVO user);
+	UserVO checkWithdrawal(UserVO user);
+	void withdrawalUser(UserVO user);
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />	
-	<div class="container"  >
+	<div class="container" style="min-height:100%;"  >
 		<form class="form-group font-nanum" method="post" action="<c:url value='/user/signin/'/>">
 			<div class="form-group">
 				<div class="row">
