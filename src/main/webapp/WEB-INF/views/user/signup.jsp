@@ -3,7 +3,9 @@
 <html>
 
 <head>
-<title>야관문</title> 
+<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<title>야관문 : 회원가입</title> 
 <script type="text/javascript" src="<c:url value='/js/user/signup.js'/>"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
 </head>
