@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
 <title>야관문 : 자가진단</title>
 
 <meta charset="utf-8">

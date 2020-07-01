@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="shortcut icon" href="http://localhost:8888/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
 <title>야관문 : 자가진단</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

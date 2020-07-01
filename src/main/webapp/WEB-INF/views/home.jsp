@@ -2,6 +2,8 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
+<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
 <title>야관문</title>
 <style>
 </style>
