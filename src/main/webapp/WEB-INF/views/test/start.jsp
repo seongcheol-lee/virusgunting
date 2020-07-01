@@ -2,10 +2,9 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="ko">
 <head>
-<title>야관문</title>
+<title>야관문 : 자가진단</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -27,96 +26,88 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-
-
-
-	<div class="container mt-5 mb-5">
-=======
-<html>
-<head>
-<title>야관문</title>
-</head>
-<body>
-	<jsp:include page="../nav.jsp" flush="true" />
 	<div class="container ">
->>>>>>> upstream/master
 		<span class="subtitle">늦기전에 스스로 확인하세요!</span>
 		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/bb.jpg'/>"
-							class="d-block w-100">
 
-						<div class="card-body">
-							<button onclick="location.href='<c:url value='/test/bbT'/>'"
-								type="button"
-								class="btn btn-outline-secondary btn-lg btn-block mt-3">변비
-								자가진단</button>
+
+
+			<div class="container">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+					<div class="col">
+						<div class="card" style="width: 18rem;" md-3>
+							<img src="<c:url value='/images/home/bb.jpg'/>"
+								class="d-block w-100">
+
+							<div class="card-body">
+								<button onclick="location.href='<c:url value='/test/bbT'/>'"
+									type="button"
+									class="btn btn-outline-secondary btn-lg btn-block mt-3">변비
+									자가진단</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/hairloss.jpg'/>"
-							class="d-block w-100" alt="...">
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="<c:url value='/images/home/hairloss.jpg'/>"
+								class="d-block w-100" alt="...">
 
-						<div class="card-body">
-							<button onclick="location.href='<c:url value='/test/tmT'/>'"
-								type="button"
-								class="btn btn-outline-secondary btn-lg btn-block mt-3">탈모
-								자가진단</button>
+							<div class="card-body">
+								<button onclick="location.href='<c:url value='/test/tmT'/>'"
+									type="button"
+									class="btn btn-outline-secondary btn-lg btn-block mt-3">탈모
+									자가진단</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/hemor.jpg'/>"
-							class="d-block w-100" alt="...">
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="<c:url value='/images/home/hemor.jpg'/>"
+								class="d-block w-100" alt="...">
 
-						<div class="card-body">
-							<button onclick="location.href='<c:url value='/test/cjT'/>'"
-								type="button"
-								class="btn btn-outline-secondary btn-lg btn-block mt-3">치질
-								자가진단</button>
+							<div class="card-body">
+								<button onclick="location.href='<c:url value='/test/cjT'/>'"
+									type="button"
+									class="btn btn-outline-secondary btn-lg btn-block mt-3">치질
+									자가진단</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="w-100"></div>
-				<hr>
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/foot2.jpg'/>"
-							class="d-block w-100">
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="<c:url value='/images/home/foot2.jpg'/>"
+								class="d-block w-100">
 
-						<div class="card-body">
-							<button onclick="location.href='<c:url value='/test/mjT'/>'"
-								type="button"
-								class="btn btn-outline-secondary btn-lg btn-block mt-3">무좀
-								자가진단</button>
+							<div class="card-body">
+								<button onclick="location.href='<c:url value='/test/mjT'/>'"
+									type="button"
+									class="btn btn-outline-secondary btn-lg btn-block mt-3">무좀
+									자가진단</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="<c:url value='/images/home/face.jpg'/>"
-							class="d-block w-100" alt="...">
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="<c:url value='/images/home/face.jpg'/>"
+								class="d-block w-100" alt="...">
 
-						<div class="card-body">
-							<button onclick="location.href='<c:url value='/test/ydT'/>'"
-								type="button"
-								class="btn btn-outline-secondary btn-lg btn-block mt-3">여드름
-								자가진단</button>
+							<div class="card-body">
+								<button onclick="location.href='<c:url value='/test/ydT'/>'"
+									type="button"
+									class="btn btn-outline-secondary btn-lg btn-block mt-3">여드름
+									자가진단</button>
+							</div>
 						</div>
+						
 					</div>
-				</div>
-				<div class="col">
-					<img src="<c:url value='/images/home/donkey.gif'/>"
-						class="d-block w-100" alt="...">
 				</div>
 			</div>
-		</div>
+
+
+
+
+
 		<hr>
 	</div>
-</body> 
+</body>
 </html>
