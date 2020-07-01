@@ -12,7 +12,7 @@
 
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container" >
+	<div class="container" style="min-height:100%;" >
 		<form class="form-group font-nanum"  method="post" onsubmit="return validate()" action="<c:url value='/user/signup'/>">
 			<div class="form-group">
 				<div class="row">

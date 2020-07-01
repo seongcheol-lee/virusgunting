@@ -49,13 +49,13 @@ public class PostController {
 
 		int views = post.getPostViews();
 		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
- 
+
 		model.addAttribute("post", post);
 		List<CommentVO> commentList = commentService.getCommentList(postId);
 		model.addAttribute("commentList", commentList);
 
 		UserVO user = (UserVO) session.getAttribute("member");
-		int like_check,dislike_check;
+		int like_check, dislike_check;
 		if (user != null) {
 			like_check = postService.checklikePost(postId, user.getUserId());
 			dislike_check = postService.checkdislikePost(postId, user.getUserId());

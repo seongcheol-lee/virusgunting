@@ -60,21 +60,24 @@
 			</div>
 		</c:if>
 		<c:if test="${member != null }">
-			<div class="dropdown-menu dropdown-menu-right p-4" style="width: 10em; height: 7em;">
+			<div class="dropdown-menu dropdown-menu-right p-4" style="width: 19em; height: 7em;">
 				<div class="d-flex justify-content-center">
-					<p>${member.userName}</p>
+					<p>${member.userName} 님 안녕하세요</p>
 				</div>
 				<div class="d-flex justify-content-center">
 					<form class="form-group" action="<c:url value='/user/signout'/>">
 						<button class="btn font-do" type="submit">로그아웃</button>
+					</form> 
+					<form class="form-group" action="<c:url value='/user/withdrawal'/>">
+						<button class="btn font-do" type="submit">회원탈퇴</button>
 					</form>
-				</div>
+				</div> 
 			</div>
 		</c:if>
 	</div>
 </nav>
 
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 5rem;" >
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 5rem;">
 	<div class="toast " style="position: absolute; top: 10%; right: 45%;" data-delay="1500">
 		<c:choose>
 			<c:when test="${msg=='loginfail'}">
@@ -121,6 +124,24 @@
 					</button>
 				</div>
 				<div class="toast-body">로그아웃 했습니다.</div>
+			</c:when>
+			<c:when test="${msg=='withdrawalsuccess'}">
+				<div class="toast-header">
+					<strong class="mr-auto">야관문</strong>
+					<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="toast-body">회원탈퇴를 성공했습니다.</div>
+			</c:when>
+			<c:when test="${msg=='withdrawalfail'}">
+				<div class="toast-header">
+					<strong class="mr-auto">야관문</strong>
+					<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="toast-body">회원탈퇴를 실패했습니다.</div>
 			</c:when>
 		</c:choose>
 	</div>

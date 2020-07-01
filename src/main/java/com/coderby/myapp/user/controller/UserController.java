@@ -19,7 +19,7 @@ import com.coderby.myapp.user.model.UserVO;
 import com.coderby.myapp.user.service.IUserService;
 
 @Controller
-public class UserController { 
+public class UserController {
 	@Autowired
 	IUserService userService;
 
@@ -32,10 +32,10 @@ public class UserController {
 	public String userSignup(UserVO user, RedirectAttributes rttr) {
 		UserVO check = userService.checkUser(user);
 
-		if (check != null) { 
+		if (check != null) {
 			rttr.addFlashAttribute("msg", "signupfail");
 			return "redirect:/user/signup";
-		} else if (check == null) { 
+		} else if (check == null) {
 			userService.signupUser(user);
 			rttr.addFlashAttribute("msg", "signupsuccess");
 		}
@@ -64,11 +64,39 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/signout", method = RequestMethod.GET)
-	public String logout(HttpSession session,RedirectAttributes rttr) throws Exception {
+	public String logout(HttpSession session, RedirectAttributes rttr) throws Exception {
 		rttr.addFlashAttribute("msg", "logout");
 		session.invalidate();
 
 		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/user/withdrawal", method = RequestMethod.GET)
+	public String userWithdrawal(Model model, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UserVO login = (UserVO) session.getAttribute("member");
+
+		if (login == null) {
+			return "redirect:/user/signin";
+		}
+		return "/user/withdrawal";
+	}
+
+	@RequestMapping(value = "/user/withdrawal", method = RequestMethod.POST)
+	public String userWithdrawal(UserVO user, HttpServletRequest req, RedirectAttributes rttr) {
+
+		HttpSession session = req.getSession(); 
+		UserVO check = userService.checkWithdrawal(user);
+		if (check != null) {
+			userService.withdrawalUser(user);
+			session.invalidate();
+			rttr.addFlashAttribute("msg", "withdrawalsuccess");
+			return "redirect:/";
+		} else if (check == null) {
+			rttr.addFlashAttribute("msg", "withdrawalfail");
+			return "redirect:/user/withdrawal";
+		}
+		return "redirect:/user/withdrawal";
 	}
 
 }
