@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>야관문</title>
+<title>야관문 : 자가진단</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- </head>
+</head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
 	<div class="container mb-5 " align="center">
 		<form action="<c:url value='/test/bbT/result'/>">
 			<h1 class="font-nanum">변비 자가진단</h1>
-			<table class="table">
+			<table class="table mt-5">
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
@@ -99,6 +99,7 @@
 			</div>
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 
 </html>

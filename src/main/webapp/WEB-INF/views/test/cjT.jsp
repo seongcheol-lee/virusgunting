@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>야관문</title>
+<title>야관문 : 자가진단</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Document</title>
@@ -13,7 +13,7 @@
 	<div class="container mb-5 " align="center">
 		<form action="<c:url value='/test/cjT/result'/>">
 			<h1 class="font-nanum">치질 자가진단</h1>
-			<table class="table">
+			<table class="table mt-5">
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
@@ -113,5 +113,6 @@
 			<input type="submit" class="btn btn-outline-info" value="결과보기">
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

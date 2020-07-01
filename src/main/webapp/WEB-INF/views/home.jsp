@@ -11,12 +11,12 @@
 	<div class="container" align="center">
 		<p style="font-size: 4rem; font-weight: 700;" class="font-shadow">
 			After
-			<span style="color: red">
+			<span style="color: red;">
 				Hell
 				<i class="fas fa-bomb"></i>
 			</span>
 			, The
-			<span>
+			<span style="color:#31B2A1;">
 				Doctor
 				<i class="fas fa-user-nurse"></i>
 			</span>

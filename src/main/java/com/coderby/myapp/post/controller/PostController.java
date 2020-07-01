@@ -49,34 +49,7 @@ public class PostController {
 
 		int views = post.getPostViews();
 		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
-
-		Cookie[] cookies = request.getCookies();
-		ModelAndView view = new ModelAndView();
-		// 비교하기 위해 새로운 쿠키
-		Cookie viewCookie = null;
-		// 쿠키가 있을 경우
-		if (cookies != null && cookies.length > 0) {
-			for (int i = 0; i < cookies.length; i++) {
-				// Cookie의 name이 cookie + reviewNo와 일치하는 쿠키를 viewCookie에 넣어줌
-				if (cookies[i].getName().equals("cookie" + postId)) {
-					viewCookie = cookies[i];
-				}
-			}
-		}
-		if (post != null) {
-			view.addObject("review", postId);
-			// 만일 viewCookie가 null일 경우 쿠키를 생성해서 조회수 증가 로직을 처리함.
-			if (viewCookie == null) {
-				// 쿠키 생성(이름, 값)
-				Cookie newCookie = new Cookie("cookie" + postId, "|" + postId + "|");
-				// 쿠키 추가
-				response.addCookie(newCookie);
-				// 쿠키를 추가 시키고 조회수 증가시킴
-				postService.upPostView(postId, views + 1);
-				post.setPostViews(views + 1);
-			}
-		}
-
+ 
 		model.addAttribute("post", post);
 		List<CommentVO> commentList = commentService.getCommentList(postId);
 		model.addAttribute("commentList", commentList);
