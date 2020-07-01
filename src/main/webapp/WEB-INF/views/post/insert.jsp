@@ -3,7 +3,9 @@
 
 <html>
 <head>
-<title>야관문</title>
+<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<title>야관문 : 게시판</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />

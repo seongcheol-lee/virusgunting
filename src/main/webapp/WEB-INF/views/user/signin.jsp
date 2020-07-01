@@ -2,7 +2,9 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>야관문</title>
+<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<title>야관문 : 로그인</title>
 <script type="text/javascript" src="<c:url value='/js/user/signin.js'/>"></script> 
 </head>
 <body>
