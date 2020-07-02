@@ -1,13 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<title>야관문 : 자가진단</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<title>야관문</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
@@ -96,9 +93,10 @@
 					</tr>
 				</tbody>
 			</table>
-			<div id="bttn">
-				<input type="submit" class="btn btn-outline-info" value="결과보기">
-			</div>
+			<button type="submit" class="bttn-fill bttn-md bttn-success">
+				결과확인
+				<i class="fas fa-external-link-alt"></i>
+			</button>
 		</form>
 	</div>
 	<jsp:include page="../footer.jsp" flush="true" />

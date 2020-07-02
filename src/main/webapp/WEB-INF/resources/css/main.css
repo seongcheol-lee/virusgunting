@@ -8,13 +8,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
 .font-shadow{
 	 font-family: 'Shadows Into Light Two', cursive;
-	 
+}
+.navbar-brand{
+	font-size: 2rem !important;
+}
+.nav-link{ 
+	color:gray !important;
+}
+.nav-link:hover{
+	color:red !important;
+}
+.nav-icon{
+	font-size:1.5rem !important;
+	display:block !important;
+	margin-bottom:0.25rem;
+}
+.nav-text{
+	font-size:0.7rem !important;
 }
 .nav-item {
 	font-size: 2.0rem !important;
 }
+
 .font-nav{
-	font-family: 'Caveat', cursive;
+	/* font-family: 'Caveat', cursive; */
 }
 .logotitle {
 	color: white; 

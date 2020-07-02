@@ -3,8 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
-<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
 <title>야관문 : 게시판</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
@@ -12,7 +12,7 @@
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5">
+	<div class="container mb-5 font-nanum">
 		<div>
 			<span class="subtitle">
 				여러분의 따뜻한 말 한마디가
@@ -20,9 +20,12 @@
 				님에게 힘이 됩니다!
 			</span>
 		</div>
-		<div class="fixed-top btn-back">
-			<a class="btn btn-outline" style="font-size: 3rem;" href="<c:url value='/post/list'/>">
-				<i class="fas fa-long-arrow-alt-left"></i>
+		<div class="fixed-top btn-back"> 
+			<a style="font-size: 3rem;" href="<c:url value='/post/list'/>">
+			
+				<button class="bttn-material-circle bttn-md bttn-default">
+					<i class="fas fa-long-arrow-alt-left"></i>
+				</button>
 			</a>
 		</div>
 		<hr>
@@ -31,7 +34,7 @@
 			<h1 class="title">${post.postTitle}</h1>
 			<div>
 				<span class="user">${post.postUserName}&nbsp;&nbsp;</span>
-				<span class="date">${post.postDateTime}</span> 
+				<span class="date">${post.postDateTime}</span>
 			</div>
 
 		</div>
@@ -102,24 +105,26 @@
 			<div class="ml-auto p-2 bd-highlight ">
 				<c:if test="${member.userId == post.userId || member.userAdmin == 1}">
 					<form style="display: inline" method="POST" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
-						<button type="submit" class="btn btn-outline-danger btn-sm">
-							<i class="fas fa-trash"></i>
+						<!-- <button type="submit" class="btn btn-outline-danger btn-sm"> -->
+						<button class="bttn-fill bttn-sm bttn-danger">
 							삭제하기
+							<i class="fas fa-trash"></i>
 						</button>
 					</form>
 					<form style="display: inline" action="<c:url value='/post/update/${post.postId}'/>">
-						<button type="submit" class="btn btn-outline-warning btn-sm">
-							<i class="fas fa-edit"></i>
+						<!-- <button type="submit" class="btn btn-outline-warning btn-sm"> -->
+						<button class="bttn-fill bttn-sm bttn-warning">
 							수정하기
+							<i class="fas fa-edit"></i>
 						</button>
 					</form>
 				</c:if>
 				<c:if test="${member.userId == post.userId}">
 					<c:if test="${post.postSubject  eq '질문' && post.postResponded eq 0}">
 						<form method="POST" style="display: inline" action="<c:url value='/post/responded/${post.postId}'/>">
-							<button type="submit" class="btn btn-outline-success btn-sm">
-								<i class="far fa-check-circle"></i>
+							<button class="bttn-fill bttn-sm bttn-success">
 								해결 완료
+								<i class="far fa-check-circle"></i>
 							</button>
 						</form>
 					</c:if>

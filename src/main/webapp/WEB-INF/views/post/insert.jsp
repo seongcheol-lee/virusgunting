@@ -3,16 +3,16 @@
 
 <html>
 <head>
-<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
 <title>야관문 : 게시판</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container ">
+	<div class="container font-nanum">
 		<span class="subtitle">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
 		<hr>
-		<form method="POST" onsubmit="return validate()" action="<c:url value='/post/insert'/>">
+		<form class="d-flex flex-column" method="POST" onsubmit="return validate()" action="<c:url value='/post/insert'/>">
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">질병 선택</label>
 				<select name="postDisease" class="form-control" id="exampleFormControlSelect1">
@@ -43,17 +43,13 @@
 
 			<input type="hidden" name="postUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="글쓰기">
+			<button class="bttn-material-flat bttn-md bttn-success">
+				글쓰기
+				<i class="fas fa-plus"></i>
+			</button> 
 		</form>
 	</div>
 	<jsp:include page="../footer.jsp" flush="true" />
-	 
+
 </body>
-<style>
-.subtitle {
-	font-size: 25px;
-	color: grey;
-	font-family: 'Do Hyeon', sans-serif;
-}
-</style>
 </html>

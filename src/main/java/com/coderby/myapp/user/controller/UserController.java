@@ -85,14 +85,17 @@ public class UserController {
 	@RequestMapping(value = "/user/withdrawal", method = RequestMethod.POST)
 	public String userWithdrawal(UserVO user, HttpServletRequest req, RedirectAttributes rttr) {
 
-		HttpSession session = req.getSession(); 
+		HttpSession session = req.getSession();
 		UserVO check = userService.checkWithdrawal(user);
+//		탈퇴 성공
 		if (check != null) {
 			userService.withdrawalUser(user);
 			session.invalidate();
 			rttr.addFlashAttribute("msg", "withdrawalsuccess");
 			return "redirect:/";
-		} else if (check == null) {
+		}
+//		탈퇴 실패
+		else if (check == null) {
 			rttr.addFlashAttribute("msg", "withdrawalfail");
 			return "redirect:/user/withdrawal";
 		}
