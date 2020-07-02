@@ -2,11 +2,9 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
 <title>야관문</title>
-<style>
-</style>
 </head>
 <body>
 	<jsp:include page="./nav.jsp" flush="true" />
@@ -18,7 +16,7 @@
 				<i class="fas fa-bomb"></i>
 			</span>
 			, The
-			<span style="color:#31B2A1;">
+			<span style="color: #31B2A1;">
 				Doctor
 				<i class="fas fa-user-nurse"></i>
 			</span>

@@ -85,11 +85,12 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/post/insert", method = RequestMethod.GET)
-	public String postInsert(Model model, HttpServletRequest req) {
+	public String postInsert(Model model, HttpServletRequest req,RedirectAttributes rttr) {
 		HttpSession session = req.getSession();
 		UserVO login = (UserVO) session.getAttribute("member");
 
 		if (login == null) {
+			rttr.addFlashAttribute("msg", "loginplease");
 			return "redirect:/user/signin";
 		}
 		return "/post/insert";

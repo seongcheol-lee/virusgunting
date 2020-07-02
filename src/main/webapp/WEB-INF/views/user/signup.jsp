@@ -3,17 +3,15 @@
 <html>
 
 <head>
-<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
-<title>야관문 : 회원가입</title> 
+<title>야관문 : 회원가입</title>
 <script type="text/javascript" src="<c:url value='/js/user/signup.js'/>"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container" style="min-height:100%;" >
-		<form class="form-group font-nanum"  method="post" onsubmit="return validate()" action="<c:url value='/user/signup'/>">
+	<div class="container" style="min-height: 100%;">
+		<form class="form-group font-nanum" method="post" onsubmit="return validate()" action="<c:url value='/user/signup'/>">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-6 offset-3">
@@ -45,7 +43,7 @@
 				<c:if test="${msg=='signupfail'}">
 					<p class="font-weight-bold font-nanum" style="color: red;">동일한 아이디가 있습니다.</p>
 				</c:if>
-				<input class="btn btn-outline-info" type="submit" value="회원가입" />
+				<button class="bttn-minimal bttn-md bttn-success" type="submit">회원가입</button>
 			</div>
 		</form>
 	</div>
