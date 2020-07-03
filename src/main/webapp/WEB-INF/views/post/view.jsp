@@ -4,13 +4,9 @@
 <html>
 <head>
 <title>야관문</title>
-<script src="https://kit.fontawesome.com/5ac56ffa94.js"></script>
-<link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
+ 
 <script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
@@ -34,7 +30,7 @@
 			<div>
 				<span class="user">${post.postUserName}&nbsp;&nbsp;</span>
 				<span class="date">${post.postDateTime}</span>
-				<span class="count" style="font-size:70%">&nbsp;&nbsp;조회수 : ${post.postViews}</span>
+				<span class="count" style="font-size: 70%">&nbsp;&nbsp;조회수 : ${post.postViews}</span>
 			</div>
 
 		</div>
@@ -162,7 +158,6 @@
 </body>
 <style>
 .fixed-top {
-	
 	left: 85% !important;
 	top: 25% !important;
 }
