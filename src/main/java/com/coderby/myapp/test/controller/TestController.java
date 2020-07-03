@@ -34,6 +34,7 @@ public class TestController {
 		} else {
 			model.addAttribute("msg", "변비비켜! 내일부터 아침은 요거트!!");
 			model.addAttribute("type", "변비 ");
+			model.addAttribute("category", "항문외과");
 		}
 		return "/test/result";
 	}
@@ -54,6 +55,7 @@ public class TestController {
 		} else {
 			model.addAttribute("msg", "빨리 도넛방석 놔드려야겠어요!!");
 			model.addAttribute("type", "치질 ");
+			model.addAttribute("category", "항문외과");
 
 		}
 		return "/test/result";
@@ -75,6 +77,7 @@ public class TestController {
 		} else {
 			model.addAttribute("msg", "부끄러워 하지마세요!발가락 양말!!");
 			model.addAttribute("type", "무좀 ");
+			model.addAttribute("category", "피부과");
 
 		}
 		return "/test/result";
@@ -96,7 +99,7 @@ public class TestController {
 		} else {
 			model.addAttribute("msg", "탈모는 피부과에서!!");
 			model.addAttribute("type", "탈모 ");
-
+			model.addAttribute("category", "피부과");
 		}
 		return "/test/result";
 	}
@@ -117,7 +120,7 @@ public class TestController {
 		} else {
 			model.addAttribute("msg", "세수하세요! 두 번 하세요!");
 			model.addAttribute("type", "여드름 ");
-
+			model.addAttribute("category", "피부과");
 		}
 		return "/test/result";
 	}

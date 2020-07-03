@@ -3,23 +3,23 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5  " align="center">
+	<div class="container mt-5 mb-5  "  style="min-height: 100%;"align="center">
 		<form action="<c:url value='/test/mjT/result'/>">
 			<h1 class="font-nanum">무좀 자가진단</h1>
 			<table class="table mt-5">
-				<thead>
+				<thead align="center">
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">증상</th>
 						<th scope="col">여부</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody align="center">
 					<tr>
 						<th scope="row">1</th>
 						<td>3, 4, 5번째 발가락 사이가 가렵고 붉게 변했다.</td>

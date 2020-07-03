@@ -20,12 +20,12 @@ function clickLike(){
     success: function(data) {
 		var check = data.check;
 		if(check == 0){
-			$('#like-btn').removeClass("btn-primary");
-			$('#like-btn').addClass("btn-outline-primary");
+			$('#like-btn').removeClass("fas");
+			$('#like-btn').addClass("far");
 		} 
 		else{
-			$('#like-btn').removeClass("btn-outline-primary");
-			$('#like-btn').addClass("btn-primary");
+			$('#like-btn').removeClass("far");
+			$('#like-btn').addClass("fas");
 			
 		}
 		$('#like-btn').blur();
@@ -50,12 +50,12 @@ function clickDisLike(){
     success: function(data) {
 	var check = data.check;
 		if(check == 0){	
-			$('#dislike-btn').removeClass("btn-danger");
-			$('#dislike-btn').addClass("btn-outline-danger");
+			$('#dislike-btn').removeClass("fas");
+			$('#dislike-btn').addClass("far");
 		} 
 		else{
-			$('#dislike-btn').removeClass("btn-outline-danger");
-			$('#dislike-btn').addClass("btn-danger");
+			$('#dislike-btn').removeClass("far");
+			$('#dislike-btn').addClass("fas");
 		}
 		$('#dislike-btn').blur();
 		$('#dislike-count').html("&nbsp;" + data.dislike_count);

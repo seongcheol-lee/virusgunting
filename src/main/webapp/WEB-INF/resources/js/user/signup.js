@@ -5,8 +5,7 @@ function validate() {
 
 	var username = $('#signup-name');
 	var password1 = $('#password1');
-	var password2 = $('#password2');
-	console.log(username.val())
+	var password2 = $('#password2'); 
 	if (!idJ.test(username.val())) {
 		$('#username-explain').text("아이디를 확인해주세요.");
 		username.removeClass('border-info');

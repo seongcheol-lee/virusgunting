@@ -5,6 +5,8 @@
 <head>
 <title>야관문</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 </head>
 <script>
 	function validate() {
@@ -17,7 +19,7 @@
 </script>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5" style="min-height: 100%;">
+	<div class="container mt-5 mb-5" style="min-height: 100%;">
 		<form class="form-group font-nanum" method="post" onsubmit="return validate();" action="<c:url value='/user/withdrawal'/>">
 			<div class="form-group">
 				<div class="row">
@@ -43,6 +45,10 @@
 .explain {
 	font-size: 0.7em;
 	color: red;
+}
+
+.toast-wrap {
+	display: block !important;
 }
 </style>
 </html>

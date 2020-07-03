@@ -98,8 +98,8 @@
 	</div>
 </nav>
 
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 7rem;" align="center">
-	<div class="toast" data-delay="1500" >
+<div class="toast-wrap" aria-live="polite" aria-atomic="true" style="display: none; position: relative; min-height: 6rem;" align="center">
+	<div class="toast" data-delay="1500">
 		<c:choose>
 			<c:when test="${msg=='loginfail'}">
 				<div class="toast-header">

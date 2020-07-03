@@ -39,8 +39,7 @@ public class UserController {
 			userService.signupUser(user);
 			rttr.addFlashAttribute("msg", "signupsuccess");
 		}
-		return "redirect:/";
-
+		return "redirect:/"; 
 	}
 
 	@RequestMapping(value = "/user/signin", method = RequestMethod.GET)
@@ -56,6 +55,7 @@ public class UserController {
 		if (login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", "loginfail");
+			return "redirect:/user/signin";
 		} else {
 			session.setAttribute("member", login);
 			rttr.addFlashAttribute("msg", "loginsuccess");
@@ -99,7 +99,7 @@ public class UserController {
 			rttr.addFlashAttribute("msg", "withdrawalfail");
 			return "redirect:/user/withdrawal";
 		}
-		return "redirect:/user/withdrawal";
+		return "redirect:/";
 	}
 
 }

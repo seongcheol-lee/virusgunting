@@ -2,16 +2,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
-<head>
+<head> 
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문 : 게시판</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container font-nanum" style="min-height: 100%;">
+	<div class="container mb-5 mt-5" style="min-height: 100%;">
 
-		<div class="row">
+		<div class="row  font-nanum">
 			<div class="col-7">
 				<span class="subtitle">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
 			</div>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<hr>
-		<div class="table-responsive-sm">
+		<div class="table-responsive-sm  font-nanum">
 			<table class="table table-hover">
 				<thead align="center">
 					<tr>
@@ -80,7 +80,7 @@
 				<input type="submit" value="검색">
 			</form>
 		</div>
-		<div class="d-flex ">
+		<div class="d-flex  font-nanum">
 			<a href="<c:url value='/post/insert'/>" class="ml-auto">
 				<button class="bttn-material-flat bttn-sm bttn-success">
 					글쓰기
@@ -91,5 +91,7 @@
 		</div>
 	</div>
 	<jsp:include page="../footer.jsp" flush="true" />
+
 </body>
+
 </html>
