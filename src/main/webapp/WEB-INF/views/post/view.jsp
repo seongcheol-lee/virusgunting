@@ -80,11 +80,11 @@
 			</c:if>
 			<c:if test="${member == null }">
 				<div class=" ">
-					<button style="color: blue;" class="bttn-simple bttn-md bttn-default bttn-no-outline" disabled>
+					<button style="color: gray;" class="bttn-simple bttn-md bttn-default bttn-no-outline" disabled>
 						<i class="far fa-thumbs-up"></i>
 						&nbsp;${post.postLikes}
 					</button>
-					<button style="color: red;" class="bttn-simple bttn-md bttn-default bttn-no-outline" disabled>
+					<button style="color: gray;" class="bttn-simple bttn-md bttn-default bttn-no-outline" disabled>
 						<i class="far fa-thumbs-down"></i>
 						&nbsp;${post.postDisLikes}
 					</button>
@@ -128,8 +128,8 @@
 						<div>
 							<span style="font-size: 1.3rem; font-weight: 700">${comment.commentUserName}&nbsp; </span>
 							<span style="font-size: 0.7rem; color: #888888;">
-								<fmt:parseDate value="${comment.commentDateTime}" var="noticePostDate" pattern="yyyy-MM-dd" />
-								<fmt:formatDate value="${noticePostDate}" pattern="MM.dd" />
+								<fmt:parseDate value="${comment.commentDateTime}" var="noticePostDate" pattern="yyyy-MM-dd HH:mm" />
+								<fmt:formatDate value="${noticePostDate}" pattern="MM.dd HH시 mm분" />
 							</span>
 						</div>
 						<c:if test="${comment.userId == member.userId || member.userAdmin == 1}">
@@ -157,12 +157,38 @@
 						<input type="hidden" name="commentUserName" value="${member.userName}">
 					</div>
 					<div class="d-flex justify-content-end">
-						<button class="bttn-material-flat bttn-sm bttn-dark" type="submit" id="button-addon2">
-							작성완료 
-						</button>
+						<button class="bttn-material-flat bttn-sm bttn-dark" type="submit" id="button-addon2">작성완료</button>
 					</div>
 				</form>
 			</c:if>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					<c:if test="${paging.startPage != 1 }">
+						<li class="page-item">
+							<a class="page-link" href="<c:url value='/post/${post.postId}?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
+						</li>
+					</c:if>
+					<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+						<c:choose>
+							<c:when test="${p == paging.nowPage }">
+								<li class="page-item">
+									<a class="page-link">${p }</a>
+								</li>
+							</c:when>
+							<c:when test="${p != paging.nowPage }">
+								<li class="page-item">
+									<a class="page-link" href="<c:url value='/post/${post.postId}?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+								</li>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${paging.endPage != paging.lastPage}">
+						<li class="page-item">
+							<a class="page-link" href="<c:url value='/post/${post.postId}?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
+						</li>
+					</c:if>
+				</ul>
+			</nav>
 		</div>
 	</div>
 	<jsp:include page="../footer.jsp" flush="true" />
