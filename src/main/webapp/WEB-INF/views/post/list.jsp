@@ -71,24 +71,35 @@
 				</tbody>
 			</table>
 		</div>
-		<div style="display: block; text-align: center;">
-			<c:if test="${paging.startPage != 1 }">
-				<a href="<c:url value='/post/list?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
-			</c:if>
-			<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-				<c:choose>
-					<c:when test="${p == paging.nowPage }">
-						<b>${p }</b>
-					</c:when>
-					<c:when test="${p != paging.nowPage }">
-						<a href="<c:url value='/post/list?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-			<c:if test="${paging.endPage != paging.lastPage}">
-				<a href="<c:url value='/post/list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
-			</c:if>
-		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<c:if test="${paging.startPage != 1 }">
+					<li class="page-item">
+						<a class="page-link" href="<c:url value='/post/list?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
+					</li>
+				</c:if>
+				<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage }">
+							<li class="page-item">
+								<a class="page-link">${p }</a>
+							</li>
+						</c:when>
+						<c:when test="${p != paging.nowPage }">
+							<li class="page-item">
+								<a class="page-link" href="<c:url value='/post/list?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+							</li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<li class="page-item">
+						<a class="page-link" href="<c:url value='/post/list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
+					</li>
+				</c:if>
+			</ul>
+		</nav>
+		<div style="display: block; text-align: center;"></div>
 		<div class="d-flex ">
 			<form action="<c:url value='/post/search'/>" class="ml-auto">
 				<select name="category">
@@ -106,7 +117,6 @@
 					글쓰기
 					<i class="fas fa-plus"></i>
 				</button>
-				<!-- <button class="btn btn-outline-info btn-sm">글쓰기</button> -->
 			</a>
 		</div>
 	</div>
