@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="http://localhost:8088/myapp/images/home/ico.png">
+<link rel="icon" href="http://localhost:8088/myapp/images/home/ico.png">
 <meta charset="UTF-8">
-<title>CoderBy</title>
+<title>야관문</title>
 </head>
 <body>
 <h1>에러 페이지</h1>

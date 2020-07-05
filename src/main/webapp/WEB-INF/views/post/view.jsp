@@ -3,24 +3,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
-<title>야관문</title>
- 
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
+<title>야관문 : 게시판</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
-
+<link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5 mb-5">
-		<div>
-			<span class="subtitle">
-				여러분의 따뜻한 말 한마디가
-				<span style="color: rgb(23, 162, 184); font-weight: 700">${post.postUserName} </span>
-				님에게 힘이 됩니다!
-			</span>
-		</div>
+	<div class="container mb-5 mt-5" style="min-height: 100%">
+		<span class="subtitle">
+			여러분의 따뜻한 말 한마디가
+			<span style="color: rgb(23, 162, 184); font-weight: 700">${post.postUserName} </span>
+			님에게 힘이 됩니다!
+		</span>
 		<div class="fixed-top btn-back">
-			<a class="btn btn-info btn-lg" href="<c:url value='/post/list'/>">
-				<i class="fas fa-long-arrow-alt-left"></i>
+			<a style="font-size: 3rem;" href="<c:url value='/post/list'/>">
+				<button class="bttn-material-circle bttn-md bttn-default">
+					<i class="fas fa-long-arrow-alt-left"></i>
+				</button>
 			</a>
 		</div>
 		<hr>
@@ -30,81 +32,90 @@
 			<div>
 				<span class="user">${post.postUserName}&nbsp;&nbsp;</span>
 				<span class="date">${post.postDateTime}</span>
-				<span class="count" style="font-size: 70%">&nbsp;&nbsp;조회수 : ${post.postViews}</span>
 			</div>
-
 		</div>
 		<hr>
 		<div class="content-wrap">
 			<p>${post.postContent}</p>
 		</div>
 		<hr>
-		<div class="d-flex bd-highlight align-items-center">
-			<div class=" p-2 bd-highlight">
-				<c:if test="${member != null }">
-					<form style="display: inline" action="<c:url value='/post/like'/>">
-						<input type="hidden" value="${member.userId}" name="userId" />
-						<input type="hidden" value="${post.postId}" name="postId" />
-						<div style="display: inline" class="input-group input-group-sm mb-3">
-							<button class="btn btn-outline-primary btn-lg" type="submit">
-								<i class="far fa-thumbs-up"></i>
-								&nbsp;${post.postLikes}
+		<div class="d-flex justify-content-center">
+			<c:if test="${member != null }">
+				<form onSubmit="return false;" id="like-form">
+					<input type="hidden" value="${member.userId}" name="userId" />
+					<input type="hidden" value="${post.postId}" name="postId" />
+					<c:choose>
+						<c:when test="${like_check == 0}">
+							<button style="color: blue;" onclick="clickLike()" class="bttn-simple bttn-md bttn-default bttn-no-outline">
+								<i id="like-btn" class="far fa-thumbs-up"></i>
+								<span id="like-count">&nbsp;${post.postLikes}</span>
 							</button>
-						</div>
-					</form>
-					<form style="display: inline" action="<c:url value='/post/dislike'/>">
-						<input type="hidden" value="${member.userId}" name="userId" />
-						<input type="hidden" value="${post.postId}" name="postId" />
-						<div style="display: inline" class="input-group input-group-sm mb-3">
-							<button class="btn btn-outline-danger btn-lg" type="submit">
-								<i class="far fa-thumbs-down"></i>
-								&nbsp;${post.postDisLikes}
+						</c:when>
+						<c:otherwise>
+							<button style="color: blue;" onclick="clickLike()" class="bttn-simple bttn-md bttn-default bttn-no-outline">
+								<i id="like-btn" class="fas fa-thumbs-up"></i>
+								<span id="like-count">&nbsp;${post.postLikes}</span>
 							</button>
-						</div>
-					</form>
-				</c:if>
-				<c:if test="${member == null }">
-					<div style="display: inline" class="input-group input-group-sm mb-3">
-						<button class="btn btn-outline-primary btn-lg" disabled>
-							<i class="far fa-thumbs-up"></i>
-							&nbsp;${post.postLikes}
-						</button>
-					</div>
-					<div style="display: inline" class="input-group input-group-sm mb-3">
-						<button class="btn btn-outline-danger btn-lg" disabled>
-							<i class="far fa-thumbs-down"></i>
-							&nbsp;${post.postDisLikes}
-						</button>
-					</div>
-				</c:if>
-			</div>
-			<div class="ml-auto p-2 bd-highlight ">
-				<c:if test="${member.userId == post.userId || member.userAdmin == 1}">
-					<form style="display: inline" method="POST" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
-						<button type="submit" class="btn btn-outline-danger btn-sm">
-							<i class="fas fa-trash"></i>
-							삭제하기
-						</button>
-					</form>
-					<form style="display: inline" action="<c:url value='/post/update/${post.postId}'/>">
-						<button type="submit" class="btn btn-outline-warning btn-sm">
-							<i class="fas fa-edit"></i>
-							수정하기
-						</button>
-					</form>
-				</c:if>
-				<c:if test="${member.userId == post.userId}">
-					<c:if test="${post.postSubject  eq '질문' && post.postResponded eq 0}">
-						<form method="POST" style="display: inline" action="<c:url value='/post/responded/${post.postId}'/>">
-							<button type="submit" class="btn btn-outline-success btn-sm">
-								<i class="far fa-check-circle"></i>
-								해결 완료
+						</c:otherwise>
+					</c:choose>
+				</form>
+				<form class="ml-1" onSubmit="return false;" id="dislike-form">
+					<input type="hidden" value="${member.userId}" name="userId" />
+					<input type="hidden" value="${post.postId}" name="postId" />
+					<c:choose>
+						<c:when test="${dislike_check == 0}">
+							<button style="color: red" onclick="clickDisLike()" class="bttn-simple bttn-md bttn-default bttn-no-outline">
+								<i id="dislike-btn" class="far fa-thumbs-down"></i>
+								<span id="dislike-count"> &nbsp;${post.postDisLikes} </span>
 							</button>
-						</form>
-					</c:if>
+						</c:when>
+						<c:otherwise>
+							<button style="color: red" onclick="clickDisLike()" class="bttn-simple bttn-md bttn-default bttn-no-outline">
+								<i id="dislike-btn" class="fas fa-thumbs-down"></i>
+								<span id="dislike-count"> &nbsp;${post.postDisLikes} </span>
+							</button>
+						</c:otherwise>
+					</c:choose>
+				</form>
+			</c:if>
+			<c:if test="${member == null }">
+				<div class=" ">
+					<button style="color: blue;" class="bttn-simple bttn-md bttn-default bttn-no-outline" disabled>
+						<i class="far fa-thumbs-up"></i>
+						&nbsp;${post.postLikes}
+					</button>
+					<button style="color: red;" class="bttn-simple bttn-md bttn-default bttn-no-outline" disabled>
+						<i class="far fa-thumbs-down"></i>
+						&nbsp;${post.postDisLikes}
+					</button>
+				</div>
+			</c:if>
+		</div>
+		<div class="d-flex justify-content-end">
+			<c:if test="${member.userId == post.userId || member.userAdmin == 1}">
+				<form method="POST" onsubmit="return validate();" action="<c:url value='/post/delete/${post.postId}'/>">
+					<button class="bttn-fill bttn-sm bttn-danger">
+						삭제하기
+						<i class="fas fa-trash"></i>
+					</button>
+				</form>
+				<form class="ml-1" action="<c:url value='/post/update/${post.postId}'/>">
+					<button class="bttn-fill bttn-sm bttn-warning">
+						수정하기
+						<i class="fas fa-edit"></i>
+					</button>
+				</form>
+			</c:if>
+			<c:if test="${member.userId == post.userId}">
+				<c:if test="${post.postSubject  eq '질문' && post.postResponded eq 0}">
+					<form class="ml-1" method="POST" style="display: inline" action="<c:url value='/post/responded/${post.postId}'/>">
+						<button class="bttn-fill bttn-sm bttn-success">
+							해결 완료
+							<i class="far fa-check-circle"></i>
+						</button>
+					</form>
 				</c:if>
-
-			</div>
+			</c:if>
 		</div>
 		<div class="comment-wrap">
 			<div class="comment-label">
@@ -137,38 +148,23 @@
 					<hr>
 				</div>
 			</c:forEach>
-
 			<c:if test="${member != null }">
-				<form class="form" action="<c:url value='/comment/insert'/>" method="post">
-					<div class="input-group mb-3 ">
-						<input type="text" name="commentContent" class="form-control" placeholder="${member.userName} 님 따뜻한 말을 남겨주세요.">
+				<form class="form" onSubmit="return commentvalidate()" action="<c:url value='/comment/insert'/>" method="post">
+					<div class="d-flex justify-content-start mb-3 ">
+						<textarea onkeyup="autosize(this)" rows=1 name="commentContent" class="form-control" required placeholder="${member.userName} 님 따뜻한 말을 남겨주세요."></textarea>
 						<input type="hidden" name="postId" value="${post.postId}">
 						<input type="hidden" name="userId" value="${member.userId}">
 						<input type="hidden" name="commentUserName" value="${member.userName}">
-						<div class="input-group-append">
-							<button class="btn btn-dark" type="submit" id="button-addon2">
-								<i class="fas fa-pen"></i>
-							</button>
-						</div>
+					</div>
+					<div class="d-flex justify-content-end">
+						<button class="bttn-material-flat bttn-sm bttn-dark" type="submit" id="button-addon2">
+							작성완료 
+						</button>
 					</div>
 				</form>
 			</c:if>
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
-<style>
-.fixed-top {
-	left: 85% !important;
-	top: 25% !important;
-}
-</style>
-<script>
-	function validate() {
-		var input = confirm('정말 삭제하시겠습니까?');
-		if (input) {
-			return ture;
-		}
-		return false;
-	}
-</script>
 </html>

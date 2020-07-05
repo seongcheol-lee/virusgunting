@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.coderby.myapp.post.model.DisLikeVO;
 import com.coderby.myapp.post.model.LikeVO;
+import com.coderby.myapp.post.model.PagingVO;
 import com.coderby.myapp.post.model.PostVO;
 import com.coderby.myapp.user.model.UserVO;
 
@@ -16,6 +17,8 @@ public interface IPostRepository {
 
 	List<PostVO> getPostList();
 
+	List<PostVO> getPostPage(PagingVO vo);
+
 	PostVO getPostInfo(@Param("postId") int postId);
 
 	void insertPost(PostVO post);
@@ -24,17 +27,21 @@ public interface IPostRepository {
 
 	void updatePost(PostVO post);
 
-	void pluslikePost(@Param("postId") int postId, @Param("postLikes") int postLikes);
+	void changelikePost(@Param("postId") int postId, @Param("like_count") int like_count);
 
 	void insertlikePost(LikeVO like);
 
 	int checklikePost(@Param("postId") int postId, @Param("userId") int userId);
 
-	void plusdislikePost(@Param("postId") int postId, @Param("postDisLikes") int postDisLikes);
+	void deletelikePost(LikeVO like);
+
+	void changedislikePost(@Param("postId") int postId, @Param("dislike_count") int dislike_count);
 
 	void insertdislikePost(DisLikeVO dislike);
 
 	int checkdislikePost(@Param("postId") int postId, @Param("userId") int userId);
+
+	void deletedislikePost(DisLikeVO dislike);
 
 	List<PostVO> getPostDiseaseList(String postDisease);
 
@@ -43,4 +50,5 @@ public interface IPostRepository {
 	void upPostView(@Param("postId") int postId, @Param("views") int views);
 
 	void respondedPost(PostVO post);
+
 }

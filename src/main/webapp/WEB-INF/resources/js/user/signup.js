@@ -1,12 +1,11 @@
-
 function validate() {
 	var flag = true;
 	var idJ = /^[a-z]{1}[a-z0-9]{5,15}$/;
 	var pwJ = /^[a-z]{1}[a-z0-9]{7,15}$/;
 
-	var username = $('#username');
+	var username = $('#signup-name');
 	var password1 = $('#password1');
-	var password2 = $('#password2');
+	var password2 = $('#password2'); 
 	if (!idJ.test(username.val())) {
 		$('#username-explain').text("아이디를 확인해주세요.");
 		username.removeClass('border-info');

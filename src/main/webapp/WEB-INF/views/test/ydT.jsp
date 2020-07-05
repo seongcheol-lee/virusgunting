@@ -1,30 +1,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5" align="center">
+	<div class="container mt-5 mb-5 " align="center" style="min-height: 100%;">
 		<form action="<c:url value='/test/ydT/result'/>">
-			<h1 class="font-do">여드름 자가진단</h1>
-			<table class="table">
-				<thead>
+			<h1 class="font-nanum">여드름 자가진단</h1>
+			<table class="table mt-5">
+				<thead align="center">
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">증상</th>
 						<th scope="col">여부</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody align="center">
 					<tr>
 						<th scope="row">1</th>
 						<td>면포성 여드름: 염증이 없는 상태. 흔히 화이트헤드, 블랙헤드라고 부른다.</td>
@@ -85,11 +80,13 @@
 
 				</tbody>
 			</table>
-			<div id="bttn">
-				<input type="submit" class="btn btn-outline-info" value="결과보기">
-			</div>
+			<button type="submit" class="bttn-fill bttn-md bttn-success">
+				결과확인
+				<i class="fas fa-external-link-alt"></i>
+			</button>
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 
 </html>

@@ -1,16 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false" contentType="text/html; charset=UTF-8"%>
+<%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>야관문</title>
-<script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script> 
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
+<title>야관문 : 게시판</title>
+<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5">
-		<span class="subtitle">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
+	<div class="container mb-5 mt-5">
+		<span class="subtitle font-nanum ">경험과 지식을 공유하면 빨리 치유할 수 있습니다!</span>
 		<hr>
-		<form method="POST" onsubmit="return validate()" action="<c:url value='/post/update'/>" >
+		<form class="d-flex flex-column" method="POST" onsubmit="return validate()" action="<c:url value='/post/update'/>">
 			<input type="hidden" name="postId" value="${post.postId}" />
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">질병 선택</label>
@@ -38,17 +40,46 @@
 
 			<div class="form-group">
 				<label for="postContent">내용</label>
-				<textarea class="form-control" name="postContent" id="postContent" rows="15">${post.postContent}</textarea>
+				<textarea class="form-control editor" name="postContent" id="Content">${post.postContent}</textarea>
 			</div>
-			<input type="submit" class="btn btn-danger btn-lg" value="글수정">
+			<div class="d-flex justify-content-center font-nanum">
+				<a href="<c:url value='/post/${post.postId}'/>">
+					<button class="bttn-material-flat bttn-md bttn-default" type="button">취소</button>
+				</a>
+				<button class="bttn-material-flat bttn-md bttn-warning ml-5">수정완료</button>
+			</div>
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
+<script> 
+let theEditor;
+ClassicEditor
+.create( document.querySelector( '#Content' ) )
+.then( editor => {
+    theEditor = editor; // Save for later use.
+} )
+.catch( error => {
+    console.error( error );
+} );
+function validate() {
+	var Title = $('#Title');
+	if (Title.val().length > 30) {
+		alert("제목은 30자까지 입력해주세요.");
+		Title.val("");
+		return false;
+	}
+	Content = theEditor.getData();
+	if(Content.length === 0){
+		alert("내용을 입력해주세요.");
+		return false;
+	} 
+	return true;
+}
+</script> 
 <style>
-.subtitle {
-	font-size: 25px;
-	color: grey;
-	font-family: 'Do Hyeon', sans-serif;
+.ck-editor__editable_inline {
+	min-height: 500px;
 }
 </style>
 </html>

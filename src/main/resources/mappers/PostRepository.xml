@@ -26,6 +26,23 @@
 		POST_ID DESC
 	</select>
 
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="getPostPage" resultMap="postMap">
+		SELECT *
+		FROM (
+		SELECT ROWNUM
+		RN, A.*
+		FROM (
+		SELECT *
+		FROM POSTS
+		ORDER BY POST_ID
+		DESC
+		) A
+		)
+		WHERE RN
+		BETWEEN #{start} AND #{end}
+	</select>
+
 	<select id="getPostDiseaseList" resultMap="postMap">
 		SELECT * FROM POSTS
 		WHERE
@@ -121,10 +138,10 @@
 		post_id=#{postId}
 	</update>
 
-	<update id="pluslikePost">
+	<update id="changelikePost">
 		UPDATE POSTS
 		SET
-		POST_LIKES=#{postLikes}
+		POST_LIKES=#{like_count}
 		where
 		post_id=#{postId}
 	</update>
@@ -138,6 +155,15 @@
 		#{postId})
 	</insert>
 
+	<delete id="deletelikePost">
+		delete from LIKES
+		where
+		POST_ID = #{postId}
+		AND
+		USER_ID =
+		${userId}
+	</delete>
+
 	<select id="checklikePost" resultType="int">
 		SELECT COUNT(*)
 		FROM LIKES
@@ -147,11 +173,10 @@
 		USER_ID = #{userId}
 	</select>
 
-
-	<update id="plusdislikePost">
+	<update id="changedislikePost">
 		UPDATE POSTS
 		SET
-		POST_DISLIKES=#{postDisLikes}
+		POST_DISLIKES=#{dislike_count}
 		where
 		post_id=#{postId}
 	</update>
@@ -164,6 +189,14 @@
 		#{userId},
 		#{postId})
 	</insert>
+
+	<delete id="deletedislikePost">
+		delete from DISLIKES
+		where
+		POST_ID = #{postId}
+		AND
+		USER_ID = ${userId}
+	</delete>
 
 	<select id="checkdislikePost" resultType="int">
 		SELECT COUNT(*)

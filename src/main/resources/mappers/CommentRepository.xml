@@ -41,5 +41,13 @@
 		WHERE
 		COMMENT_ID = #{commentId}
 	</delete>
+	
+	<select id="getCommentCount" resultType="int">
+		SELECT COUNT(*) 
+		FROM 
+		COMMENTS
+		WHERE
+		POST_ID = #{postId}
+	</select>
 
 </mapper>

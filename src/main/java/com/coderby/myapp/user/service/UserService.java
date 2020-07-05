@@ -45,4 +45,15 @@ public class UserService implements IUserService {
 
 	}
 
+	@Override
+	public void withdrawalUser(UserVO user) {
+		userRepository.withdrawalUser(user);
+		
+	}
+
+	@Override
+	public UserVO checkWithdrawal(UserVO user) { 
+		return userRepository.checkWithdrawal(user);
+	}
+
 }

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+
+.boardtitle {
+	color: black;
+	font-weight: bold;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 70px;
+}  
+
+.form-group {
+	font-size: 16px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ 
+a {
+	display: inline-block;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+textarea, .inp, a:link, a:visited, a:hover, a:active {
+	color: #555555;
+}
+
+.table {
+	table-layout: fixed;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: table;
+	clear: both;
+	width: 1100px;
+	border-collapse: collapse;
+	word-break:break-all;
+}
+
+.table th {
+	border-color: #333333;
+	background: #fcfcfc;
+	padding: 10px 0 10px 0;
+	text-align: center;
+	border-top-width: 2px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	font-weight: 400;
+}
+
+.table .body td {
+	text-align: center;
+	padding: 5px 9px 5px 9px;
+	border-bottom-color: #eeeeee;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+} 
+
+.btn_wrap {
+	clear: both;
+	width: 1200px;
+	height: 48px;
+	padding: 15px 0 25px 0;
+	text-align: center;
+}
+
+.btn_org {
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ea4d10;
+	box-shadow: inset 0px 1px 0px 0px #EA4D29;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ea4d10), color-stop(1, #ea4d10));
+	background: -moz-linear-gradient(center top, #fff 5%, #fff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#fff');
+	background-color: #fff;
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-left-radius: 3px;
+	text-indent: 0;
+	border: 1px solid #ffaa89;
+	display: inline-block;
+	width: 142px;
+	height: 46px;
+	line-height: 46px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.campaign_ad .cont a.btn .txt_white {
+	font-size: 13px;
+	color: #fff;
+}
+
+.txt_white {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+.group_mod {
+	width: 1200px;
+	margin-bottom: 50px;
+}
