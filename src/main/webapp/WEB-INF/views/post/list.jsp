@@ -82,7 +82,7 @@
 					<c:choose>
 						<c:when test="${p == paging.nowPage }">
 							<li class="page-item">
-								<a class="page-link">${p }</a>
+								<b class="page-link page-now">${p }</b>
 							</li>
 						</c:when>
 						<c:when test="${p != paging.nowPage }">

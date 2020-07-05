@@ -5,9 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
-
+.page-now{
+	background-color: #28B78D !important;
+	color:white !important;
+}
 .bttn-dark {
-	background: #555555 !important;
+	background-color: #555555 !important;
 	color: white !important;
 }
 
