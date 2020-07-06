@@ -1,9 +1,7 @@
 package com.coderby.myapp.post.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -75,6 +73,7 @@ public class PostController {
 			HttpServletRequest req, PagingVO vo, Model model,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
+
 		PostVO post = postService.getPostInfo(postId);
 		HttpSession session = req.getSession();
 
@@ -88,20 +87,21 @@ public class PostController {
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
-			cntPerPage = "10";
+			cntPerPage = "5";
 		} else if (nowPage == null) {
 			nowPage = "1";
 		} else if (cntPerPage == null) {
-			cntPerPage = "10";
+			cntPerPage = "5";
 		}
-
+		
 		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		System.out.println(vo);
-		List<CommentVO> commentList = commentService.getCommentPage(vo.getStart(),vo.getEnd(),postId);
+		List<CommentVO> commentList = commentService.getCommentPage(vo.getStart(), vo.getEnd(), postId);
+
 		for (CommentVO comment : commentList) {
 			comment.setCommentContent(comment.getCommentContent().replace("\r\n", "<br>"));
 		}
-		
+
 		model.addAttribute("paging", vo);
 		model.addAttribute("commentList", commentList);
 

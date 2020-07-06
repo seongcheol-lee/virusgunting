@@ -30,7 +30,6 @@ public class TestController {
 	@RequestMapping(value = "/test/{category}/result")
 	public String resultTest(@PathVariable String category, HttpServletRequest request, Model model) {
 		TestVO test = testService.Result(request, category);
-		System.out.println(test);
 		model.addAttribute("test", test);
 		return "/test/result";
 	}

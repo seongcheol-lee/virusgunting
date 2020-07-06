@@ -60,7 +60,6 @@
 		FROM (
 		SELECT *
 		FROM COMMENTS 
-		ORDER BY COMMENT_ID
 		) A
 		)
 		WHERE RN
