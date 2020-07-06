@@ -50,8 +50,8 @@ public class PostService implements IPostService {
 	}
 
 	@Override
-	public void pluslikePost(int postId, int postLikes) {
-		postRepository.pluslikePost(postId, postLikes);
+	public void changelikePost(int postId, int like_count) {
+		postRepository.changelikePost(postId, like_count);
 
 	}
 
@@ -61,18 +61,31 @@ public class PostService implements IPostService {
 	}
 
 	@Override
+	public void deletelikePost(LikeVO like) {
+		postRepository.deletelikePost(like);
+
+	}
+
+	@Override
 	public int checklikePost(int postId, int userId) {
 		return postRepository.checklikePost(postId, userId);
 	}
 
 	@Override
-	public void plusdislikePost(int postId, int postDisLikes) {
-		postRepository.plusdislikePost(postId, postDisLikes);
+	public void changedislikePost(int postId, int dislike_count) {
+		postRepository.changedislikePost(postId, dislike_count); 
+
 	}
 
 	@Override
 	public void insertdislikePost(DisLikeVO dislike) {
 		postRepository.insertdislikePost(dislike);
+ 
+	}
+
+	@Override
+	public void deletedislikePost(DisLikeVO dislike) {
+		postRepository.deletedislikePost(dislike);
 
 	}
 
@@ -100,7 +113,7 @@ public class PostService implements IPostService {
 	@Override
 	public void respondedPost(PostVO post) {
 		postRepository.respondedPost(post);
-		
+
 	}
 
 }

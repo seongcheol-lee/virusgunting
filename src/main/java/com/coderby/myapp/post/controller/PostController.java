@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -41,42 +43,26 @@ public class PostController {
 
 	@RequestMapping(value = "/post/{postId}")
 	public String getPostInfo(@PathVariable int postId, Model model, HttpServletResponse response,
-			HttpServletRequest request) {
+			HttpServletRequest request, HttpServletRequest req) {
 		PostVO post = postService.getPostInfo(postId);
+		HttpSession session = req.getSession();
 
 		int views = post.getPostViews();
 		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
 
-		Cookie[] cookies = request.getCookies();
-		ModelAndView view = new ModelAndView();
-		// 비교하기 위해 새로운 쿠키
-		Cookie viewCookie = null;
-		// 쿠키가 있을 경우
-		if (cookies != null && cookies.length > 0) {
-			for (int i = 0; i < cookies.length; i++) {
-				// Cookie의 name이 cookie + reviewNo와 일치하는 쿠키를 viewCookie에 넣어줌
-				if (cookies[i].getName().equals("cookie" + postId)) {
-					viewCookie = cookies[i];
-				}
-			}
-		}
-		if (post != null) {
-			view.addObject("review", postId);
-			// 만일 viewCookie가 null일 경우 쿠키를 생성해서 조회수 증가 로직을 처리함.
-			if (viewCookie == null) {
-				// 쿠키 생성(이름, 값)
-				Cookie newCookie = new Cookie("cookie" + postId, "|" + postId + "|");
-				// 쿠키 추가
-				response.addCookie(newCookie);
-				// 쿠키를 추가 시키고 조회수 증가시킴
-				postService.upPostView(postId, views + 1);
-				post.setPostViews(views + 1);
-			}
-		}
-
+		model.addAttribute("post", post);
 		List<CommentVO> commentList = commentService.getCommentList(postId);
 		model.addAttribute("commentList", commentList);
-		model.addAttribute("post", post);
+
+		UserVO user = (UserVO) session.getAttribute("member");
+		int like_check, dislike_check;
+		if (user != null) {
+			like_check = postService.checklikePost(postId, user.getUserId());
+			dislike_check = postService.checkdislikePost(postId, user.getUserId());
+			model.addAttribute("like_check", like_check);
+			model.addAttribute("dislike_check", dislike_check);
+		}
+
 		return "/post/view";
 	}
 
@@ -99,19 +85,20 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/post/insert", method = RequestMethod.GET)
-	public String postInsert(Model model, HttpServletRequest req) {
+	public String postInsert(Model model, HttpServletRequest req,RedirectAttributes rttr) {
 		HttpSession session = req.getSession();
 		UserVO login = (UserVO) session.getAttribute("member");
 
 		if (login == null) {
+			rttr.addFlashAttribute("msg", "loginplease");
 			return "redirect:/user/signin";
 		}
 		return "/post/insert";
 	}
 
 	@RequestMapping(value = "/post/insert", method = RequestMethod.POST)
-	public String insertPost(PostVO post, Model model) { 
-		if(post.getPostSubject().equals("자유") ) {
+	public String insertPost(PostVO post, Model model) {
+		if (post.getPostSubject().equals("자유")) {
 			post.setPostDisease("자유");
 		}
 		postService.insertPost(post);
@@ -128,11 +115,11 @@ public class PostController {
 
 	@RequestMapping(value = "/post/update", method = RequestMethod.POST)
 	public String updatePost(PostVO post, Model model) {
-		if(post.getPostSubject().equals("자유") ) {
+		if (post.getPostSubject().equals("자유")) {
 			post.setPostDisease("자유");
 		}
 		postService.updatePost(post);
-		return "redirect:/post/"+ post.getPostId();
+		return "redirect:/post/" + post.getPostId();
 	}
 
 	@RequestMapping(value = "/post/responded/{postId}", method = RequestMethod.POST)
@@ -148,28 +135,58 @@ public class PostController {
 		return "redirect:/post/list";
 	}
 
+	@ResponseBody
 	@RequestMapping(value = "/post/like", method = RequestMethod.GET)
 	public String likePost(LikeVO like) {
 
 		int check = postService.checklikePost(like.getPostId(), like.getUserId());
+		PostVO post = postService.getPostInfo(like.getPostId());
+		int like_count = post.getPostLikes();
+
 		if (check != 1) {
-			PostVO post = postService.getPostInfo(like.getPostId());
-			postService.pluslikePost(post.getPostId(), post.getPostLikes() + 1);
+			check = 1;
+			like_count++;
+			postService.changelikePost(post.getPostId(), like_count);
 			postService.insertlikePost(like);
+		} else {
+			check = 0;
+			like_count--;
+			postService.changelikePost(post.getPostId(), like_count);
+			postService.deletelikePost(like);
 		}
-		return "redirect:/post/" + like.getPostId();
+
+		JSONObject obj = new JSONObject();
+		obj.put("like_count", like_count);
+		obj.put("check", check);
+
+		return obj.toJSONString();
+
 	}
 
+	@ResponseBody
 	@RequestMapping(value = "/post/dislike", method = RequestMethod.GET)
 	public String dislikePost(DisLikeVO dislike) {
-
 		int check = postService.checkdislikePost(dislike.getPostId(), dislike.getUserId());
+		PostVO post = postService.getPostInfo(dislike.getPostId());
+		int dislike_count = post.getPostDisLikes();
+
 		if (check != 1) {
-			PostVO post = postService.getPostInfo(dislike.getPostId());
-			postService.plusdislikePost(post.getPostId(), post.getPostDisLikes() + 1);
+			check = 1;
+			dislike_count++;
+			postService.changedislikePost(post.getPostId(), dislike_count);
 			postService.insertdislikePost(dislike);
+		} else {
+			check = 0;
+			dislike_count--;
+			postService.changedislikePost(post.getPostId(), dislike_count);
+			postService.deletedislikePost(dislike);
 		}
-		return "redirect:/post/" + dislike.getPostId();
+
+		JSONObject obj = new JSONObject();
+		obj.put("dislike_count", dislike_count);
+		obj.put("check", check);
+
+		return obj.toJSONString();
 	}
 
 }

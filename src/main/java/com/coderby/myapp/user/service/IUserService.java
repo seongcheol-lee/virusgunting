@@ -17,4 +17,8 @@ public interface IUserService {
 	UserVO checkUser(UserVO user);
 
 	UserVO signinUser(UserVO user);
+
+	void withdrawalUser(UserVO user);
+ 
+	UserVO checkWithdrawal(UserVO user);
 }

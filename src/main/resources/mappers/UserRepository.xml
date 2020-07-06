@@ -46,7 +46,8 @@
 		SELECT
 		USER_ID as userId,
 		USER_NAME as userName,
-		USER_PASS as userPass,
+		USER_PASS as
+		userPass,
 		USER_ADMIN as userAdmin
 		FROM
 		USERS
@@ -56,4 +57,24 @@
 		USER_PASS=#{userPass}
 	</select>
 
+	<select id="checkWithdrawal"
+		resultType="com.coderby.myapp.user.model.UserVO">
+		select
+		USER_NAME as
+		userName
+		from
+		USERS
+		where
+		USER_ID = #{userId}
+		AND
+		USER_PASS=#{userPass}
+	</select>
+
+	<delete id="withdrawalUser">
+		delete from users
+		where
+		USER_ID =#{userId}
+		AND
+		USER_PASS=#{userPass}
+	</delete>
 </mapper>

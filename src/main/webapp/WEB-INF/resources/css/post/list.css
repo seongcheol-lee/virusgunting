@@ -1,21 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
-.font-do {
-	font-family: 'Do Hyeon', sans-serif;
-}
+
 .boardtitle {
 	color: black;
 	font-weight: bold;
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 70px;
-} 
-
-.subtitle {
-	font-size: 25px;
-	color: grey;
-	font-family: 'Do Hyeon', sans-serif;
-}
+}  
 
 .form-group {
 	font-size: 16px;

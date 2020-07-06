@@ -3,23 +3,21 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>야관문</title>
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<title>야관문 : 상담</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5 mb-5">
+	<div class="container mb-5 font-nanum" style="min-height: 100%;">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
 			</div>
 		</div>
 		<hr>
-		<form method="POST" action="<c:url value='/consult/insert'/>">
+		<form class="d-flex flex-column" method="POST" action="<c:url value='/consult/insert'/>">
 			<div class="form-group">
 				<label for="consultEmail">이메일</label>
 				<input type="email" class="form-control" id="consultEmail" name="consultEmail" required>
@@ -34,7 +32,10 @@
 			</div>
 			<input type="hidden" name="consultUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-			<input type="submit" class="btn btn-outline-info btn-lg font-do" value="상담 남기기">
+			<button class="bttn-material-flat bttn-md bttn-success ml-auto"> 
+				상담 남기기
+				<i class="fas fa-hands-helping"></i>
+			</button>
 		</form>
 		<div class="table-responsive-sm">
 			<table class="table table-hover">
@@ -61,12 +62,11 @@
 								</c:otherwise>
 							</c:choose>
 						</tr>
-
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

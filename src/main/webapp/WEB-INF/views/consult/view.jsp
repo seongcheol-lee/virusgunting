@@ -3,18 +3,15 @@
 
 <html>
 <head>
-<title>야관문</title>
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<title>야관문 : 상담</title>
 <script src="https://kit.fontawesome.com/5ac56ffa94.js"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
-<script type="text/javascript" src="<c:url value='/js/post/view.js'/>"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5 mb-5">
+	<div class="container font-nanum" style="min-height: 100%;">
 		<span class="subtitle">
 			<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
 		</span>
@@ -40,5 +37,6 @@
 			<p>${consult.consultContent}</p>
 		</div>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

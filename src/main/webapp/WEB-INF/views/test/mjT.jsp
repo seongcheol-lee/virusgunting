@@ -1,23 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>야관문</title>>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Document</title>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<title>야관문</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mt-5 mb-5" align="center">
+	<div class="container mb-5  " align="center">
 		<form action="<c:url value='/test/mjT/result'/>">
-			<h1 class="font-do">무좀 자가진단</h1>
-			<table class="table">
+			<h1 class="font-nanum">무좀 자가진단</h1>
+			<table class="table mt-5">
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
@@ -101,8 +95,12 @@
 					</tr>
 				</tbody>
 			</table>
-			<input type="submit" class="btn btn-outline-info" value="결과보기">
+			<button type="submit" class="bttn-fill bttn-md bttn-success">
+					결과확인
+					<i class="fas fa-external-link-alt"></i>
+				</button>
 		</form>
 	</div>
+	<jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

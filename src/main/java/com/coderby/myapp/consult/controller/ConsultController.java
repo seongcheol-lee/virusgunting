@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.coderby.myapp.consult.model.ConsultVO;
 import com.coderby.myapp.consult.service.IConsultService;
 import com.coderby.myapp.user.model.UserVO;
@@ -19,11 +21,12 @@ public class ConsultController {
 	IConsultService consultService;
 
 	@RequestMapping(value = "/consult/list")
-	public String getConsultList(Model model, HttpServletRequest req) {
+	public String getConsultList(Model model, HttpServletRequest req,RedirectAttributes rttr) {
 		HttpSession session = req.getSession();
 		UserVO login = (UserVO) session.getAttribute("member");
 
 		if (login == null) {
+			rttr.addFlashAttribute("msg", "loginplease");
 			return "redirect:/user/signin";
 		}
 		model.addAttribute("consultList", consultService.getConsultList());
