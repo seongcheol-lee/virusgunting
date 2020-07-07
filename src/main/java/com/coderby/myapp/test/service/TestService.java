@@ -2,7 +2,6 @@ package com.coderby.myapp.test.service;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 import org.springframework.stereotype.Service;
 
 import com.coderby.myapp.test.model.TestVO;
@@ -15,17 +14,13 @@ public class TestService implements ITestService {
 
 		if (category.equals("bbT")) {
 			test = this.bbResult(request);
-		}
-		else if (category.equals("cjT")) {
+		} else if (category.equals("cjT")) {
 			test = this.cjResult(request);
-		}
-		else if (category.equals("mjT")) {
+		} else if (category.equals("mjT")) {
 			test = this.mjResult(request);
-		}
-		else if (category.equals("tmT")) {
+		} else if (category.equals("tmT")) {
 			test = this.tmResult(request);
-		}
-		else if (category.equals("ydT")) {
+		} else if (category.equals("ydT")) {
 			test = this.ydResult(request);
 		}
 		return test;

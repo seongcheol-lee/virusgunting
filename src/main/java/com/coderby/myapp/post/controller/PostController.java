@@ -81,7 +81,7 @@ public class PostController {
 		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
 
 		model.addAttribute("post", post);
-
+//		List<CommentVO> commentList  = commentService.getCommentList(postId);
 //		댓글 페이징 처리
 		int total = postService.getCommentCount(postId);
 
@@ -98,9 +98,9 @@ public class PostController {
 		System.out.println(vo);
 		List<CommentVO> commentList = commentService.getCommentPage(vo.getStart(), vo.getEnd(), postId);
 
-		for (CommentVO comment : commentList) {
-			comment.setCommentContent(comment.getCommentContent().replace("\r\n", "<br>"));
-		}
+//		for (CommentVO comment : commentList) {
+//			comment.setCommentContent(comment.getCommentContent().replace("\r\n", "<br>"));
+//		}
 
 		model.addAttribute("paging", vo);
 		model.addAttribute("commentList", commentList);
