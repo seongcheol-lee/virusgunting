@@ -6,16 +6,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
+import com.coderby.myapp.test.model.TestVO;
+
 public interface ITestService { 
  
-	String bbResult(HttpServletRequest request);
+	TestVO bbResult(HttpServletRequest request);
 
-	String cjResult(HttpServletRequest request);
+	TestVO cjResult(HttpServletRequest request);
 
-	String mjResult(HttpServletRequest request);
+	TestVO mjResult(HttpServletRequest request);
 
-	String tmResult(HttpServletRequest request);
+	TestVO tmResult(HttpServletRequest request);
 
-	String ydResult(HttpServletRequest request);
+	TestVO ydResult(HttpServletRequest request);
+
+	TestVO Result(HttpServletRequest request,String category);
  
 }

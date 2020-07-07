@@ -4,13 +4,13 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문 : 상담</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5 font-nanum" style="min-height: 100%;">
+	<div class="container mb-5 mt-5 font-nanum" style="min-height: 100%;">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle font-do">전문가에게 상담받아보세요!</span>

@@ -4,17 +4,24 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문 : 상담</title>
 <script src="https://kit.fontawesome.com/5ac56ffa94.js"></script>
 <link rel="stylesheet" href="<c:url value='/css/post/view.css'/>">
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container font-nanum" style="min-height: 100%;">
+	<div class="container mt-5 mb-5 font-nanum" style="min-height: 100%;">
 		<span class="subtitle">
 			<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
 		</span>
+		<div class="fixed-top btn-back">
+			<a style="font-size: 3rem;" href="<c:url value='/post/list'/>">
+				<button class="bttn-material-circle bttn-md bttn-default">
+					<i class="fas fa-long-arrow-alt-left"></i>
+				</button>
+			</a>
+		</div>
 		<hr>
 		<div>
 			<h1 class="title">${consult.consultTitle}</h1>

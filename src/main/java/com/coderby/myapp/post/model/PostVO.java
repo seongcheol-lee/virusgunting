@@ -15,13 +15,15 @@ public class PostVO {
 	private int postViews;
 	private String postResponded;
 	private String postUserName;
+	private int commentCount;
 
 	@Override
 	public String toString() {
 		return "PostVO [postId=" + postId + ", userId=" + userId + ", postTitle=" + postTitle + ", postContent="
 				+ postContent + ", postDateTime=" + postDateTime + ", postDisease=" + postDisease + ", postSubject="
 				+ postSubject + ", postLikes=" + postLikes + ", postDisLikes=" + postDisLikes + ", postViews="
-				+ postViews + ", postResponded=" + postResponded + ", postUserName=" + postUserName + "]";
+				+ postViews + ", postResponded=" + postResponded + ", postUserName=" + postUserName + ", commentCount="
+				+ commentCount + "]";
 	}
 
 	public int getPostId() {
@@ -118,6 +120,14 @@ public class PostVO {
 
 	public void setPostUserName(String postUserName) {
 		this.postUserName = postUserName;
+	}
+
+	public int getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
 	}
 
 }

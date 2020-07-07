@@ -3,23 +3,23 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5 " align="center">
+	<div class="container mt-5 mb-5 " align="center" style="min-height: 100%;">
 		<form action="<c:url value='/test/tmT/result'/>">
 			<h1 class="font-nanum">탈모 자가진단</h1>
 			<table class="table mt-5">
-				<thead>
+				<thead align="center">
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">증상</th>
 						<th scope="col">여부</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody align="center">
 					<tr>
 						<th scope="row">1</th>
 						<td>이마가 점점 넓어지는 느낌이다.</td>

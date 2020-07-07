@@ -4,10 +4,12 @@
 <head>
 <title>야관문 : 로그인</title>
 <script type="text/javascript" src="<c:url value='/js/user/signin.js'/>"></script>
+<link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container" style="min-height: 100%;">
+	<div class="container mt-5 mb-5" style="min-height: 100%;">
 		<form class="form-group font-nanum" method="post" action="<c:url value='/user/signin/'/>">
 			<div class="form-group">
 				<div class="row">
@@ -36,4 +38,9 @@
 	</div>
 	<jsp:include page="../footer.jsp" flush="true" />
 </body>
+<style>
+.toast-wrap {
+	display: block !important;
+}
+</style>
 </html>

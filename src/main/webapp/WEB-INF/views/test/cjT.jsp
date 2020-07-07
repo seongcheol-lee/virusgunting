@@ -3,23 +3,23 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5 " align="center">
+	<div class="container mb-5 mt-5 " style="min-height: 100%;" align="center">
 		<form action="<c:url value='/test/cjT/result'/>">
 			<h1 class="font-nanum">치질 자가진단</h1>
 			<table class="table mt-5">
-				<thead>
+				<thead align="center">
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">증상</th>
 						<th scope="col">여부</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody align="center">
 					<tr>
 						<th scope="row">1</th>
 						<td>변비가 있다.</td>

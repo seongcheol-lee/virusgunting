@@ -3,13 +3,13 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문</title>
 </head>
 <body>
-	<jsp:include page="./nav.jsp" flush="true" />
-	<div class="container" align="center">
-		<p style="font-size: 4rem; font-weight: 700;" class="font-shadow">
+	<jsp:include page="./nav.jsp" flush="true" /> 
+	<div class="container mb-5" align="center" style="height:100%;">
+		<p style="font-size: 4rem; font-weight: 700;" class="font-shadow"> 
 			After
 			<span style="color: red;">
 				Hell
@@ -25,4 +25,9 @@
 	</div>
 	<jsp:include page="./footer.jsp" flush="true" />
 </body>
+<style>
+.toast-wrap {
+	display: block !important;
+}
+</style>
 </html>

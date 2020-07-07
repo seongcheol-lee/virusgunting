@@ -3,23 +3,23 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문</title>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5 " align="center">
+	<div class="container mt-5 mb-5 " align="center" style="min-height: 100%;">
 		<form action="<c:url value='/test/ydT/result'/>">
 			<h1 class="font-nanum">여드름 자가진단</h1>
 			<table class="table mt-5">
-				<thead>
+				<thead align="center">
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">증상</th>
 						<th scope="col">여부</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody align="center">
 					<tr>
 						<th scope="row">1</th>
 						<td>면포성 여드름: 염증이 없는 상태. 흔히 화이트헤드, 블랙헤드라고 부른다.</td>
