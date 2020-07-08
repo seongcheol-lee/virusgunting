@@ -23,8 +23,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/map/{category}", method = RequestMethod.GET)
-	public String map(Model model,@PathVariable String category) {
-		System.out.println(category);
+	public String map(Model model,@PathVariable String category) { 
 		model.addAttribute("category", category);
 		return "/map";
 	}

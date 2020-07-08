@@ -59,13 +59,13 @@
 		RN, A.*
 		FROM (
 		SELECT *
-		FROM COMMENTS 
-		WHERE 
+		FROM COMMENTS
+		WHERE
 		POST_ID = #{postId}
 		) A
 		)
 		WHERE RN
-		BETWEEN #{start} AND #{end} 
+		BETWEEN #{start} AND #{end}
 	</select>
 
 </mapper>

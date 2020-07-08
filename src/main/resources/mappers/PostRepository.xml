@@ -20,6 +20,12 @@
 	<select id="getPostCount" resultType="int">
 		SELECT COUNT(*) FROM POSTS
 	</select>
+	<select id="getPostDiseaseCount" resultType="int">
+		SELECT COUNT(*) 
+			FROM POSTS
+		WHERE 
+			POST_DISEASE = #{postDisease}
+	</select>
 
 	<select id="getPostList" resultMap="postMap">
 		SELECT * FROM POSTS ORDER BY
@@ -49,6 +55,22 @@
 		POST_DISEASE = #{postDisease}
 		ORDER BY
 		POST_ID DESC
+	</select>
+	<select id="getPostDiseasePage" resultMap="postMap">
+		SELECT *
+		FROM (
+		SELECT ROWNUM
+		RN, A.*
+		FROM (
+		SELECT *
+		FROM POSTS
+		WHERE POST_DISEASE = #{postDisease}
+		ORDER BY POST_ID
+		DESC
+		) A
+		)
+		WHERE RN
+		BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="getPostSearchList" resultMap="postMap">

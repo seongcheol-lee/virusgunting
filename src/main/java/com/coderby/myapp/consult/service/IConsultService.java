@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.coderby.myapp.consult.model.ConsultVO;
 import com.coderby.myapp.post.model.DisLikeVO;
 import com.coderby.myapp.post.model.LikeVO;
+import com.coderby.myapp.post.model.PagingVO;
 import com.coderby.myapp.post.model.PostVO; 
   
 public interface IConsultService {
@@ -20,7 +21,11 @@ public interface IConsultService {
 
 	void insertConsult(ConsultVO consult);
 
-	ConsultVO getConsultInfo(int consultId); 
+	ConsultVO getConsultInfo(int consultId);
+
+	int getConsultCount();
+
+	List<ConsultVO> getConsultPage(PagingVO vo); 
 	 
 	
 }
