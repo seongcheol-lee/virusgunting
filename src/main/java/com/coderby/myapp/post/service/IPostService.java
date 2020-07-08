@@ -40,6 +40,8 @@ public interface IPostService {
 	void upPostView(int postId, int views);
 	void respondedPost(PostVO post);
 	int getCommentCount(int postId);
+	List<PostVO> getPostDiseasePage(PagingVO vo, String postDisease);
+	int getPostDiseaseCount(String postDisease);
 	
 	
 	

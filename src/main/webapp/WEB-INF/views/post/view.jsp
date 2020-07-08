@@ -151,7 +151,7 @@
 			<c:if test="${member != null }">
 				<form class="form" onSubmit="return commentvalidate()" action="<c:url value='/comment/insert'/>" method="post">
 					<div class="d-flex justify-content-start mb-3 ">
-						<textarea onkeyup="autosize(this)" rows=1 name="commentContent" class="form-control" required placeholder="${member.userName} 님 따뜻한 말을 남겨주세요."></textarea>
+						<textarea onkeyup="autosize(this)" style="height:48px"name="commentContent" class="form-control" required placeholder="${member.userName} 님 따뜻한 말을 남겨주세요."></textarea>
 						<input type="hidden" name="postId" value="${post.postId}">
 						<input type="hidden" name="userId" value="${member.userId}">
 						<input type="hidden" name="commentUserName" value="${member.userName}">

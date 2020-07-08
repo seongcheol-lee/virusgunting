@@ -75,7 +75,12 @@
 			<ul class="pagination justify-content-center">
 				<c:if test="${paging.startPage != 1 }">
 					<li class="page-item">
-						<a class="page-link" href="<c:url value='/post/list?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
+						<c:if test="${postDisease == null}">
+							<a class="page-link" href="<c:url value='/post/list?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
+						</c:if>
+						<c:if test="${postDisease != null}">
+							<a class="page-link" href="<c:url value='/post/list/${postDisease}?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
+						</c:if>
 					</li>
 				</c:if>
 				<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
@@ -87,14 +92,26 @@
 						</c:when>
 						<c:when test="${p != paging.nowPage }">
 							<li class="page-item">
-								<a class="page-link" href="<c:url value='/post/list?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+								<c:if test="${postDisease != null}">
+									<a class="page-link" href="<c:url value='/post/list/${postDisease}?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+								</c:if>
+								<c:if test="${postDisease == null}">
+									<a class="page-link" href="<c:url value='/post/list?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+								</c:if>
 							</li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
 				<c:if test="${paging.endPage != paging.lastPage}">
 					<li class="page-item">
-						<a class="page-link" href="<c:url value='/post/list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
+						<c:if test="${postDisease == null}">
+							<a class="page-link" href="<c:url value='/post/list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
+						</c:if>
+						<c:if test="${postDisease != null}">
+							<a class="page-link" href="<c:url value='/post/list/${postDisease}?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
+						</c:if>
+
+
 					</li>
 				</c:if>
 			</ul>

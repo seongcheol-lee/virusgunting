@@ -128,4 +128,15 @@ public class PostService implements IPostService {
 	public int getCommentCount(int postId) {
 		return commentRepository.getCommentCount(postId);
 	}
+
+	@Override
+	public List<PostVO> getPostDiseasePage(PagingVO vo, String postDisease) {
+		return postRepository.getPostDiseasePage(vo.getStart(), vo.getEnd(), postDisease);
+	}
+
+	@Override
+	public int getPostDiseaseCount(String postDisease) {
+
+		return postRepository.getPostDiseaseCount(postDisease);
+	}
 }

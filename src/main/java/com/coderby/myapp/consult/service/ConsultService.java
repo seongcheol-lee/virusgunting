@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.coderby.myapp.consult.dao.IConsultRepository;
 import com.coderby.myapp.consult.model.ConsultVO;
+import com.coderby.myapp.post.model.PagingVO;
 
 @Service
 public class ConsultService implements IConsultService {
@@ -27,6 +28,17 @@ public class ConsultService implements IConsultService {
 	@Override
 	public ConsultVO getConsultInfo(int consultId) { 
 		return consultRepsitory.getConsultInfo(consultId);
+	}
+
+	@Override
+	public int getConsultCount() {
+		return consultRepsitory.getConsultCount();
+	}
+
+	@Override
+	public List<ConsultVO> getConsultPage(PagingVO vo) {
+		// TODO Auto-generated method stub
+		return consultRepsitory.getConsultPage(vo);
 	}
 
 }

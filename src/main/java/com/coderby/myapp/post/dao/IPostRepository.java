@@ -51,4 +51,9 @@ public interface IPostRepository {
 
 	void respondedPost(PostVO post);
 
+	List<PostVO> getPostDiseasePage(@Param("start") int start, @Param("end") int end, @Param("postDisease") String postDisease);
+
+	int getPostDiseaseCount(String postDisease);
+
+
 }

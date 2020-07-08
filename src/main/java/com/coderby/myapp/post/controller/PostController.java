@@ -81,26 +81,26 @@ public class PostController {
 		post.setPostContent(post.getPostContent().replace("\r\n", "<br>"));
 
 		model.addAttribute("post", post);
-//		List<CommentVO> commentList  = commentService.getCommentList(postId);
+
 //		댓글 페이징 처리
 		int total = postService.getCommentCount(postId);
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
-			cntPerPage = "5";
+			cntPerPage = "10";
 		} else if (nowPage == null) {
 			nowPage = "1";
 		} else if (cntPerPage == null) {
-			cntPerPage = "5";
+			cntPerPage = "10";
 		}
+
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage),5);
 		
-		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		System.out.println(vo);
 		List<CommentVO> commentList = commentService.getCommentPage(vo.getStart(), vo.getEnd(), postId);
 
-//		for (CommentVO comment : commentList) {
-//			comment.setCommentContent(comment.getCommentContent().replace("\r\n", "<br>"));
-//		}
+		for (CommentVO comment : commentList) {
+			comment.setCommentContent(comment.getCommentContent().replace("\r\n", "<br>"));
+		}
 
 		model.addAttribute("paging", vo);
 		model.addAttribute("commentList", commentList);
@@ -118,10 +118,39 @@ public class PostController {
 		return "/post/view";
 	}
 
+	
 	@RequestMapping(value = "/post/list/{postDisease}")
-	public String getPostListDisease(@PathVariable String postDisease, Model model) {
-		model.addAttribute("postList", postService.getPostDiseaseList(postDisease));
+	public String getPostListDisease(@PathVariable String postDisease, PagingVO vo, Model model,
+			@RequestParam(value = "nowPage", required = false) String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
+		
+//		model.addAttribute("postList", postService.getPostDiseaseList(postDisease));
+		
+		int total = postService.getPostDiseaseCount(postDisease);
+
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		List<PostVO> postList = postService.getPostDiseasePage(vo,postDisease);
+
+		for (PostVO post : postList) {
+			int postId = post.getPostId();
+			post.setCommentCount(postService.getCommentCount(postId));
+		}
+		
+		model.addAttribute("postDisease", postDisease);
+		model.addAttribute("paging", vo);
+		model.addAttribute("postList", postList);
+		
 		return "/post/list";
+		
 	}
 
 	@RequestMapping(value = "/post/search", method = RequestMethod.GET)
