@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.coderby.myapp.comment.model.CommentVO;
+import com.coderby.myapp.post.model.PagingVO;
 @Service
 public interface ICommentService {
 
@@ -14,4 +15,6 @@ public interface ICommentService {
 
 	void deleteComment(int commentId);
 
+	List<CommentVO> getCommentPage(int start, int end, int postId);
+ 
 }

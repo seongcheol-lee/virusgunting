@@ -9,15 +9,19 @@ import javax.inject.Qualifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coderby.myapp.comment.dao.ICommentRepository;
 import com.coderby.myapp.post.dao.IPostRepository;
 import com.coderby.myapp.post.model.DisLikeVO;
 import com.coderby.myapp.post.model.LikeVO;
+import com.coderby.myapp.post.model.PagingVO;
 import com.coderby.myapp.post.model.PostVO;
 
 @Service
 public class PostService implements IPostService {
 	@Autowired
 	IPostRepository postRepository;
+	@Autowired
+	ICommentRepository commentRepository;
 
 	@Override
 	public int getPostCount() {
@@ -73,14 +77,14 @@ public class PostService implements IPostService {
 
 	@Override
 	public void changedislikePost(int postId, int dislike_count) {
-		postRepository.changedislikePost(postId, dislike_count); 
+		postRepository.changedislikePost(postId, dislike_count);
 
 	}
 
 	@Override
 	public void insertdislikePost(DisLikeVO dislike) {
 		postRepository.insertdislikePost(dislike);
- 
+
 	}
 
 	@Override
@@ -113,7 +117,26 @@ public class PostService implements IPostService {
 	@Override
 	public void respondedPost(PostVO post) {
 		postRepository.respondedPost(post);
-
 	}
 
+	@Override
+	public List<PostVO> getPostPage(PagingVO vo) {
+		return postRepository.getPostPage(vo);
+	}
+
+	@Override
+	public int getCommentCount(int postId) {
+		return commentRepository.getCommentCount(postId);
+	}
+
+	@Override
+	public List<PostVO> getPostDiseasePage(PagingVO vo, String postDisease) {
+		return postRepository.getPostDiseasePage(vo.getStart(), vo.getEnd(), postDisease);
+	}
+
+	@Override
+	public int getPostDiseaseCount(String postDisease) {
+
+		return postRepository.getPostDiseaseCount(postDisease);
+	}
 }

@@ -42,4 +42,30 @@
 		COMMENT_ID = #{commentId}
 	</delete>
 
+	<select id="getCommentCount" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		COMMENTS
+		WHERE
+		POST_ID = #{postId}
+	</select>
+
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="getCommentPage" resultMap="commentMap">
+		SELECT *
+		FROM (
+		SELECT
+		ROWNUM
+		RN, A.*
+		FROM (
+		SELECT *
+		FROM COMMENTS
+		WHERE
+		POST_ID = #{postId}
+		) A
+		)
+		WHERE RN
+		BETWEEN #{start} AND #{end}
+	</select>
+
 </mapper>

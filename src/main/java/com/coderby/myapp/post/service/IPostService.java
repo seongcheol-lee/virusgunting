@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 
 import com.coderby.myapp.post.model.DisLikeVO;
 import com.coderby.myapp.post.model.LikeVO;
+import com.coderby.myapp.post.model.PagingVO;
 import com.coderby.myapp.post.model.PostVO; 
   
 public interface IPostService { 
 	
 	int getPostCount();
 	List<PostVO> getPostList();
+	List<PostVO> getPostPage(PagingVO vo);
 	List<PostVO> getPostDiseaseList(String postDisease);
 	PostVO getPostInfo(int postId);
 	void insertPost(PostVO post);
@@ -37,6 +39,9 @@ public interface IPostService {
 	List<PostVO> getPostSearchList(String category, String text);
 	void upPostView(int postId, int views);
 	void respondedPost(PostVO post);
+	int getCommentCount(int postId);
+	List<PostVO> getPostDiseasePage(PagingVO vo, String postDisease);
+	int getPostDiseaseCount(String postDisease);
 	
 	
 	

@@ -4,13 +4,13 @@
 <html>
 <head>
 <link rel="shortcut icon" href="<c:url value='/images/favicon.png'/>">
-<link rel="icon" href="<<c:url value='/images/favicon.png'/>>">
+<link rel="icon" href="<c:url value='/images/favicon.png'/>">
 <title>야관문 : 상담</title>
 <script type="text/javascript" src="<c:url value='/js/post/insert.js'/>"></script>
 </head>
 <body>
 	<jsp:include page="../nav.jsp" flush="true" />
-	<div class="container mb-5 font-nanum" style="min-height: 100%;">
+	<div class="container mb-5 mt-5 font-nanum" style="min-height: 100%;">
 		<div class="row">
 			<div class="col-8">
 				<span class="subtitle font-do">전문가에게 상담받아보세요!</span>
@@ -32,7 +32,7 @@
 			</div>
 			<input type="hidden" name="consultUserName" value="${member.userName}" required />
 			<input type="hidden" name="userId" value="${member.userId}" required />
-			<button class="bttn-material-flat bttn-md bttn-success ml-auto"> 
+			<button class="bttn-material-flat bttn-md bttn-success ml-auto">
 				상담 남기기
 				<i class="fas fa-hands-helping"></i>
 			</button>
@@ -66,6 +66,34 @@
 				</tbody>
 			</table>
 		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<c:if test="${paging.startPage != 1 }">
+					<li class="page-item">
+						<a class="page-link" href="<c:url value='/consult/list?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">&lt;</a>
+					</li>
+				</c:if>
+				<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage }">
+							<li class="page-item">
+								<b class="page-link page-now">${p }</b>
+							</li>
+						</c:when>
+						<c:when test="${p != paging.nowPage }">
+							<li class="page-item">
+								<a class="page-link" href="<c:url value='/consult/list?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+							</li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<li class="page-item">
+						<a class="page-link" href="<c:url value='/consult/list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}'/>">&gt;</a>
+					</li>
+				</c:if>
+			</ul>
+		</nav>
 	</div>
 	<jsp:include page="../footer.jsp" flush="true" />
 </body>

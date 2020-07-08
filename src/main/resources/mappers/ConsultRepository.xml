@@ -12,10 +12,30 @@
 		<result property="consultEmail" column="CONSULT_EMAIL" />
 	</resultMap>
 
+	<select id="getConsultCount" resultType="int">
+		SELECT COUNT(*) FROM CONSULTS
+	</select>
+	
 	<select id="getConsultList" resultMap="consultMap">
 		SELECT * FROM CONSULTS
 		ORDER BY
 		CONSULT_ID DESC
+	</select>
+	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="getConsultPage" resultMap="consultMap">
+		SELECT *
+		FROM (
+		SELECT ROWNUM
+		RN, A.*
+		FROM (
+		SELECT *
+		FROM CONSULTS
+		ORDER BY CONSULT_ID DESC
+		) A
+		)
+		WHERE RN
+		BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="getConsultInfo" parameterType="int"

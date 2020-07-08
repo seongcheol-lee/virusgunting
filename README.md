@@ -1,6 +1,6 @@
 # virusghunting
-> kfq 인공지능 과정 미니프로젝트 1 
-  
+> kfq 인공지능 과정 미니프로젝트 1   
+> CRUD 웹 서비스 프로젝트
 ## 사용 프로그래밍 언어
 > JAVA 1.8  
 > SPRING 5.2.6
